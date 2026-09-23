@@ -1,0 +1,692 @@
+{
+    "000-P": {
+        "nome": "Politicos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_politico_importado",
+        "tabela": "wcm_parlamentares",
+        "parametros": {
+            "tipo_documento_importado": "codigo_politico_importado",
+            "parametro_where": "wc.cad_uni_politico = 1"
+        }
+    },
+    "000-L": {
+        "nome": "Legislaturas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislatura_importada",
+        "tabela": "wcm_legislaturas"
+    },
+    "000-U": {
+        "nome": "Usuários",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_usuario_wcm",
+        "tabela": "wcm_usuarios"
+    },
+    "1": {
+        "nome": "Emendas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 1,
+            "tipo_protocolo_antigowcm": 1,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "2": {
+        "nome": "SubEmendas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 2,
+            "tipo_protocolo_antigowcm": 2,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "3": {
+        "nome": "Requerimentos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 3,
+            "tipo_protocolo_antigowcm": 3,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "4": {
+        "nome": "Moções",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 4,
+            "tipo_protocolo_antigowcm": 4,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "5": {
+        "nome": "Indicações",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 5,
+            "tipo_protocolo_antigowcm": 5,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "6": {
+        "nome": "Redações Finais",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 6,
+            "tipo_protocolo_antigowcm": 6,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "7": {
+        "nome": "Recursos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 7,
+            "tipo_protocolo_antigowcm": 7,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "8": {
+        "nome": "Parecer",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 8,
+            "tipo_protocolo_antigowcm": 8,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "9": {
+        "nome": "Anteprojeto",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 9,
+            "tipo_protocolo_antigowcm": 9,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "10": {
+        "nome": "Projeto de lei",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 10,
+            "tipo_protocolo_antigowcm": 10,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "11": {
+        "nome": "Projeto de lei complementar",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 11,
+            "tipo_protocolo_antigowcm": 11,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "12": {
+        "nome": "Projeto de resolução",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 12,
+            "tipo_protocolo_antigowcm": 12,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "13": {
+        "nome": "Projeto de decreto legislativo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 13,
+            "tipo_protocolo_antigowcm": 13,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "14": {
+        "nome": "Proposta de emenda à LOM",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 14,
+            "tipo_protocolo_antigowcm": 14,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "15": {
+        "nome": "Substitutivo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 15,
+            "tipo_protocolo_antigowcm": 15,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "16": {
+        "nome": "Vetos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 16,
+            "tipo_protocolo_antigowcm": 16,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "17": {
+        "nome": "Parecer do Tribunal de Contas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 17,
+            "tipo_protocolo_antigowcm": 17,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "18": {
+        "nome": "Projeto de lei do executivo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 18,
+            "tipo_protocolo_antigowcm": 18,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "19": {
+        "nome": "Projeto de Lei Complementar do Executivo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 19,
+            "tipo_protocolo_antigowcm": 19,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "20": {
+        "nome": "Audiências Públicas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 20,
+            "tipo_protocolo_antigowcm": 20,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "23": {
+        "nome": "Convites",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 23,
+            "tipo_protocolo_antigowcm": 23,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "24": {
+        "nome": "Correspondencias Recebidas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 24,
+            "tipo_protocolo_antigowcm": 24,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "25": {
+        "nome": "Denúncias",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 25,
+            "tipo_protocolo_antigowcm": 25,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "27": {
+        "nome": "Extratos de Convênios",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 27,
+            "tipo_protocolo_antigowcm": 27,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "28": {
+        "nome": "Mensagens",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 28,
+            "tipo_protocolo_antigowcm": 28,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "30": {
+        "nome": "Movimento Diário Prefeitura",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 30,
+            "tipo_protocolo_antigowcm": 30,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "31": {
+        "nome": "Ordem de Serviço",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 31,
+            "tipo_protocolo_antigowcm": 31,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "33": {
+        "nome": "Portarias",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_portaria_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 33,
+            "tipo_documento_importado": "codigo_portaria_importado"
+        },
+        "tabela": "wcm_portarias"
+    },
+    "34": {
+        "nome": "Prestação de Contas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 34,
+            "tipo_protocolo_antigowcm": 34,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "35": {
+        "nome": "Protocolo Munícipe",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 35,
+            "tipo_protocolo_antigowcm": 35,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "36": {
+        "nome": "Oficio - Recebido do vereador",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 36,
+            "tipo_protocolo_antigowcm": 36,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "43": {
+        "nome": "Tribuna Livre",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 43,
+            "tipo_protocolo_antigowcm": 43,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "44": {
+        "nome": "Tribunal de Contas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 44,
+            "tipo_protocolo_antigowcm": 44,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "45": {
+        "nome": "Atos da Mesa",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 45,
+            "tipo_protocolo_antigowcm": 45,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "46": {
+        "nome": "Atos da Presidencia",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 46,
+            "tipo_protocolo_antigowcm": 46,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "48": {
+        "nome": "Autógrafos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_autografo_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 48,
+            "tipo_documento_importado": "codigo_autografo_importado"
+        },
+        "tabela": "wcm_autografos"
+    },
+    "50": {
+        "nome": "Editais",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_editais_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 50,
+            "tipo_protocolo_antigowcm": 50,
+            "tipo_documento_importado": "codigo_editais_importado"
+        },
+        "tabela": "wcm_editais"
+    },
+    "51": {
+        "nome": "Atas das Sessões",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 51,
+            "tipo_protocolo_antigowcm": 51,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "53": {
+        "nome": "Oficios Enviados",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 53,
+            "tipo_protocolo_antigowcm": 47,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "57": {
+        "nome": "Memorando",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 57,
+            "tipo_protocolo_antigowcm": 57,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "71": {
+        "nome": "Certidões",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 71,
+            "tipo_protocolo_antigowcm": 71,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "72": {
+        "nome": "Atestados",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 72,
+            "tipo_protocolo_antigowcm": 72,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "73": {
+        "nome": "Diário Oficial",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 73,
+            "tipo_protocolo_antigowcm": 73,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "74": {
+        "nome": "Declaração",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 74,
+            "tipo_protocolo_antigowcm": 74,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "75": {
+        "nome": "Relatório de viagens",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 75,
+            "tipo_protocolo_antigowcm": 75,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "76": {
+        "nome": "Controle de Veículos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 76,
+            "tipo_protocolo_antigowcm": 76,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "78": {
+        "nome": "Oficios Circulares",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 78,
+            "tipo_protocolo_antigowcm": 78,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "81": {
+        "nome": "Oficio - Recebido do Executivo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 81,
+            "tipo_protocolo_antigowcm": 81,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "82": {
+        "nome": "Oficio - Recebido do Judiciário",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 82,
+            "tipo_protocolo_antigowcm": 82,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "83": {
+        "nome": "Oficios Diversos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 83,
+            "tipo_protocolo_antigowcm": 83,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "84": {
+        "nome": "Pedido de Vista",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 84,
+            "tipo_protocolo_antigowcm": 82,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "88": {
+        "nome": "Requerimento recebido",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 88,
+            "tipo_protocolo_antigowcm": 88,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "90": {
+        "nome": "Cessão Dependência",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 90,
+            "tipo_protocolo_antigowcm": 22,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "118": {
+        "nome": "Contratos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_contratos_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 118,
+            "tipo_documento_importado": "codigo_contratos_importado"
+        },
+        "tabela": "wcm_contratos"
+    },
+    "120": {
+        "nome": "Leis Ordinárias",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 120,
+            "tipo_legislacao_antigowcm": 1,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "121": {
+        "nome": "Leis Complementares",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 121,
+            "tipo_legislacao_antigowcm": 2,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "122": {
+        "nome": "Resoluções",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 122,
+            "tipo_legislacao_antigowcm": 3,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "123": {
+        "nome": "Decreto legislativo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 123,
+            "tipo_legislacao_antigowcm": 4,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "126": {
+        "nome": "Decreto Municipal",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 126,
+            "tipo_legislacao_antigowcm": 7,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "127": {
+        "nome": "Outras Legislações",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 127,
+            "tipo_legislacao_antigowcm": 8,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "138": {
+        "nome": "Leis da Câmara",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 138,
+            "tipo_legislacao_antigowcm": 23,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    }
+}

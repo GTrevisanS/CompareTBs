@@ -1,0 +1,157 @@
+{
+    "wcm_documentos": {
+        "query1": "sql/origem/AntigoWCM/Documentos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "EMENTA": "doc_ementa",
+            "JUSTIFICATIVA": "doc_justificativa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "REGIME-TRAMITACAO": "reg_tra_descricao",
+            "QUORUM": "tip_quo_descricao",
+            "INICIATIVA": "tip_ini_descricao",
+            "LEGISLATURA": "leg_descricao",
+            "DATA-INICIO-TRAMITACAO": "doc_data_documento",
+            "DATA-LIMITE-TRAMITACAO": "doc_data_limite_tramitacao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_legislacoes": {
+        "query1": "sql/origem/AntigoWCM/Legislacoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "LEGISLATURA": "leg_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_portarias": {
+        "query1": "sql/origem/AntigoWCM/Portarias-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_oficios": {
+        "query1": "sql/origem/AntigoWCM/Oficios-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_autografos": {
+        "query1": "sql/origem/AntigoWCM/Autografos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_contratos": {
+        "query1": "sql/origem/AntigoWCM/Contratos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-INICIO": "doc_data_inicio_tramitacao",
+            "DATA-FIM": "doc_data_limite_tramitacao",
+            "EMENTA": "doc_ementa",
+            "VALOR": "doc_valor",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_editais": {
+        "query1": "sql/origem/AntigoWCM/Editais-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "TIPO-LICITACAO": "tip_lic_descricao",
+            "CODIGO-LICITACAO": "doc_codigo_licitacao",
+            "LEGISLATURA": "leg_descricao",
+            "PROVIDENCIA": "doc_providencias",
+            "TRAMITACOES": "sit_descricao",
+            "REGIME-EXECUCAO": "NULL",
+            "DATA-REALIZACAO": "doc_data_realizacao",
+            "DATA-ABERTURA": "doc_data_abertura",
+            "HORA-ABERTURA": "doc_hora_abertura",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_legislaturas": {
+        "query1": "sql/origem/AntigoWCM/Legislaturas-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Legislaturas-NovoWCM.sql",
+        "mapeamento": {
+            "LEGISLATURA": "leg_descricao",
+            "SIGLA": "leg_sigla",
+            "DATA-INICIO": "leg_data_inicio",
+            "DATA-FIM": "leg_data_fim",
+            "INTERNET": "leg_mostra_online"
+        }
+    },
+
+    "wcm_parlamentares": {
+        "query1": "sql/origem/AntigoWCM/Parlamentares-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Pessoas-NovoWCM.sql",
+        "mapeamento": {
+            "NOME-POLITICO": "cad_uni_nome",
+            "APELIDO": "cad_uni_apelido",
+            "DATA-NASCIMENTO": "DATA-NASCIMENTO-NOVOWCM",
+            "NACIONALIDADE": "cad_uni_nacionalidade",
+            "NATURALIDADE": "cad_uni_naturalidade",
+            "SEXO": "cad_uni_sexo",
+            "RG": "RG-NOVOWCM",
+            "DATA-EMISSAO-RG": "cad_uni_data_emissao_rg",
+            "CPF": "CPF-NOVOWCM",
+            "CARTEIRA-HABILITACAO": "cad_uni_carteira_habilitacao",
+            "TITULO-ELEITORAL": "cad_uni_titulo_eleitor",
+            "DATA-EMISSAO-TITULO-ELEITORAL": "cad_uni_data_emissao_titulo_eleitoral",
+            "ZONA-ELEITORAL": "cad_uni_zona_eleitoral",
+            "SECAO-ELEITORAL": "cad_uni_secao_eleitoral",
+            "CARTEIRA-PROFISSIONAL": "cad_uni_carteira_profissional",
+            "PROFISSAO": "pro_descricao",
+            "RESERVISTA": "cad_uni_reservista",
+            "ESTADO-CIVIL": "est_civ_descricao",
+            "ESCOLARIDADE": "esc_descricao",
+            "HISTORIA": "pol_historia"
+        }
+    },
+
+    "wcm_usuarios": {
+        "query1": "sql/origem/AntigoWCM/Usuarios-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Usuarios-NovoWCM.sql",
+        "mapeamento": {
+            "USUARIO": "usu_sis_login",
+            "SITUACAO": "usu_sis_ativo",
+            "DEPARTAMENTO": "dep_descricao",
+            "GRUPO-USUARIO": "gru_usu_sis_nome"
+        }
+    }
+}
