@@ -1,31 +1,26 @@
+def ajustarnome(texto):
+    limite = 30
+    texto = str(texto)
+    if len(texto) > limite:
+        texto = texto[:limite] + "..."
+    else: pass
+    return texto
+
 def identificar(DB1, DB2):
-    banco1 = DB1["database"]
-    banco1_host = DB1["host"]
-    banco1_port = DB1["port"]
+    b2 = ajustarnome(DB2["database"])
+    b2_host = ajustarnome( DB2["host"])
+    b2_port = DB2["port"]
 
-    banco2 = DB2["database"]
-    banco2_host = DB2["host"]
-    banco2_port = DB2["port"]
+    b1 = ajustarnome(DB1["database"])
+    b1_host = ajustarnome(DB1["host"])
+    b1_port = DB1["port"]
 
-    def ajustarnome(texto):
-        limite = 30
-        texto = str(texto)
-        if len(texto) > limite:
-            texto = texto[:limite] + "..."
-        else: pass
-        return texto
-
-    banco2 = ajustarnome(banco2)
-    banco2_host = ajustarnome(banco2_host)
-    banco1 = ajustarnome(banco1)
-    banco1_host = ajustarnome(banco1_host)
-
-    if 'webcamara' in banco1.lower():
+    if 'webcamara' in b1.lower():
         tipo_migracao = 'Migração do Webcamara'
     else:
         tipo_migracao = 'Migração do WCM'
 
-    return banco1, banco1_host, banco1_port, banco2, banco2_host, banco2_port, tipo_migracao
+    return b1, b1_host, b1_port, b2, b2_host, b2_port, tipo_migracao
 
 
 def padrao_query(padrao, documento):

@@ -4,13 +4,16 @@ from core import db # Meu arquivo separado que define as conexões de banco
 from utils.repairid import encontrar_id
 from core.cleansql import limparvalor
 
-
 def carregar_sql(caminho):
     with open(caminho, "r", encoding="utf-8") as f:
         return f.read()
 
 def executar_query(config, query):
-    conexao = mysql.connect(**config)
+    try:
+        conexao = mysql.connect(**config)
+    except Exception as erro:
+        print("\nOpa!, não foi possivel se conectar nos bancos informados (verifique as conexões do .env)")
+        print(f"Erro: {erro}")
     cursor = conexao.cursor(dictionary=True)
     cursor.execute(query)
     resultado = cursor.fetchall()

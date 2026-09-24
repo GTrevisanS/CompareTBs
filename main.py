@@ -5,7 +5,7 @@ from core.cleansql import ajustar_query # Função para trocar os termos / vari�
 from utils.pdname import encontrar_nome_protocolo as findpdname # Função utilizada para corrigir / trocar 
 # os nomes retornados dos protocolos dinamicos (visto que o cliente geralmente troca o nome)
 import json # Biblioteca usada para manusear os arquivos json
-from core.db import carregar_conexao # Arquivo separado que define as conexões de banco
+from core.db import carregar_bancos # Arquivo separado que define as conexões de banco
 from core.compare import carregar_sql, executar_query, procurar_inexistentes, procurar_diferencas
 from utils.switchdata import trocar_dados
 from utils.sistemas import identificar # arquivo pra coletar nome, conexão e porta que é exibido no tooltip acíma
@@ -15,8 +15,8 @@ def abrirJson(caminho):
         ARQUIVO = json.load(combinacoes)
     return ARQUIVO
 
-DB1, DB2, DB3, DESCRIPT = carregar_conexao()
-banco1, banco1_host, banco1_port, banco2, banco2_host, banco2_port, tipo_migracao = identificar(DB1, DB2)
+DB1, DB2, DB3 = carregar_bancos()
+b1, b1_host, b1_port, b2, b2_host, b2_port, tipo_migracao = identificar(DB1, DB2)
 
 if tipo_migracao == 'Migração do Webcamara':
     caminho_dicionario = 'sql/origem/webcamara/dicionario.json'
@@ -111,16 +111,16 @@ st.set_page_config(
 )
 
 st.title("CompareTBs 🐞")
-st.markdown(f':grey[Conectado à:] :green["{banco2}"]  :grey[({tipo_migracao})]', 
+st.markdown(f':grey[Conectado à:] :green["{b2}"]  :grey[({tipo_migracao})]', 
     help=f"""
 ```text
-DB1......  {banco1}
-HOST.....  {banco1_host}
-PORTA....  {banco1_port}
+DB1......  {b1}
+HOST.....  {b1_host}
+PORTA....  {b1_port}
 -----------------------------------------
-DB2......  {banco2}
-HOST.....  {banco2_host}
-PORTA....  {banco2_port}
+DB2......  {b2}
+HOST.....  {b2_host}
+PORTA....  {b2_port}
 ```
 """
 )

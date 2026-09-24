@@ -1,8 +1,8 @@
 from core.compare import executar_query
-from core.db import carregar_conexao
+from core.db import carregar_bancos
 
 def encontrar_nome_protocolo(nome_dicionario):
-    DB1, DB2, DB3, DESCRIPT = carregar_conexao()
+    DB1, DB2, DB3 = carregar_bancos()
 
     nome_dinamico = nome_dicionario.replace("Protocolo Dinamico", "").strip()
     nome_dinamico = nome_dinamico or "1"
