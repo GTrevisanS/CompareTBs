@@ -30,6 +30,7 @@ SELECT
     wd.doc_data_realizacao, -- Data de realização (Geralmente do edital)
     wd.doc_data_abertura, -- Data de abertura (Geralmente do edital)
     wd.doc_hora_abertura, -- Hora de abertura (Geralmente do edital)
+    wpv.pro_vot_descricao, -- Processo de votação
     wd.doc_data_inicio_tramitacao, -- Data de inicio da tramitação
     wd.doc_data_limite_tramitacao, -- Data de limite da tramitação
     wde.dep_descricao, -- Nome do departamento responsável pelo registro
@@ -54,6 +55,8 @@ FROM
     LEFT JOIN wcm_tipos_quoruns wtq ON wtq.tip_quo_id = wd.doc_tipo_quorum_id_fk
     LEFT JOIN wcm_documentos_categorias wdc ON wdc.doc_cat_documentos_id_fk = wd.doc_id
     LEFT JOIN wcm_tipos_categorias wtc ON wtc.tip_cat_id = wdc.doc_cat_tipos_categorias_id_fk
+    LEFT JOIN wcm_processos_votacoes wpv ON wpv.pro_vot_id = wd.doc_processo_votacao_id_fk
+
     -- Situações de tramitação
     LEFT JOIN (SELECT wds.doc_sit_documento_id_fk, GROUP_CONCAT(DISTINCT wsit.sit_descricao ORDER BY wsit.sit_descricao SEPARATOR ', ') 
         AS sit_descricao FROM wcm_documentos_situacoes wds

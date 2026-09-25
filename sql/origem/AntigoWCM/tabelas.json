@@ -4,17 +4,20 @@
         "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
             "SUBTIPO": "sub_tip_doc_descricao",
             "EMENTA": "doc_ementa",
             "JUSTIFICATIVA": "doc_justificativa",
+            "OBSERVACOES": "doc_observacao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "REGIME-TRAMITACAO": "reg_tra_descricao",
             "QUORUM": "tip_quo_descricao",
+            "PROCESSO-VOTACAO": "pro_vot_descricao",
             "INICIATIVA": "tip_ini_descricao",
             "LEGISLATURA": "leg_descricao",
-            "DATA-INICIO-TRAMITACAO": "doc_data_documento",
+            "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
             "DATA-LIMITE-TRAMITACAO": "doc_data_limite_tramitacao",
             "INTERNET": "doc_mostra_online"
         }
@@ -28,6 +31,7 @@
             "EMENTA": "doc_ementa",
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "DATA-REGISTRO": "doc_data_documento",
+            "DATA-PUBLICACAO": "doc_data_inicio_tramitacao",
             "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
@@ -130,6 +134,7 @@
             "RG": "RG-NOVOWCM",
             "DATA-EMISSAO-RG": "cad_uni_data_emissao_rg",
             "CPF": "CPF-NOVOWCM",
+            "PIS": "cad_uni_numero_pis_pasep",
             "CARTEIRA-HABILITACAO": "cad_uni_carteira_habilitacao",
             "TITULO-ELEITORAL": "cad_uni_titulo_eleitor",
             "DATA-EMISSAO-TITULO-ELEITORAL": "cad_uni_data_emissao_titulo_eleitoral",
@@ -140,7 +145,12 @@
             "RESERVISTA": "cad_uni_reservista",
             "ESTADO-CIVIL": "est_civ_descricao",
             "ESCOLARIDADE": "esc_descricao",
-            "HISTORIA": "pol_historia"
+            "HISTORIA": "pol_historia",
+            "REDE-SOCIAL-FACEBOOK": "pol_facebook",
+            "REDE-SOCIAL-INSTAGRAM": "pol_instagram",
+            "REDE-SOCIAL-LINKEDIN": "pol_linkedin",
+            "REDE-SOCIAL-TWITTER": "pol_twitter",
+            "REDE-SOCIAL-YOUTUBE": "pol_youtube"
         }
     },
 

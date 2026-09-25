@@ -23,13 +23,19 @@ SELECT
 	wp.pro_descricao,	
 	wcg.cad_uni_car_descricao,
 	wc.cad_uni_reservista,
+	wc.cad_uni_numero_pis_pasep,
 	wc.cad_uni_conjuge,
 	wec.est_civ_descricao,
 	wcep.cep_numero,
 	wesc.esc_descricao,
 	wc.cad_uni_nome_pai,
 	wc.cad_uni_nome_mae,
-	wpol.pol_historia
+	wpol.pol_historia,
+	wpol.pol_facebook,
+	wpol.pol_instagram,
+	wpol.pol_linkedin,
+	wpol.pol_twitter,
+	wpol.pol_youtube
 FROM 
 	wcm_cadastros_unicos wc
 	LEFT JOIN wcm_enderecos we ON we.end_id = wc.cad_uni_endereco_id_fk

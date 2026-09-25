@@ -443,7 +443,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 53,
-            "tipo_protocolo_antigowcm": 47,
+            "tipo_protocolo_antigowcm": 53,
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
