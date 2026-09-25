@@ -16,7 +16,7 @@ SELECT
 	wp.par_pis 'PIS',
 	wp.par_carteira_habilitacao 'CARTEIRA-HABILITACAO',
 	wp.par_titulo_eleitoral 'TITULO-ELEITORAL',
-	wp.par_data_emissao_te 'DATA-EMISSAO-TITULO-ELEITORAL',
+	wp.par_data_emissao_te 'DATA-EMISSAO-TE',
 	wp.par_zona_eleitoral 'ZONA-ELEITORAL',
 	wp.par_secao_eleitoral 'SECAO-ELEITORAL',
 	wp.par_carteira_profissional 'CARTEIRA-PROFISSIONAL',

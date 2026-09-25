@@ -109,6 +109,7 @@
             "EMENTA": "doc_ementa",
             "VALOR": "doc_valor",
             "SITUACAO-TRAMITACAO": "sit_descricao",
+            "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -171,12 +172,12 @@
             "NATURALIDADE": "cad_uni_naturalidade",
             "SEXO": "cad_uni_sexo",
             "RG": "RG-NOVOWCM",
-            "DATA-EMISSAO-RG": "cad_uni_data_emissao_rg",
             "CPF": "CPF-NOVOWCM",
             "PIS": "cad_uni_numero_pis_pasep",
             "CARTEIRA-HABILITACAO": "cad_uni_carteira_habilitacao",
             "TITULO-ELEITORAL": "cad_uni_titulo_eleitor",
-            "DATA-EMISSAO-TITULO-ELEITORAL": "cad_uni_data_emissao_titulo_eleitoral",
+            "DATA-EMISSAO-RG": "cad_uni_data_emissao_rg",
+            "DATA-EMISSAO-TE": "cad_uni_data_emissao_titulo_eleitoral",
             "ZONA-ELEITORAL": "cad_uni_zona_eleitoral",
             "SECAO-ELEITORAL": "cad_uni_secao_eleitoral",
             "CARTEIRA-PROFISSIONAL": "cad_uni_carteira_profissional",
