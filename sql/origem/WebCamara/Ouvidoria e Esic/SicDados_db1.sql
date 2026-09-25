@@ -1,16 +1,22 @@
 SELECT
-    sic.dadsic_id,
-    sic.dadsic_codigo_individual,
-    st.stasic_descricao AS 'SIC-SIT',
-    sic.dadsic_mensagem,
-    sic.dadsic_justificativa,
-    sic.dadsic_ip_cadastro,
+    s.dadsic_id 'ID-SIC',
+    s.dadsic_codigo_individual 'CODIGO-INDIVIDUAL-ANO',
+    CASE
+    	WHEN st.stasic_descricao IS NULL THEN 'Protocolado'
+		ELSE st.stasic_descricao 
+	 END AS 'SITUACAO-TRAMITACAO',
+    s.dadsic_mensagem 'EMENTA',
+    s.dadsic_justificativa 'JUSTIFICATIVA',
+--     s.dadsic_ip_cadastro 'IP-CADASTRO',
     tm.tip_man_descricao AS 'TIPO-MANIFESTACAO',
-    sic.dadsic_data_cadastro
+--     s.dadsic_sigiloso,
+    s.dadsic_data_cadastro 'DATA-REGISTRO'
 FROM
-    sic_dados sic
-    LEFT JOIN sic_status st ON st.stasic_id = sic.dadsic_id_status_fk
-    LEFT JOIN web_tipo_manifestacao tm ON tm.tip_man_id = sic.ususic_tipo_manifestacao
-WHERE
-    dadsic_tipo_cadastro = {id_tipo_documento_webcamara}
-ORDER BY sic.dadsic_id DESC 
+    sic_dados s
+    LEFT JOIN sic_status st ON st.stasic_id = s.dadsic_id_status_fk
+    LEFT JOIN web_tipo_manifestacao tm ON tm.tip_man_id = s.ususic_tipo_manifestacao
+WHERE    
+	 -- Ouvidoria = 1 | Esic = 0
+    s.dadsic_tipo_cadastro = {id_tipo_documento_webcamara}
+ORDER BY 
+    s.dadsic_id DESC

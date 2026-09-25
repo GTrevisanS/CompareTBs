@@ -337,6 +337,7 @@ NORMALIZADORES = {
     "Estado_Civil": estados_civis,
     "DATA-NASCIMENTO-NOVOWCM": descriptografia_hex,
     "doc_data_documento": n_data,
+    "DATA-MANIFESTACAO": n_data,
     "DATA-REGISTRO": n_data,
     "Data-Protocolo-Dinamico": n_data,
     "DATA-EMISSAO-TITULO-ELEITORAL": n_data,

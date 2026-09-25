@@ -6,6 +6,7 @@ SELECT
 	tp.tip_por_descricao 'SUBTIPO',
 	p.por_numero_processo 'NUMERO-PROCESSO',
 	p.por_local_publicacao 'LOCAL-PUBLICACAO',
+	p.por_data_hora_publicacao 'DATA-PUBLICACAO',
 	p.por_orgao_imprensa 'ORGAO-IMPRENSA',
 	p.por_edicao 'EDICAO',
 	md.mes_dir_descricao 'MESA-DIRETORA',

@@ -1694,7 +1694,7 @@
     },
     "142": {
         "nome": "Ouvidoria",
-        "chave1": "dadsic_id",
+        "chave1": "ID-SIC",
         "chave2": "codigo_sic_importado",
         "query1": "sql/origem/Webcamara/Ouvidoria e Esic/SicDados_db1.sql",
         "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
@@ -1704,17 +1704,17 @@
             "tipo_documento_importado": "codigo_sic_importado"
         },
         "mapeamento": {
-            "dadsic_id": "codigo_sic_importado",
-            "dadsic_codigo_individual": "CODIGO-MANIFESTACAO",
-            "SIC-SIT": "sit_descricao",
-            "dadsic_mensagem": "doc_ementa",
-            "dadsic_data_cadastro": "DATA-MANIFESTACAO",
-            "TIPO-MANIFESTACAO": "sub_tip_doc_descricao"
+            "ID-SIC": "codigo_sic_importado",
+            "CODIGO-INDIVIDUAL-ANO": "CODIGO-MANIFESTACAO",
+            "EMENTA": "doc_ementa",
+            "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "DATA-REGISTRO": "DATA-MANIFESTACAO"
         }
     },
     "145": {
         "nome": "E-sic",
-        "chave1": "dadsic_id",
+        "chave1": "ID-SIC",
         "chave2": "codigo_sic_importado",
         "query1": "sql/origem/Webcamara/Ouvidoria e Esic/SicDados_db1.sql",
         "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
@@ -1724,12 +1724,12 @@
             "tipo_documento_importado": "codigo_sic_importado"
         },
         "mapeamento": {
-            "dadsic_id": "codigo_sic_importado",
-            "dadsic_codigo_individual": "CODIGO-MANIFESTACAO",
-            "SIC-SIT": "sit_descricao",
-            "dadsic_mensagem": "doc_ementa",
-            "dadsic_data_cadastro": "DATA-MANIFESTACAO",
-            "TIPO-MANIFESTACAO": "sub_tip_doc_descricao"
+            "ID-SIC": "codigo_sic_importado",
+            "CODIGO-INDIVIDUAL-ANO": "CODIGO-MANIFESTACAO",
+            "EMENTA": "doc_ementa",
+            "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "DATA-REGISTRO": "DATA-MANIFESTACAO"
         }
     },
     "147": {

@@ -688,5 +688,27 @@
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
         "tabela": "wcm_legislacoes"
+    },
+    "142": {
+        "nome": "Ouvidoria",
+        "chave1": "ID-SIC",
+        "chave2": "codigo_sic_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 142,
+            "tipo_protocolo_antigowcm": 1,
+            "tipo_documento_importado": "codigo_sic_importado"
+        },
+        "tabela": "sic_dados"
+    },
+    "145": {
+        "nome": "E-sic",
+        "chave1": "ID-SIC",
+        "chave2": "codigo_sic_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 145,
+            "tipo_protocolo_antigowcm": 0,
+            "tipo_documento_importado": "codigo_sic_importado"
+        },
+        "tabela": "sic_dados"
     }
 }

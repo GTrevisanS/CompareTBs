@@ -43,8 +43,11 @@
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
+            "DATA-PUBLICACAO": "doc_data_inicio_tramitacao",
             "EMENTA": "doc_ementa",
             "SUBTIPO": "sub_tip_doc_descricao",
+            "MESA-DIRETORA": "mes_dir_descricao",
+            "ORGAO-IMPRENSA": "",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -106,6 +109,20 @@
             "DATA-ABERTURA": "doc_data_abertura",
             "HORA-ABERTURA": "doc_hora_abertura",
             "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "sic_dados": {
+        "query1": "sql/origem/AntigoWCM/SIC-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
+        "mapeamento": {
+            "ID-SIC": "codigo_sic_importado",
+            "CODIGO-INDIVIDUAL-ANO": "CODIGO-MANIFESTACAO",
+            "EMENTA": "doc_ementa",
+            "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "DATA-REGISTRO": "DATA-MANIFESTACAO",
+            "NOTA-ATENDIMENTO": "doc_nota_avaliacao"
         }
     },
 
