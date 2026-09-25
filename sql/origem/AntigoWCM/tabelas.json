@@ -23,6 +23,28 @@
         }
     },
 
+    "wcm_cadastros_genericos": {
+        "query1": "sql/origem/AntigoWCM/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "ASSUNTO": "doc_ementa",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "DESCRICAO": "doc_justificativa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "VALOR": "doc_valor",
+            "DATA-INICIO": "doc_data_inicio_tramitacao",
+            "DATA-FIM": "doc_data_limite_tramitacao",
+            "LEGISLATURA": "leg_descricao",
+            "CADASTRO-UNICO-VINCULADO": "cad_uni_nome",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
     "wcm_legislacoes": {
         "query1": "sql/origem/AntigoWCM/Legislacoes-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
