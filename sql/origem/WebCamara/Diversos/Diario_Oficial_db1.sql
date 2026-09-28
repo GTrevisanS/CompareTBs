@@ -3,7 +3,7 @@ SELECT
 	-- d.Edicao,
 	-- d.agendar,
 	d.Observacao AS 'OBSERVACOES',
-	d.Data as 'Data_Inicio_Tramitacao',
+	d.Data as 'DATA-REGISTRO',
 	d.INTERNET
 FROM 
 	diario_oficial d

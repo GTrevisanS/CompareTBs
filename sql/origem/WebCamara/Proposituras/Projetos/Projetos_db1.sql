@@ -14,11 +14,11 @@ SELECT
     proj.Quorum,
     c.Nome AS 'CATEGORIA',
     CASE
-		WHEN proj.Data_Inicio_Tramitacao IS NULL then pr.Data_Protocolo
+		WHEN proj.Data_Inicio_Tramitacao IS NULL THEN pr.Data_Protocolo
 		WHEN proj.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
 	 	ELSE proj.Data_Inicio_Tramitacao    
     END AS 'DATA-INICIO-TRAMITACAO',
-    proj.Data_Fim_Tramitacao,
+    proj.Data_Fim_Tramitacao 'DATA-LIMITE-TRAMITACAO',
     proj.INTERNET
 FROM
     projeto proj

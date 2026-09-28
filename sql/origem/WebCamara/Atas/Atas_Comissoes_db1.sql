@@ -1,11 +1,11 @@
 SELECT 
 	wcm4.ata_com_id AS 'ID-Ata-Comissao-NovoWCM',
 -- 	a.Codigo,
-	a.Titulo,
-	a.Observacoes,
+	a.TITULO,
+	a.OBSERVACOES,
 	c.Nome AS 'NOME-COMISSAO',
 	l.nome AS 'LEGISLATURA',
-	a.Data as 'Data_Inicio_Tramitacao',
+	a.Data as 'DATA-REGISTRO',
 	CASE
 		WHEN a.codigo_tipo = 1 THEN 'Comissão Permanente'
 		WHEN a.codigo_tipo = 2 THEN 'Comissão Temporária'

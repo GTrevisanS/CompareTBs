@@ -4,11 +4,11 @@ SELECT
 	pr.Data_Protocolo,
 	m.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	m.Assunto,
-   CASE
+    CASE
 		WHEN m.Data IS NULL then pr.Data_Protocolo
 		WHEN m.Data = 0 THEN pr.Data_Protocolo
 	 	ELSE m.Data   
-   END AS 'Data_Inicio_Tramitacao',
+    END AS 'DATA-REGISTRO',
 	m.Numero_Oficio,
 	m.Em_Resposta,
 	l.nome AS 'LEGISLATURA',

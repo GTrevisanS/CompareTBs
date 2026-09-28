@@ -15,7 +15,7 @@
             "INICIATIVA": "tip_ini_descricao",
             "Regime_Tramitacao": "reg_tra_descricao",
             "DATA-INICIO-TRAMITACAO": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
+            "DATA-LIMITE-TRAMITACAO": "doc_data_limite_tramitacao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -27,6 +27,18 @@
             "ementa": "doc_ementa",
             "observacao": "doc_observacao",
             "SITUACAO-LEI": "sit_descricao",
+            "LEGISLATURA": "leg_descricao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+    "protocolo_dinamico": {
+        "query1": "sql/origem/WebCamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_Dinamico_Geral.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "LEGISLATURA": "leg_descricao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"

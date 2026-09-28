@@ -5,7 +5,7 @@ SELECT
 	pc.Assunto,
 	pc.Texto,
 	pc.Observacao AS 'OBSERVACOES',
-	pc.Data,
+	pc.Data AS 'DATA-REGISTRO',
 	pc.Hora,
 	st.Descricao AS 'TRAMITACAO',
 	pc.Autor_Solicitante,

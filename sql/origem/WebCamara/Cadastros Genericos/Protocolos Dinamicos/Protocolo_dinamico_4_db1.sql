@@ -1,17 +1,17 @@
 SELECT
     cg.cad_gen_id AS 'ID-Protocolo-Dinamico-NovoWCM',
     pd.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-    pd.Assunto,
+    pd.Assunto 'ASSUNTO',
     CASE
         WHEN pd.Data IS NULL THEN cg.cad_gen_data_hora
         WHEN pd.Data = 0 THEN cg.cad_gen_data_hora
         ELSE pd.Data
-    END AS 'Data-Protocolo-Dinamico',
+    END AS 'DATA-REGISTRO',
     CASE
         WHEN l.Nome IS NULL THEN leg.leg_descricao
         ELSE l.Nome
     END AS 'LEGISLATURA',
-    pd.observacao,
+    pd.observacao 'OBSERVACOES',
     CASE
         WHEN pd.data_recebimento IS NOT NULL 
 		  		AND pd.data_recebimento != 0  
@@ -22,7 +22,7 @@ SELECT
             THEN cg.cad_gen_data_inicio
 
         ELSE CONCAT(pd.Ano, '-01-01')
-    END AS 'data_recebimento',
+    END AS 'DATA-INICIO-TRAMITACAO',
     CASE
         WHEN pd.data_retorno IS NOT NULL 
 		  		AND pd.data_retorno != 0  
@@ -32,10 +32,10 @@ SELECT
             AND cg.cad_gen_data_fim != 0
             THEN cg.cad_gen_data_fim
         ELSE CONCAT(pd.Ano, '-01-01')
-    END AS 'data_retorno',
-    pd.destinatario,
-    pd.tipo_documento,
-    pd.numero_digitavel,
+    END AS 'DATA-LIMITE-TRAMITACAO',
+    pd.destinatario 'DESTINATARIO',
+    pd.tipo_documento 'SUBTIPO',
+    -- pd.numero_digitavel '',
     pd.INTERNET
 FROM 
 	protocolo_dinamico_4 pd

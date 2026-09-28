@@ -293,27 +293,70 @@ def corrige_int(valor):
 
     return f"{nome.strip()} {numero}"
 
-
+    
 def limpa_format_lista(valor):
-    return str(valor).replace('[', '').replace(']', '').replace('_', " ") 
+    valor = str(valor).replace('[', '').replace(']', '').replace('_', ' ')
+
+    valores = valor.split(',')
+
+    valores = [
+        palavra.strip()
+        for palavra in valores
+        if palavra.strip()
+    ]
+
+    valores.sort(key=str.lower)
+
+    return ', '.join(valores)
 
 
 def limpa_format_dicionario(valor):
-    valor = str(valor).replace('"', '').replace('{', '').replace('}', '').replace(':', '') # Primeiro limpo a formatação do dicionário
-    valor = valor.replace('1', '').replace('0', '').strip() # Depois retiro os valores (values) do dicionario
-    valor = limpa_format_lista(valor)
-    if valor.strip() == '' or valor is None:
+    if valor is None:
         return '0'
-    if valor.count(',') != 0:  
-        valores = valor.split(',') # Transformo em lista
-        textolimpo = ""
-        for palavra in valores:
-            palavra = palavra.strip()
-            textolimpo += f'{palavra}, '
-        textolimpo = textolimpo[:-2] # Retiro o último espaço em branco e a ultima vigurla sobrando 
-    else:
-        return valor
-    return textolimpo
+
+    # Se for realmente um dicionário, trata os valores separadamente
+    if isinstance(valor, dict):
+        valores = []
+
+        for chave, valor_dicionario in valor.items():
+            if valor_dicionario not in (0, 1):
+                continue
+
+            chave = str(chave).replace('_', ' ').strip()
+
+            if chave:
+                valores.append(chave)
+
+        valores.sort(key=str.lower)
+
+        return ', '.join(valores) if valores else '0'
+
+    # Trata caso o dicionário tenha vindo como texto
+    valor = str(valor).strip()
+
+    if valor.startswith('{') and valor.endswith('}'):
+        valor = valor[1:-1]
+
+        valores = []
+
+        for item in valor.split(','):
+            if ':' not in item:
+                continue
+
+            chave, valor_dicionario = item.split(':', 1)
+
+            chave = chave.replace('"', '').replace("'", '').replace('_', ' ').strip()
+            valor_dicionario = valor_dicionario.replace('"', '').replace("'", '').strip()
+
+            if valor_dicionario in ('0', '1') and chave:
+                valores.append(chave)
+
+        valores.sort(key=str.lower)
+
+        return ', '.join(valores) if valores else '0'
+
+    # Caso seja uma lista
+    return limpa_format_lista(valor)
 
 
 
@@ -352,16 +395,12 @@ NORMALIZADORES = {
     "TIPOS-PARECERES": tipo_parecer,
     "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
     "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante,
-    "DATA-MANIFESTACAO": n_data,
     "Data-Protocolo-Dinamico": n_data,
     "DATA-EMISSAO-TITULO-ELEITORAL": n_data,
     "DATA-EMISSAO-RG": n_data,
     "DATA-NASCIMENTO": n_data,
     "Data-oficio-diverso": n_data,
     "Data_Inicio_Tramitacao": n_data,
-    "doc_data_limite_tramitacao": n_data,
-    "DATA-LIMITE-TRAMITACAO": n_data,
-    # "DATA-FIM": n_data,
     "DATA-CONTRATO": n_data,
     "DATA-REGISTRO": add_hour,
     "DATA-INICIO": add_hour,

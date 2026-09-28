@@ -7,7 +7,7 @@ SELECT
 	-- l.Nome AS 'LEGISLATURA',
 	-- p1.NOME AS 'NOME-PRESIDENTE',
 	-- p2.NOME AS 'NOME-PREFEITO',
-	c.Data
+	c.Data as 'DATA-REGISTRO'
 FROM 
 	certidoes c
 	LEFT JOIN politico p1 ON p1.Codigo = c.Codigo_presidente_POLITICO

@@ -2,8 +2,8 @@ SELECT
 	wcm4.out_doc_id AS 'ID-Ata-Edital-NovoWCM',
 	e.Codigo_Individual_Ano AS 'CODIGO-DO-EDITAL',
 	ec.Codigo_Individual_Ano AS 'CODIGO-DO-EDITAL-LICITACAO',
-	ael.Titulo,
-	ael.Observacoes,
+	ael.TITULO,
+	ael.OBSERVACOES,
 	ael.Data AS 'DATA-REGISTRO'
 FROM 
 	ata_editais_licitacao ael
