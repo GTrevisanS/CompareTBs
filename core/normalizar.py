@@ -1,3 +1,4 @@
+
 # ================================= NORMALIZA OS CODIGOS DE ANO QUE VEM ERRADOS / BUGADOS =================================
 
 
@@ -293,15 +294,16 @@ def corrige_int(valor):
     return f"{nome.strip()} {numero}"
 
 
+def limpa_format_lista(valor):
+    return str(valor).replace('[', '').replace(']', '').replace('_', " ") 
+
 
 def limpa_format_dicionario(valor):
-
     valor = str(valor).replace('"', '').replace('{', '').replace('}', '').replace(':', '') # Primeiro limpo a formatação do dicionário
     valor = valor.replace('1', '').replace('0', '').strip() # Depois retiro os valores (values) do dicionario
-
+    valor = limpa_format_lista(valor)
     if valor.strip() == '' or valor is None:
         return '0'
-
     if valor.count(',') != 0:  
         valores = valor.split(',') # Transformo em lista
         textolimpo = ""
@@ -311,7 +313,6 @@ def limpa_format_dicionario(valor):
         textolimpo = textolimpo[:-2] # Retiro o último espaço em branco e a ultima vigurla sobrando 
     else:
         return valor
-
     return textolimpo
 
 

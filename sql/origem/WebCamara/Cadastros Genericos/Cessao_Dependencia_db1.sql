@@ -4,16 +4,16 @@ SELECT
     cd.Nome,
     cd.Finalidade,
     CONCAT_WS(', ',
-        IF(cd.Requer_Plenario = 1, 'Plenario', NULL),
-        IF(cd.Requer_Plenarinho = 1, 'Plenarinho', NULL),
-        IF(cd.Requer_Saguao_Eventos = 1, 'Saguão de Eventos', NULL),
-        IF(cd.Requer_Sala_Reuniao1 = 1, 'Sala de Reunião', NULL),
-        IF(cd.Requer_Notebook = 1, 'Notebook', NULL),
-        IF(cd.Requer_Projetor = 1, 'Projetor', NULL),
-        IF(cd.Requer_Som = 1, 'Som', NULL),
-        IF(cd.Requer_Copa = 1, 'Copa', NULL),
+        IF(cd.Requer_Plenario != 0, 'Plenario', NULL),
+        IF(cd.Requer_Plenarinho != 0, 'Plenarinho', NULL),
+        IF(cd.Requer_Saguao_Eventos != 0, 'Saguão de Eventos', NULL),
+        IF(cd.Requer_Sala_Reuniao1 != 0, 'Sala de Reunião', NULL),
+        IF(cd.Requer_Notebook != 0, 'Notebook', NULL),
+        IF(cd.Requer_Projetor != 0, 'Projetor', NULL),
+        IF(cd.Requer_Som != 0, 'Som', NULL),
+        IF(cd.Requer_Copa != 0, 'Copa', NULL),
         IF(
-            cd.Requer_outros = 1,
+            cd.Requer_outros != 0,
             IF(
                 cd.Texto_Requer_Outros IS NOT NULL
                 AND cd.Texto_Requer_Outros <> '',
@@ -23,12 +23,11 @@ SELECT
             NULL
         )
     ) AS 'REQUERER',
-    
     CONCAT_WS(', ',
-        IF(cd.Presidencia_Deferido = 1, 'Deferido', NULL),
-        IF(cd.Presidencia_Indeferido = 1, 'Inferido', NULL),
-        IF(cd.Presidencia_Com_Taxa = 1, 'Com taxa', NULL),
-        IF(cd.Presidencia_Sem_Taxa = 1, 'Sem taxa', NULL)
+        IF(cd.Presidencia_Deferido != 0, 'Deferido', NULL),
+        IF(cd.Presidencia_Indeferido != 0, 'Inferido', NULL),
+        IF(cd.Presidencia_Com_Taxa != 0, 'Com taxa', NULL),
+        IF(cd.Presidencia_Sem_Taxa != 0, 'Sem taxa', NULL)
     ) AS 'DESPACHO-PRESIDENCIA',
     
     cd.INTERNET

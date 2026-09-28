@@ -1,7 +1,11 @@
 SELECT
 	wcm4.aut_id AS 'ID-Autografo-NovoWCM',
 	a.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	a.Data AS 'DATA-REGISTRO',
+	CASE
+		WHEN a.Data IS NULL OR a.Data = 0
+			THEN CONCAT(a.Ano, '-01-01')
+		ELSE a.Data
+	END AS 'DATA-REGISTRO',
 	a.Ementa,
 	a.INTERNET
 FROM 

@@ -2,7 +2,7 @@ import mysql.connector as mysql # Biblioteca usada para conectar com o banco de 
 from core.normalizar import NORMALIZADORES # Arquivo Py que "normaliza" colunas ESPECIFICAS para que consigam ser comparadas corretamente
 from core import db # Meu arquivo separado que define as conexões de banco
 from utils.repairid import encontrar_id
-from core.cleansql import limparvalor
+from core.cleandata import limparvalor, retornar
 
 def carregar_sql(caminho):
     with open(caminho, "r", encoding="utf-8") as f:
@@ -97,8 +97,8 @@ def procurar_diferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento
                 diferencas.append({
                     f"{nome_identificador}": dadoslinha,
                     "COLUNA-WEBCAMARA": campo_db1,
-                    "VALOR ANTIGO": valor1,
-                    "NOVO VALOR": valor2,
+                    "VALOR ANTIGO": retornar(valor1),
+                    "NOVO VALOR": retornar(valor2),
                 })
 
     return diferencas
