@@ -83,6 +83,7 @@
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
             "DESTINATARIO": "end_descricao",
+            "NUMERO-ORIGINAL-OFICIO": "doc_codigo_licitacao",
             "INTERNET": "doc_mostra_online"
         }
     },

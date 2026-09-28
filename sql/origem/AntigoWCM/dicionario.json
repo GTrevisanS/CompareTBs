@@ -356,7 +356,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 36,
-            "tipo_protocolo_antigowcm": 36,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 36",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -443,7 +443,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 53,
-            "tipo_protocolo_antigowcm": 53,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 47 AND o.ofi_tipos_oficios_id_fk = 13",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -531,7 +531,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 78,
-            "tipo_protocolo_antigowcm": 78,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 78",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -542,7 +542,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 81,
-            "tipo_protocolo_antigowcm": 81,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 81",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -553,7 +553,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 82,
-            "tipo_protocolo_antigowcm": 82,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 82",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -564,7 +564,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 83,
-            "tipo_protocolo_antigowcm": 83,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 83",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -586,7 +586,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 87,
-            "tipo_protocolo_antigowcm": 87,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 87",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -597,7 +597,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 88,
-            "tipo_protocolo_antigowcm": 88,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 88",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -612,6 +612,17 @@
             "tipo_documento_importado": "codigo_documento_importado"
         },
         "tabela": "wcm_documentos"
+    },
+    "95": {
+        "nome": "Balancete da Prefeitura",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 95,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 95",
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
     },
     "118": {
         "nome": "Contratos",
@@ -689,6 +700,28 @@
         },
         "tabela": "wcm_legislacoes"
     },
+    "129": {
+        "nome": "Regimento Interno",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 129,
+            "tipo_legislacao_antigowcm": 12,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "135": {
+        "nome": "Lei Orgânica do Municipio",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 135,
+            "tipo_legislacao_antigowcm": 19,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
     "138": {
         "nome": "Leis da Câmara",
         "chave1": "ID-WCM-ANTIGO",
@@ -696,6 +729,17 @@
         "parametros": {
             "id_tipo_documento_novowcm": 138,
             "tipo_legislacao_antigowcm": 23,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "139": {
+        "nome": "Emenda a LOM",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 139,
+            "tipo_legislacao_antigowcm": 24,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
         "tabela": "wcm_legislacoes"
