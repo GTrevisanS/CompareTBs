@@ -1,7 +1,7 @@
 SELECT 
     -- Força a conversão do ID para um número inteiro
     CAST(`ID-Revogacao-NovoWCM` AS UNSIGNED) AS `ID-Revogacao-NovoWCM`,
-    CONCAT(Data, ' 00:00:00') AS Data,
+    CONCAT(Data, ' 00:00:00') AS 'DATA-REGISTRO',
     `LEI-QUE-REVOGA`,
     ACAO,
     `LEI-REVOGADA`,

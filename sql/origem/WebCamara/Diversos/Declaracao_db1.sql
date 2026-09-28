@@ -3,7 +3,7 @@ SELECT
 	d.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	d.Assunto,
 	td.Descricao AS 'TIPO-DECLARACAO',
-	d.Data,
+	d.Data AS 'DATA-REGISTRO',
 	0 AS 'INTERNET' -- Crio uma coluna para confirmar que será importado sem internet ativo no NovoWCM
 FROM 
 	declaracao d

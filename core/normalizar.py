@@ -293,7 +293,7 @@ def corrige_int(valor):
 
     return f"{nome.strip()} {numero}"
 
-    
+
 def limpa_format_lista(valor):
     valor = str(valor).replace('[', '').replace(']', '').replace('_', ' ')
 
@@ -389,18 +389,15 @@ NORMALIZADORES = {
     "RG": descriptografia_hex,
     "Estado_Civil": estados_civis,
     "DATA-NASCIMENTO-NOVOWCM": descriptografia_hex,
+    "DATA-NASCIMENTO": n_data,
     "TIPO-MANIFESTACAO": sic_tipo,
     "SIC-SIT": sic_sit,
     "situacao": situacao,
     "TIPOS-PARECERES": tipo_parecer,
     "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
     "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante,
-    "Data-Protocolo-Dinamico": n_data,
     "DATA-EMISSAO-TITULO-ELEITORAL": n_data,
     "DATA-EMISSAO-RG": n_data,
-    "DATA-NASCIMENTO": n_data,
-    "Data-oficio-diverso": n_data,
-    "Data_Inicio_Tramitacao": n_data,
     "DATA-CONTRATO": n_data,
     "DATA-REGISTRO": add_hour,
     "DATA-INICIO": add_hour,

@@ -40,7 +40,7 @@
             "parametro_where_webcamara": "r.Acao NOT LIKE '%ALTERA%'"
         },
         "mapeamento": {
-            "Data": "rev_data_hora_revogacao",
+            "DATA-REGISTRO": "rev_data_hora_revogacao",
             "LEI-QUE-REVOGA": "LEI-QUE-REVOGA-NOVOWCM",
             "ACAO": "rev_acao",
             "LEI-REVOGADA": "LEI-REVOGADA-NOVOWCM",
@@ -58,7 +58,7 @@
             "parametro_where_webcamara": "r.Acao LIKE '%ALTERA%'"
         },
         "mapeamento": {
-            "Data": "rev_data_hora_revogacao",
+            "DATA-REGISTRO": "rev_data_hora_revogacao",
             "LEI-QUE-REVOGA": "LEI-QUE-REVOGA-NOVOWCM",
             "ACAO": "rev_acao",
             "LEI-REVOGADA": "LEI-REVOGADA-NOVOWCM",
@@ -285,7 +285,7 @@
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "ementa": "doc_ementa",
-            "Justificativa": "doc_justificativa",
+            "JUSTIFICATIVA": "doc_justificativa",
             "observacao": "doc_observacao",
             "LEGISLATURA": "leg_descricao",
             "tipo": "sub_tip_doc_descricao",
@@ -309,8 +309,9 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "Justificativa": "doc_justificativa",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "JUSTIFICATIVA": "doc_justificativa",
             "LEGISLATURA": "leg_descricao",
             "TIPO-MOCAO": "sub_tip_doc_descricao",
             "TRAMITACAO": "sit_descricao",
@@ -336,7 +337,7 @@
             "DATA-INICIO-TRAMITACAO": "doc_data_documento",
             "ementa": "doc_ementa",
             "observacao": "doc_observacao",
-            "Justificativa": "doc_justificativa",
+            "JUSTIFICATIVA": "doc_justificativa",
             "TIPO": "sub_tip_doc_descricao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "REGIME": "reg_tra_descricao",
@@ -400,7 +401,7 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
             "Ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
+            "JUSTIFICATIVA": "doc_justificativa",
             "observacao": "doc_observacao",
             "Regime_Tramitacao": "reg_tra_descricao",
             "INTERNET": "doc_mostra_online"
@@ -529,7 +530,7 @@
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Ementa": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "DATA-REGISTRO": "doc_data_documento",
             "LEGISLATURA": "leg_descricao"  ,
             "INTERNET": "doc_mostra_online"
@@ -548,9 +549,10 @@
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "Assunto": "doc_ementa",
-            "Representante": "cad_uni_nome",
+            "REPRESENTANTE": "cad_uni_nome",
             "Numero_Oficio": "doc_codigo_licitacao",
             "Local_Endereco": "doc_justificativa",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -912,7 +914,7 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "Assunto": "doc_ementa",
             "TIPO-DECLARACAO": "sub_tip_doc_descricao",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1030,8 +1032,8 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "Destinatario": "dep_descricao",
             "Nome": "doc_codigo_licitacao",
             "INTERNET": "doc_mostra_online"
@@ -1168,7 +1170,7 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "Assunto": "doc_ementa",
             "Quorum": "tip_quo_descricao",
             "LEGISLATURA": "leg_descricao",
@@ -1290,7 +1292,7 @@
             "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "LEGISLATURA": "leg_descricao",
-            "destinatario": "NULL",
+            "DESTINATARIO": "NULL",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1326,13 +1328,14 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Situacao": "sit_descricao",
-            "Objeto": "doc_ementa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "EMENTA": "doc_ementa",
             "Razao_Social": "RAZAO-SOCIAL",
             "CNPJ": "CNPJ-NOVOWCM",
-            "Representante":"edi_emp_representante",
-            "Valor_Global": "doc_valor",
+            "REPRESENTANTE":"edi_emp_representante",
+            "VALOR": "doc_valor",
             "Data_Contrato": "DATA-CONTRATO",
+            "DATA-INICIO": "DATA-INICIO",
             "DATA-FIM": "DATA-FIM",
             "INTERNET": "doc_mostra_online"
         }
@@ -1349,12 +1352,13 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Objeto": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "Razao_Social": "RAZAO-SOCIAL",
             "CNPJ": "CNPJ-NOVOWCM",
-            "Representante":"edi_emp_representante",
-            "Valor_Global": "doc_valor",
-            "Data_termino": "DATA-FIM",
+            "REPRESENTANTE":"edi_emp_representante",
+            "VALOR": "doc_valor",
+            "DATA-INICIO": "DATA-INICIO",
+            "DATA-FIM": "DATA-FIM",
             "INTERNET": "doc_mostra_online"
         }
     },

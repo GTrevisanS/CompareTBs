@@ -5,7 +5,7 @@ SELECT
 	a.Situacao_Final,
 	a.Ementa,
 	a.observacao,
-	a.justificativa,
+	a.JUSTIFICATIVA,
 	a.Regime_Tramitacao,
 	a.INTERNET
 FROM 

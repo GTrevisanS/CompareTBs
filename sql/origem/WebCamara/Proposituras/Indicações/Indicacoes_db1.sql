@@ -10,7 +10,7 @@ SELECT
     END AS 'DATA-INICIO-TRAMITACAO',
     ind.ementa,
     ind.observacao,
-    ind.Justificativa,
+    ind.JUSTIFICATIVA,
     ti.Descricao AS 'TIPO',
     st.Descricao AS 'SITUACAO-TRAMITACAO',
     ind.Regime_Tramitacao AS 'REGIME',

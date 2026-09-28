@@ -3,8 +3,8 @@ SELECT
 	CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
 	pr.Data_Protocolo,
 	req.codigo_Individual_ano AS 'CODIGO-INDIVIDUAL-ANO', 
-	req.ementa, 
-	req.observacao,
+	req.EMENTA, 
+	req.observacao AS 'OBSERVACOES',
 	req.Destinatario,
 	req.Nome,
 	req.INTERNET

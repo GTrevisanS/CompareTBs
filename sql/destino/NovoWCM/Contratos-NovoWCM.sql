@@ -8,6 +8,7 @@ SELECT
 	wemp.edi_emp_representante,
     wd.doc_data_inicio_tramitacao,
     wd.doc_data_documento AS 'DATA-CONTRATO',
+    wd.doc_data_inicio_tramitacao AS 'DATA-INICIO',
     wd.doc_data_fim AS 'DATA-FIM',
     wd.doc_valor,
     wd.doc_codigo_licitacao,
