@@ -386,24 +386,24 @@
     "45": {
         "nome": "Atos da Mesa",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_atos_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 45,
-            "tipo_protocolo_antigowcm": 45,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipos_atos_antigowcm": 1,
+            "tipo_documento_importado": "codigo_atos_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_atos"
     },
     "46": {
         "nome": "Atos da Presidencia",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_atos_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 46,
-            "tipo_protocolo_antigowcm": 46,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipos_atos_antigowcm": 2,
+            "tipo_documento_importado": "codigo_atos_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_atos"
     },
     "48": {
         "nome": "Autógrafos",

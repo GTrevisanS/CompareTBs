@@ -86,6 +86,23 @@
         }
     },
 
+    "wcm_atos": {
+        "query1": "sql/origem/AntigoWCM/Atos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-PUBLICACAO": "doc_data_inicio_tramitacao",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "LOCAL-PUBLICACAO": "NULL",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "LEGISLATURA": "leg_descricao",
+            "MESA-DIRETORA": "mes_dir_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
     "wcm_autografos": {
         "query1": "sql/origem/AntigoWCM/Autografos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
