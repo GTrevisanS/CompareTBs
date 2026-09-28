@@ -82,6 +82,7 @@
             "DATA-REGISTRO": "doc_data_documento",
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
+            "DESTINATARIO": "end_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },

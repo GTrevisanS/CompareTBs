@@ -580,6 +580,17 @@
         },
         "tabela": "wcm_documentos"
     },
+    "87": {
+        "nome": "Representação",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 87,
+            "tipo_protocolo_antigowcm": 87,
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
     "88": {
         "nome": "Requerimento recebido",
         "chave1": "ID-WCM-ANTIGO",

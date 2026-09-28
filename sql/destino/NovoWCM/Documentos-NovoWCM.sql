@@ -39,6 +39,7 @@ SELECT
     wd.doc_retificacao, -- Define se uma ata da sessão foi retificada ou não
     wd.doc_despacho_presidencia, -- "Despacho presidencia (Cessão dependencia)"
     wtl.tip_lic_descricao, -- Tipo de licitação (Geralmente Edital)
+    we.end_descricao, -- Enderecamento (Destinatario)
     wd.doc_mostra_online -- Se está ativo na internet
 FROM 
     wcm_documentos wd
@@ -56,6 +57,8 @@ FROM
     LEFT JOIN wcm_documentos_categorias wdc ON wdc.doc_cat_documentos_id_fk = wd.doc_id
     LEFT JOIN wcm_tipos_categorias wtc ON wtc.tip_cat_id = wdc.doc_cat_tipos_categorias_id_fk
     LEFT JOIN wcm_processos_votacoes wpv ON wpv.pro_vot_id = wd.doc_processo_votacao_id_fk
+	LEFT JOIN wcm_documentos_enderecamentos wden ON wden.doc_end_documento_id_fk = wd.doc_id
+	LEFT JOIN wcm_enderecamentos we ON we.end_id = wden.doc_end_enderecamento_id_fk
 
     -- Situações de tramitação
     LEFT JOIN (SELECT wds.doc_sit_documento_id_fk, GROUP_CONCAT(DISTINCT wsit.sit_descricao ORDER BY wsit.sit_descricao SEPARATOR ', ') 
