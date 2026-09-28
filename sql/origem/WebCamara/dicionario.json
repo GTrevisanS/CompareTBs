@@ -222,8 +222,8 @@
             "MESA-DIRETORA": "mes_dir_descricao",
             "SIGLA": "mes_dir_sigla",
             "BIENIO": "mes_dir_bienio",
-            "DATA_INICIO": "DATA-INICIO",
-            "DATA_FIM": "DATA-FIM",
+            "DATA-INICIO": "DATA-INICIO",
+            "DATA-FIM": "DATA-FIM",
             "SITUACAO": "mes_dir_situacao",
             "OBSERVACOES": "mes_dir_observacao"
         }
@@ -291,7 +291,7 @@
             "tipo": "sub_tip_doc_descricao",
             "tramitacao": "sit_descricao",
             "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_inicio_tramitacao",
+            "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -333,7 +333,7 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
+            "DATA-INICIO-TRAMITACAO": "doc_data_documento",
             "ementa": "doc_ementa",
             "observacao": "doc_observacao",
             "Justificativa": "doc_justificativa",
@@ -356,11 +356,11 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Ementa": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "LEGISLATURA": "leg_descricao",
-            "Data": "doc_data_documento",
-            "Data_Inicio_Tramitacao": "doc_data_inicio_tramitacao",
-            "TRAMITACAO": "sit_descricao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -378,7 +378,7 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "Ementa": "doc_ementa",
             "observacao": "doc_observacao",
             "TIPOS-PARECERES": "sub_tip_doc_descricao",
@@ -410,281 +410,111 @@
         "nome": "Projeto de Lei",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 10,
             "id_tipo_documento_webcamara": 1,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "11": {
         "nome": "Projeto de lei Complementar",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 11,
             "id_tipo_documento_webcamara": 2,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "12": {
         "nome": "Projeto de Resolução",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 12,
             "id_tipo_documento_webcamara": 3,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "13": {
         "nome": "Projeto de Decreto Legislativo",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 13,
             "id_tipo_documento_webcamara": 4,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "14": {
         "nome": "Proposta de Emenda à LOM",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 14,
             "id_tipo_documento_webcamara": 5,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "15": {
         "nome": "Substitutivo",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 15,
             "id_tipo_documento_webcamara": 6,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "16": {
         "nome": "Veto",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 16,
             "id_tipo_documento_webcamara": 7,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "17": {
         "nome": "Parecer do Tribunal de Contas",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 17,
             "id_tipo_documento_webcamara": 8,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "18": {
         "nome": "Projeto de Lei do Executivo",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 18,
             "id_tipo_documento_webcamara": 9,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "19": {
         "nome": "Projeto de Lei Complementar do Executivo",
         "chave1": "ID-Projeto-NovoWCM",
         "chave2": "codigo_documento_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Projetos/projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 19,
             "id_tipo_documento_webcamara": 10,
             "tipo_documento_importado": "codigo_documento_importado"
         },
-        "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
-            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "LEGISLATURA": "leg_descricao",
-            "ementa": "doc_ementa",
-            "justificativa": "doc_justificativa",
-            "TRAMITACAO": "sit_descricao",
-            "Quorum": "tip_quo_descricao",
-            "CATEGORIA": "tip_cat_descricao",
-            "INICIATIVA": "tip_ini_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
-            "Data_Fim_Tramitacao": "doc_data_limite_tramitacao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "projeto"
     },
     "20": {
         "nome": "Audiências Públicas",
@@ -700,7 +530,7 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "Ementa": "doc_ementa",
-            "Data_Audiencia": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "LEGISLATURA": "leg_descricao"  ,
             "INTERNET": "doc_mostra_online"
         }
@@ -741,7 +571,7 @@
             "observacao": "doc_observacao",
             "Tipo_Correspondencia": "sub_tip_doc_descricao",
             "RESPONSAVEL-CORRESPONDENCIA": "cad_uni_nome",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -777,7 +607,7 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "Assunto": "doc_ementa",
             "Numero_Oficio": "doc_codigo_licitacao",
             "LEGISLATURA": "leg_descricao",
@@ -799,8 +629,8 @@
             "Assunto": "doc_ementa",
             "observacao": "doc_observacao",
             "TIPO-PORTARIA": "sub_tip_doc_descricao",
-            "data": "doc_data_documento",
-            "data_publicacao": "doc_data_inicio_tramitacao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
             "situacao": "sit_descricao",
             "INTERNET": "doc_mostra_online"
         }
@@ -898,7 +728,7 @@
             "LEGISLATURA": "leg_descricao",
             "Assunto": "doc_ementa",
             "Numero_Oficio": "doc_codigo_licitacao",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -914,10 +744,10 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data": "doc_data_documento",
             "Assunto": "doc_ementa",
             "situacao": "sit_descricao",
             "observacao": "doc_observacao",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -933,10 +763,10 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data": "doc_data_documento",
             "Assunto": "doc_ementa",
             "situacao": "sit_descricao",
             "observacao": "doc_observacao",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -952,8 +782,8 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Data": "doc_data_documento",
             "Ementa": "doc_ementa",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -971,8 +801,8 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "assunto": "doc_ementa",
             "tipo edital": "sub_tip_doc_descricao",
-            "INTERNET": "doc_mostra_online",
-            "Data": "doc_data_documento"
+            "DATA-REGISTRO": "doc_data_documento",
+            "INTERNET": "doc_mostra_online"
         }
     },
     "51": {
@@ -1012,7 +842,7 @@
             "Origem": "dep_descricao",
             "SUBTIPO-OFICIO": "sub_tip_doc_descricao",
             "observacao": "doc_observacao",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1049,7 +879,7 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "Assunto": "doc_ementa",
             "TIPO-ATESTADO": "sub_tip_doc_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento"
+            "DATA-REGISTRO": "doc_data_documento"
         }
     },
     "73": {
@@ -1064,7 +894,7 @@
         },
         "mapeamento": {
             "OBSERVACOES": "doc_observacao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1142,7 +972,7 @@
             "LEGISLATURA": "leg_descricao",
             "Numero_Oficio": "doc_codigo_licitacao",
             "Assunto": "doc_ementa",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1162,7 +992,7 @@
             "LEGISLATURA": "leg_descricao",
             "Assunto": "doc_ementa",
             "observacao": "doc_observacao",
-            "Data-oficio-diverso": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1319,7 +1149,7 @@
             "LEGISLATURA": "leg_descricao",
             "Numero_Oficio": "doc_codigo_licitacao",
             "Assunto": "doc_ementa",
-            "Data": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1359,7 +1189,7 @@
             "assunto": "doc_ementa",
             "observacao": "doc_observacao",
             "TIPO": "sub_tip_doc_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento",
+            "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1499,7 +1329,7 @@
             "Representante":"edi_emp_representante",
             "Valor_Global": "doc_valor",
             "Data_Contrato": "DATA-CONTRATO",
-            "Data_termino": "DATA-FIM",
+            "DATA-FIM": "DATA-FIM",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1528,169 +1358,89 @@
         "nome": "Leis Ordinárias",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 120,
             "id_tipo_documento_webcamara": 1,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "121": {
         "nome": "Leis Complementares",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 121,
             "id_tipo_documento_webcamara": 2,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "122": {
         "nome": "Resoluções",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 122,
             "id_tipo_documento_webcamara": 3,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "123": {
         "nome": "Decreto Legislativo",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 123,
             "id_tipo_documento_webcamara": 4,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "126": {
         "nome": "Decreto Municipal",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 126,
             "id_tipo_documento_webcamara": 7,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "127": {
         "nome": "Outras legislações",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 127,
             "id_tipo_documento_webcamara": 8,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "138": {
         "nome": "Leis da Câmara",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 138,
             "id_tipo_documento_webcamara": 6,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "139": {
         "nome": "Emenda à LOM",
         "chave1": "ID-Legislacao-NovoWCM",
         "chave2": "codigo_legislacoes_importado",
-        "query1": "sql/origem/Webcamara/Proposituras/Legislacoes/leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 139,
             "id_tipo_documento_webcamara": 5,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
-        "mapeamento": {
-            "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
-            "SITUACAO-LEI": "sit_descricao",
-            "Data": "doc_data_documento",
-            "LEGISLATURA": "leg_descricao",
-            "INTERNET": "doc_mostra_online"
-        }
+        "tabela": "lei"
     },
     "142": {
         "nome": "Ouvidoria",
@@ -1709,7 +1459,7 @@
             "EMENTA": "doc_ementa",
             "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
-            "DATA-REGISTRO": "DATA-MANIFESTACAO"
+            "DATA-REGISTRO": "doc_data_documento"
         }
     },
     "145": {
@@ -1729,7 +1479,7 @@
             "EMENTA": "doc_ementa",
             "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
-            "DATA-REGISTRO": "DATA-MANIFESTACAO"
+            "DATA-REGISTRO": "doc_data_documento"
         }
     },
     "147": {
@@ -1746,7 +1496,7 @@
             "Titulo": "doc_observacao",
             "Observacoes": "doc_ementa",
             "LEGISLATURA": "leg_descricao",
-            "Data_Inicio_Tramitacao": "doc_data_documento"
+            "DATA-REGISTRO": "doc_data_documento"
         }
     },
 "155": {
@@ -1760,9 +1510,9 @@
             "tipo_documento_importado": "codigo_outros_documentos_importado"
         },
         "mapeamento": {
-            "Data": "doc_data_documento",
             "Titulo": "doc_ementa",
-            "Observacoes": "doc_observacao"
+            "Observacoes": "doc_observacao",
+            "DATA-REGISTRO": "doc_data_documento"
         }
     }
 }

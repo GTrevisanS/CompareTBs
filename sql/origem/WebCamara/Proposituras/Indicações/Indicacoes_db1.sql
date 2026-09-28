@@ -7,7 +7,7 @@ SELECT
 		WHEN ind.Data_Inicio_Tramitacao IS NULL then pr.Data_Protocolo
 		WHEN ind.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
 	 	ELSE ind.Data_Inicio_Tramitacao    
-    END AS 'Data_Inicio_Tramitacao',
+    END AS 'DATA-INICIO-TRAMITACAO',
     ind.ementa,
     ind.observacao,
     ind.Justificativa,

@@ -4,7 +4,7 @@ SELECT
 	ec.Codigo_Individual_Ano AS 'CODIGO-DO-EDITAL-LICITACAO',
 	ael.Titulo,
 	ael.Observacoes,
-	ael.Data
+	ael.Data AS 'DATA-REGISTRO'
 FROM 
 	ata_editais_licitacao ael
 	LEFT JOIN {bancowcm4}.wcm_outros_documentos wcm4 ON wcm4.codigo_ata_editais_webcamara = ael.Codigo

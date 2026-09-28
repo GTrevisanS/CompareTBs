@@ -8,7 +8,7 @@ SELECT
 	 	WHEN ats.Data IS NULL THEN pr.Data_Protocolo
 		WHEN ats.Data = 0 THEN pr.Data_Protocolo
     	ELSE ats.Data
-    END AS 'Data_Inicio_Tramitacao'
+    END AS 'DATA-REGISTRO'
     -- l.Nome AS 'LEGISLATURA'
 FROM
     atestado ats

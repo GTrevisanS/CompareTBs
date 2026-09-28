@@ -4,8 +4,8 @@ SELECT
 	p.Assunto,
 	p.observacao,
 	tp.Descricao AS 'TIPO-PORTARIA',
-	p.data,
-	p.data_publicacao,
+	p.data AS 'DATA-REGISTRO',
+	p.data_publicacao AS 'DATA-INICIO-TRAMITACAO',
 	p.orgaoimprensa,
 	p.situacao,
 	p.INTERNET

@@ -9,8 +9,7 @@ SELECT
 	au.Pub_Jornal2,
 	au.Pub_Data2,
 	au.Ementa,
-	au.Data_Audiencia,
-	au.Hora_Audiencia,
+	CONCAT(au.Data_Audiencia, ' ', au.Hora_Audiencia) AS 'DATA-REGISTRO',
 	au.Tipo_legislacao,
 	au.Link,
 	au.INTERNET

@@ -83,6 +83,15 @@ def n_data(valor):
     return valor
 
 
+def add_hour(valor): 
+    valor = str(valor).strip()
+    if valor == '0' or valor == '' or valor is None:
+        return '0'
+    elif len(valor) <= 11:
+        return f'{valor} 00:00:00'
+    return valor
+
+
 # =============================================== NORMALIZAR COLUNAS DO E-SIC =============================================
 
 
@@ -336,28 +345,28 @@ NORMALIZADORES = {
     "RG": descriptografia_hex,
     "Estado_Civil": estados_civis,
     "DATA-NASCIMENTO-NOVOWCM": descriptografia_hex,
-    "doc_data_documento": n_data,
+    "TIPO-MANIFESTACAO": sic_tipo,
+    "SIC-SIT": sic_sit,
+    "situacao": situacao,
+    "TIPOS-PARECERES": tipo_parecer,
+    "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
+    "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante,
     "DATA-MANIFESTACAO": n_data,
-    "DATA-REGISTRO": n_data,
     "Data-Protocolo-Dinamico": n_data,
     "DATA-EMISSAO-TITULO-ELEITORAL": n_data,
     "DATA-EMISSAO-RG": n_data,
     "DATA-NASCIMENTO": n_data,
     "Data-oficio-diverso": n_data,
     "Data_Inicio_Tramitacao": n_data,
-    "doc_data_inicio_tramitacao": n_data,
     "doc_data_limite_tramitacao": n_data,
-    "DATA-INICIO": n_data,
-    "DATA-INICIO-TRAMITACAO": n_data,
     "DATA-LIMITE-TRAMITACAO": n_data,
-    "DATA-FIM": n_data,
+    # "DATA-FIM": n_data,
     "DATA-CONTRATO": n_data,
-    "TIPO-MANIFESTACAO": sic_tipo,
-    "SIC-SIT": sic_sit,
-    "situacao": situacao,
-    "TIPOS-PARECERES": tipo_parecer,
-    "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
-    "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante
+    "DATA-REGISTRO": add_hour,
+    "DATA-INICIO": add_hour,
+    "DATA-INICIO-TRAMITACAO": add_hour,
+    "DATA-LIMITE-TRAMITACAO": add_hour,
+    "DATA-FIM": add_hour,
 }
 
 

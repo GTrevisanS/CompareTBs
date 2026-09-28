@@ -19,8 +19,10 @@ DB1, DB2, DB3 = carregar_bancos()
 b1, b1_host, b1_port, b2, b2_host, b2_port, tipo_migracao = identificar(DB1, DB2)
 
 if tipo_migracao == 'Migração do Webcamara':
-    caminho_dicionario = 'sql/origem/webcamara/dicionario.json'
+    caminho_dicionario = 'sql/origem/WebCamara/dicionario.json'
+    caminho_dicionario_padroes = 'sql/origem/WebCamara/tabelas.json'
     CONFIGURACOES = abrirJson(caminho_dicionario)
+    PADROES = abrirJson(caminho_dicionario_padroes)
 else:
     caminho_dicionario = 'sql/origem/AntigoWCM/dicionario.json'
     caminho_dicionario_padroes = 'sql/origem/AntigoWCM/tabelas.json'
@@ -32,9 +34,15 @@ def sistema(padrao, documento):
     if padrao == 'Migração do Webcamara':
         cfg = CONFIGURACOES.get(str(documento))
         parametros = cfg.get("parametros")
-        mapeamento = cfg["mapeamento"]
-        query1 = cfg["query1"]
-        query2 = cfg["query2"]
+        if cfg.get("mapeamento"):
+            mapeamento = cfg["mapeamento"]
+            query1 = cfg["query1"]
+            query2 = cfg["query2"]
+        else:
+            padrao = PADROES.get(str(cfg["tabela"]))
+            mapeamento = padrao["mapeamento"]
+            query1 = padrao["query1"]
+            query2 = padrao["query2"]
         chave1 = cfg["chave1"]
         chave2 = cfg["chave2"]
         nomemodulo = cfg["nome"]
@@ -44,9 +52,9 @@ def sistema(padrao, documento):
         padrao = PADROES.get(str(tabela))
         parametros = cfg.get("parametros")
         mapeamento = padrao["mapeamento"]
-        nomemodulo = cfg["nome"]
         query1 = padrao["query1"]
         query2 = padrao["query2"]
+        nomemodulo = cfg["nome"]
         chave1 = cfg["chave1"]
         chave2 = cfg["chave2"]
     return cfg, parametros, mapeamento, query1, query2, chave1, chave2, nomemodulo

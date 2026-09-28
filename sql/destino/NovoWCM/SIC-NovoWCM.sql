@@ -6,7 +6,7 @@ SELECT
 --     h.his_sic_justificativa,
     wt.sub_tip_doc_descricao,
     wd.doc_codigo_licitacao,
-    wd.doc_data_documento AS 'DATA-MANIFESTACAO'
+    wd.doc_data_documento
 FROM 
 	wcm_documentos wd
 	LEFT JOIN wcm_sub_tipos_documentos wt ON wt.sub_tip_doc_id = wd.doc_subtipo_documento_id_fk

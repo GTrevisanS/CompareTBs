@@ -5,7 +5,7 @@ SELECT
 	d.observacao,
 	-- d.autoria,
 	td.descricao AS 'TIPO',
-	d.Data as 'Data_Inicio_Tramitacao',
+	d.Data AS 'DATA-REGISTRO',
 	0 AS 'INTERNET' -- Faço isso pra ter certeza que vira desabilitado
 FROM 
 	documentos d

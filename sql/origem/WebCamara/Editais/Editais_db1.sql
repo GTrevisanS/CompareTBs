@@ -6,7 +6,7 @@ SELECT
     tl.descricao AS "tipo licitacao",
     sl.Descricao AS "situacao licitacao",
     e.numero_licitacao,
-    e.Data,
+    e.Data AS 'DATA-REGISTRO',
 	e.INTERNET
 FROM
     editais e
@@ -26,7 +26,7 @@ SELECT
 	NULL, -- Já que a segunda tabela não salva todos os mesmos dados que a primeira, preciso trazer as colunas como null para não dar erro
 	NULL,
 	NULL,
-	ec.Data,
+	ec.Data AS 'DATA-REGISTRO',
 	ec.INTERNET
 FROM 
 	edital_convocacao ec

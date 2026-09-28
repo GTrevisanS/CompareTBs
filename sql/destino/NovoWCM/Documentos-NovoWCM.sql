@@ -43,7 +43,7 @@ SELECT
     wd.doc_mostra_online -- Se está ativo na internet
 FROM 
     wcm_documentos wd
-
+    
     LEFT JOIN wcm_protocolos wpr ON wpr.pro_documento_id_fk = wd.doc_id
     LEFT JOIN wcm_sub_tipos_documentos wst ON wst.sub_tip_doc_id = wd.doc_subtipo_documento_id_fk
     LEFT JOIN wcm_regimes_tramitacoes wreg ON wreg.reg_tra_id = wd.doc_regimes_tramitacoes_id_fk

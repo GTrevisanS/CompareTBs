@@ -8,7 +8,7 @@ SELECT
 	cr.Assunto,
 	cr.observacao,
 	cr.classificacao,
-	cr.Nome as 'RESPONSAVEL-CORRESPONDENCIA',
+	cr.Nome AS 'RESPONSAVEL-CORRESPONDENCIA',
 	cr.Endereco,
 	cr.instituicao,
 	cr.codigo_cidade,
@@ -17,7 +17,7 @@ SELECT
 	cr.cep,
 	cr.Cargo_Remetente,
 	cr.Numero_origem,
-	cr.Data,
+	cr.Data AS 'DATA-REGISTRO',
 	cr.INTERNET
 FROM 	 
 	correspondencias_recebidas cr

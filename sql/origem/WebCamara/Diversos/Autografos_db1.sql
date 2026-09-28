@@ -1,7 +1,7 @@
 SELECT
 	wcm4.aut_id AS 'ID-Autografo-NovoWCM',
 	a.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	a.Data,
+	a.Data AS 'DATA-REGISTRO',
 	a.Ementa,
 	a.INTERNET
 FROM 

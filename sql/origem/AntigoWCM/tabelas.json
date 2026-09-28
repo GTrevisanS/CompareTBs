@@ -163,7 +163,7 @@
             "EMENTA": "doc_ementa",
             "TIPO-MANIFESTACAO": "sub_tip_doc_descricao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
-            "DATA-REGISTRO": "DATA-MANIFESTACAO",
+            "DATA-REGISTRO": "doc_data_documento",
             "NOTA-ATENDIMENTO": "doc_nota_avaliacao"
         }
     },
@@ -174,8 +174,8 @@
         "mapeamento": {
             "LEGISLATURA": "leg_descricao",
             "SIGLA": "leg_sigla",
-            "DATA-INICIO": "leg_data_inicio",
-            "DATA-FIM": "leg_data_fim",
+            "DATA-INICIO-LEGISLATURA": "leg_data_inicio",
+            "DATA-FIM-LEGISLATURA": "leg_data_fim",
             "INTERNET": "leg_mostra_online"
         }
     },

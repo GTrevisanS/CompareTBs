@@ -19,7 +19,7 @@ SELECT
 	 	WHEN req.Data_Inicio_Tramitacao IS NULL THEN pr.Data_Protocolo
 		WHEN req.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
 		ELSE req.Data_Inicio_Tramitacao
-	 END AS 'Data_Inicio_Tramitacao',
+    END AS 'DATA-INICIO-TRAMITACAO',
 --     req.palavrasprobabilidade,
 --     req.revogado,
 --     req.codigo_tipo_projeto,

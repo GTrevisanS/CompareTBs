@@ -17,7 +17,7 @@ SELECT
 		WHEN proj.Data_Inicio_Tramitacao IS NULL then pr.Data_Protocolo
 		WHEN proj.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
 	 	ELSE proj.Data_Inicio_Tramitacao    
-    END AS 'Data_Inicio_Tramitacao',
+    END AS 'DATA-INICIO-TRAMITACAO',
     proj.Data_Fim_Tramitacao,
     proj.INTERNET
 FROM

@@ -9,7 +9,7 @@ SELECT
 		WHEN od.Data IS NULL then wcm4.ofi_data_hora
 		WHEN od.Data = 0 then wcm4.ofi_data_hora
 		ELSE od.Data
-	END AS 'Data-oficio-diverso',
+	END AS 'DATA-REGISTRO',
 	od.Em_resposta_codigo,
 	od.Em_resposta_Tipo,
 	od.Em_Resposta,

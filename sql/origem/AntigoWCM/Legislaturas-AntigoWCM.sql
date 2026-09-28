@@ -2,8 +2,8 @@ SELECT
 	l.leg_id 'ID-WCM-ANTIGO',
 	l.leg_descricao 'LEGISLATURA',
 	l.leg_sigla 'SIGLA',
-	l.leg_data_inicio 'DATA-INICIO',
-	l.leg_data_fim 'DATA-FIM',
+	l.leg_data_inicio 'DATA-INICIO-LEGISLATURA',
+	l.leg_data_fim 'DATA-FIM-LEGISLATURA',
 	l.leg_mostra_online 'INTERNET'
 FROM 
 	wcm_legislaturas l

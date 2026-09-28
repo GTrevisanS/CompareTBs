@@ -2,7 +2,7 @@ SELECT
 	wcm4.ato_id AS 'ID-Ato-NovoWCM',
 	ap.Codigo_Individual_ano AS 'CODIGO-INDIVIDUAL-ANO',
 	ap.Codigo,
-	ap.Data,
+	ap.Data AS 'DATA-REGISTRO',
 	ap.Assunto,
 	l.Nome AS 'LEGISLATURA',
 	ap.situacao,

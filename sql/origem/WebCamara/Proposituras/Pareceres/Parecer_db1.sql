@@ -7,7 +7,7 @@ SELECT
 		WHEN p.Data IS NULL then pr.Data_Protocolo
 		WHEN p.Data = 0 THEN pr.Data_Protocolo
 	 	ELSE p.Data
-	 END AS 'Data_Inicio_Tramitacao',
+	 END AS 'DATA-REGISTRO',
     p.Ementa,
     p.Tipo AS 'TIPOS-PARECERES',
     l.Nome AS 'LEGISLATURA',

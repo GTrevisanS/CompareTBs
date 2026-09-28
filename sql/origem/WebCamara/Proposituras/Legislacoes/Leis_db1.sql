@@ -24,7 +24,7 @@ SELECT
     lei.Codigo_Projeto,
     st.Descricao AS 'TRAMITACAO',
     lei.Responsavel,
-    lei.Data,
+    lei.Data AS 'DATA-REGISTRO',
 	lei.INTERNET
 FROM
     lei

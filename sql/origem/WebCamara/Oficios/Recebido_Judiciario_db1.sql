@@ -5,7 +5,7 @@ SELECT
 	rj.Numero_Oficio,
 	rj.Em_Resposta,
 	rj.Assunto,
-	rj.Data,
+	rj.Data AS 'DATA-REGISTRO',
 	rj.INTERNET
 FROM 
 	recebido_judiciario rj
