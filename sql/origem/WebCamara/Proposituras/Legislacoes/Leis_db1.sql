@@ -3,9 +3,8 @@ SELECT
     wcm4.leg_codigo_individual,
     tl.Nome_Tipo_Lei,
     lei.Numero,
-    lei.ementa,
-    lei.observacao,
-    lei.Situacao_Tramitacao,
+    lei.EMENTA,
+    lei.observacao AS 'OBSERVACOES',
     CONCAT_WS(', ',
 		IF(lei.situacao_lei_alterada = 9, 'Alterada', NULL),
 		IF(lei.Situacao_Lei_Declarada_Ilegal = 7, 'Declarada Ilegal', NULL),
@@ -19,11 +18,17 @@ SELECT
 		IF(lei.Situacao_Lei_Suspensa_por_Liminar = 5, 'Suspensa por Liminar', NULL)
 	) AS 'SITUACAO-LEI',
     le.Nome AS 'LEGISLATURA',
+    GROUP_CONCAT(DISTINCT c.Nome ORDER BY c.Nome DESC SEPARATOR ', ') AS 'CATEGORIA',
     tp.Nome AS 'TIPO-PROJETO',
     lei.Codigo_Projeto,
-    st.Descricao AS 'TRAMITACAO',
+    -- st.Descricao AS 'SITUACAO-TRAMITACAO',
     lei.Responsavel,
     lei.Data AS 'DATA-REGISTRO',
+    tpub.`Data` AS 'DATA-PUBLICACAO',
+    tpub.data_final AS 'DATA-FINAL-PUBLICACAO',
+    tpub.Descricao AS 'LOCAL-PUBLICACAO',
+    tpub.edicao AS 'EDICAO',
+    tpub.pagina AS 'PAGINA',
 	lei.INTERNET
 FROM
     lei
@@ -31,8 +36,13 @@ FROM
     LEFT JOIN tipo_projeto tp ON tp.Codigo = lei.Codigo_Tipo_Projeto
     LEFT JOIN legislatura le ON le.Codigo = lei.Codigo_LEGISLATURA
     LEFT JOIN situacao_tramitacao st ON st.Codigo = lei.Situacao_LEI
-    LEFT JOIN {bancowcm4}.wcm_legislacoes wcm4 ON wcm4.codigo_leis_webcamara = lei.Codigo
+    LEFT JOIN categoria_lei catl ON catl.Codigo_lei = lei.Codigo
+    LEFT JOIN categoria c ON c.Codigo = catl.Codigo_CATEGORIA
+    LEFT JOIN tipo_publicacao tpub ON tpub.codigo_lei = lei.Codigo
+	LEFT JOIN {bancowcm4}.wcm_legislacoes wcm4 ON wcm4.codigo_leis_webcamara = lei.Codigo
 WHERE
     lei.Codigo_TIPO_lei = {id_tipo_documento_webcamara}
+GROUP BY
+	wcm4.codigo_leis_webcamara
 ORDER BY
     wcm4.codigo_leis_webcamara DESC

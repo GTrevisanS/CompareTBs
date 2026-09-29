@@ -25,11 +25,18 @@
         "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
         "mapeamento": {
             "leg_codigo_individual": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "SITUACAO-LEI": "sit_descricao",
             "LEGISLATURA": "leg_descricao",
+            "CATEGORIA": "tip_cat_descricao",
             "DATA-REGISTRO": "doc_data_documento",
+            "DATA-PUBLICACAO": "",
+            "DATA-FINAL-PUBLICACAO": "",
+            "DATA-FINAL-PUBLICACAO": "", 
+            "LOCAL-PUBLICACAO": "", 
+            "EDICAO": "",
+            "PAGINA": "",
             "INTERNET": "doc_mostra_online"
         }
     },
