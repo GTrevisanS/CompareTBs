@@ -1,10 +1,13 @@
 SELECT
 	ws.codigo_sessao_importado,
+	CONCAT_WS(' ', CONCAT_WS('-', ws.ses_codigo_individual, YEAR(ws.ses_data_hora_sessao)),wts.tip_ses_descricao_singular) 'ses_nome_identificador',
+	CONCAT_WS('-', ws.ses_codigo_individual, YEAR(ws.ses_data_hora_sessao)) 'ses_codigo_individual',
 	ws.ses_nome,
-	ws.ses_codigo_individual,
 	ws.ses_data_hora_sessao,
-	wts.tip_ses_descricao_singular,
+	ws.ses_data_hora_limite_protocolo,
 	ws.ses_observacao,
+	ws.ses_video_link,
+	NULL AS 'ses_local', -- pq n existe a coluna
 	ws.ses_mostra_online
 FROM 
 	wcm_sessoes ws

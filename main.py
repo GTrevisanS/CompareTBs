@@ -90,12 +90,20 @@ def comparar_todos(documentos, totalerros):
             print('\n\n')
         
         totalcolunas = len(mapeamento)
-        if nomemodulo.count("Protocolo Dinamico") != 0:
+        if tipo_migracao == 'Migração do Webcamara' and nomemodulo.count("Protocolo Dinamico") != 0:
             try:
-                nomemodulo = findpdname(nomemodulo)
+                nomemodulo = findpdname(nomemodulo, tipo_migracao)
             except Exception as falha:
                 print(f"Não foi possivel altetar o nome do {nomemodulo} pelo seguinte erro:")
                 print(falha)
+        elif nomemodulo.count("Protocolo Dinamico") != 0: 
+            try:
+                nomemodulo = findpdname(nomemodulo, tipo_migracao, parametros.get('tipo_cadastro_generico_antigowcm'))
+            except Exception as falha:
+                print(f"Não foi possivel altetar o nome do {nomemodulo} pelo seguinte erro:")
+                print(falha)
+        else:
+            pass
 
         conteudo = {
             "modulo": nomemodulo,

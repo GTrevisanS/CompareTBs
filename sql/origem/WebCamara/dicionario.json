@@ -156,9 +156,9 @@
         "query2": "sql/destino/NovoWCM/Sessoes/Sessoes-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "ses_codigo_individual",
-            "Nome": "ses_nome",
-            "nome_tipo_sessao": "tip_ses_descricao_singular",
-            "observacao": "ses_observacao",
+            "NOME-SESSAO": "ses_nome",
+            "DATA-REGISTRO": "ses_data_hora_sessao",
+            "OBSERVACOES": "ses_observacao",
             "INTERNET": "ses_mostra_online"
         }
     },
@@ -201,13 +201,13 @@
         "query2": "sql/destino/NovoWCM/Legislatura/Comissoes-NovoWCM.sql",
         "mapeamento": {
             "Nome": "com_descricao",
-            "Sigla": "com_sigla",
+            "SIGLA": "com_sigla",
             "LEGISLATURA": "leg_descricao",
-            "Periodo": "com_periodo",
-            "Data_Inicial": "com_data_inicio",
-            "Data_Final": "com_data_fim",
+            "PERIODO": "com_periodo",
+            "DATA-INICIO": "com_data_inicio",
+            "DATA-FIM": "com_data_fim",
             "Atribuicao": "com_atribuicoes",
-            "Observacoes": "com_observacao",
+            "OBSERVACOES": "com_observacao",
             "MEMBROS-COMISSAO-WEBCAMARA": "MEMBROS-COMISSAO"
         }
     },

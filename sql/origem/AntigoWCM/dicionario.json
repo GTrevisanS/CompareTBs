@@ -1,13 +1,31 @@
 {
+    "000-C": {
+        "nome": "Comissões",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_comissao_importada",
+        "tabela": "wcm_comissoes"
+    },
+    "000-E": {
+        "nome": "Ementas",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "eme_id",
+        "tabela": "wcm_ementas"
+    },
+    "000-S": {
+        "nome": "Sessões",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_sessao_importado",
+        "tabela": "wcm_sessoes"
+    },
     "000-P": {
         "nome": "Politicos",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_politico_importado",
-        "tabela": "wcm_parlamentares",
         "parametros": {
             "tipo_documento_importado": "codigo_politico_importado",
             "parametro_where": "wc.cad_uni_politico = 1"
-        }
+        },
+        "tabela": "wcm_parlamentares"
     },
     "000-L": {
         "nome": "Legislaturas",
@@ -623,6 +641,116 @@
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
+    },
+    "91": {
+        "nome": "Protocolo Dinamico",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 91,
+            "tipo_cadastro_generico_antigowcm": 91,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "92": {
+        "nome": "Protocolo Dinamico 2",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 92,
+            "tipo_cadastro_generico_antigowcm": 92,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "93": {
+        "nome": "Protocolo Dinamico 3",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 93,
+            "tipo_cadastro_generico_antigowcm": 93,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "94": {
+        "nome": "Protocolo Dinamico 4",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 94,
+            "tipo_cadastro_generico_antigowcm": 94,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "102": {
+        "nome": "Protocolo Dinamico 5",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 102,
+            "tipo_cadastro_generico_antigowcm": 102,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "103": {
+        "nome": "Protocolo Dinamico 6",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 103,
+            "tipo_cadastro_generico_antigowcm": 103,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "104": {
+        "nome": "Protocolo Dinamico 7",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 104,
+            "tipo_cadastro_generico_antigowcm": 104,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "105": {
+        "nome": "Protocolo Dinamico 8",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 105,
+            "tipo_cadastro_generico_antigowcm": 105,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "106": {
+        "nome": "Protocolo Dinamico 9",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 106,
+            "tipo_cadastro_generico_antigowcm": 106,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+   "107": {
+        "nome": "Protocolo Dinamico 10",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 107,
+            "tipo_cadastro_generico_antigowcm": 107,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
     },
     "118": {
         "nome": "Contratos",

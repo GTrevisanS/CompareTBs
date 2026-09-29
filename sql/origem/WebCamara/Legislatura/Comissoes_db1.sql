@@ -1,13 +1,13 @@
 SELECT 
 	wcm4.com_per_id AS 'ID-Comissao-NovoWCM',
 	c.Nome,
-	c.Sigla,
+	c.SIGLA,
 	l.Nome AS 'LEGISLATURA',
-	c.Periodo,
-	c.Data_Inicial,
-	c.Data_Final,
+	c.PERIODO,
+	c.Data_Inicial AS 'DATA-INICIO',
+	c.Data_Final AS 'DATA-FIM',
 	c.Atribuicao,
-	c.Observacoes,
+	c.OBSERVACOES,
 	GROUP_CONCAT(p.Nome SEPARATOR '___') AS 'MEMBROS-COMISSAO-WEBCAMARA'
 FROM 
 	comissao c

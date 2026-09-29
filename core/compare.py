@@ -21,16 +21,12 @@ def executar_query(config, query):
     conexao.close()
     return resultado
 
-# =====================================================
-# PROCURA IDS QUE EXISTEM APENAS EM UM BANCO
-# =====================================================
-
 def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
 
     dados1 = {
         linha[chave_db1]: linha
         for linha in resultado1
-        if linha[chave_db1] is not None # Não conta os que não possuem ID de importação para não quebrar o código (Já que seria impossível comparar IDs inexistentes entre si)
+        if linha[chave_db1] is not None
     }
 
     dados2 = {
@@ -41,19 +37,29 @@ def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
 
     inexistentes = []
     total_registros_webcamara = len(dados1)
-    
+
     todos_ids = set(dados1.keys()) | set(dados2.keys())
 
     for registro_id in sorted(todos_ids):
 
         if registro_id not in dados1:
+            # Pega a linha completa do Banco 2 referente ao ID
+            linha = dados2[registro_id]
+
+            dadoslinha, nome_identificador = encontrar_id(linha)
+
             inexistentes.append(
-                f'ID "{registro_id}" existe apenas no BANCO 2'
+                f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 2'
             )
 
         elif registro_id not in dados2:
+            # Pega a linha completa do Banco 1 referente ao ID
+            linha = dados1[registro_id]
+
+            dadoslinha, nome_identificador = encontrar_id(linha)
+
             inexistentes.append(
-                f'ID "{registro_id}" existe apenas no BANCO 1'
+                f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 1'
             )
 
     return total_registros_webcamara, inexistentes
@@ -105,35 +111,3 @@ def procurar_diferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento
 
 
 
-def procurar_inexistentes_com_where(resultado1, resultado2, chave_db1, chave_db2):
-
-    dados1 = {
-        linha[chave_db1]: linha
-        for linha in resultado1
-        if linha[chave_db1] is not None # Não conta os que não possuem ID de importação para não quebrar o código (Já que seria impossível comparar IDs inexistentes entre si)
-    }
-
-    dados2 = {
-        linha[chave_db2]: linha
-        for linha in resultado2
-        if linha[chave_db2] is not None
-    }
-
-    inexistentes = []
-    total_registros_webcamara = len(dados1)
-    
-    todos_ids = set(dados1.keys()) | set(dados2.keys())
-
-    for registro_id in sorted(todos_ids):
-
-        if registro_id not in dados1:
-            inexistentes.append(
-                f'ID "{registro_id}" existe apenas no BANCO 2'
-            )
-
-        elif registro_id not in dados2:
-            inexistentes.append(
-                f'ID "{registro_id}" existe apenas no BANCO 1'
-            )
-
-    return total_registros_webcamara, inexistentes

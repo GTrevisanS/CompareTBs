@@ -401,9 +401,12 @@ NORMALIZADORES = {
     "DATA-CONTRATO": n_data,
     "DATA-REGISTRO": add_hour,
     "DATA-INICIO": add_hour,
+    "DATA-FIM": add_hour,
     "DATA-INICIO-TRAMITACAO": add_hour,
     "DATA-LIMITE-TRAMITACAO": add_hour,
-    "DATA-FIM": add_hour,
+    "com_data_inicio": add_hour,
+    "com_data_fim": add_hour,
+    "ses_codigo_individual": codigo_individual_ano
 }
 
 

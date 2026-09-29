@@ -222,5 +222,46 @@
             "DEPARTAMENTO": "dep_descricao",
             "GRUPO-USUARIO": "gru_usu_sis_nome"
         }
+    },
+
+    "wcm_ementas": {
+        "query1": "sql/origem/AntigoWCM/Outros/Ementas-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Ementas-NovoWCM.sql",
+        "mapeamento": {
+            "ID-WCM-ANTIGO": "eme_id",
+            "DESCRICAO": "eme_descricao",
+            "EMENTA": "eme_ementa"
+        }
+    },
+
+    "wcm_comissoes": {
+        "query1": "sql/origem/AntigoWCM/Legislatura/Comissoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Comissoes-NovoWCM.sql",
+        "mapeamento": {
+            "COMISSAO": "com_descricao",
+            "SIGLA": "com_sigla",
+            "LEGISLATURA": "leg_descricao",
+            "PERIODO": "com_periodo",
+            "DATA-INICIO": "com_data_inicio",
+            "DATA-FIM": "com_data_fim",
+            "ATRIBUICOES": "com_atribuicoes",
+            "OBSERVACOES": "com_observacao",
+            "MEMBROS-COMISSAO": "MEMBROS-COMISSAO"
+        }
+    },
+
+    "wcm_sessoes": {
+        "query1": "sql/origem/AntigoWCM/Sessoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Sessoes/Sessoes-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "ses_codigo_individual",
+            "NOME-SESSAO": "ses_nome",
+            "DATA-REGISTRO": "ses_data_hora_sessao",
+            "DATA-LIMITE-PROTOCOLO": "ses_data_hora_limite_protocolo",
+            "OBSERVACOES": "ses_observacao",
+            "LINK-VIDEO-SESSAO": "ses_video_link",
+            "LOCAL-SESSAO": "ses_local",
+            "INTERNET": "ses_mostra_online"
+        }
     }
 }

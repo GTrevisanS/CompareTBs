@@ -1,11 +1,10 @@
 SELECT 
 	wcm4.ses_id AS 'ID-Sessao-NovoWCM',
-	s.Nome,
-	s.Codigo_Individual AS 'CODIGO-INDIVIDUAL-ANO',
-	s.Data,
-	s.Hora,
+	s.Nome AS 'NOME-SESSAO',
+	CONCAT_WS('-',s.Codigo_Individual, s.Ano)AS 'CODIGO-INDIVIDUAL-ANO',
+	CONCAT_WS(' ', s.Data, s.Hora)AS 'DATA-REGISTRO',
 	ts.nome_tipo_sessao,
-	s.observacao,
+	s.observacao AS 'OBSERVACOES',
 	s.INTERNET
 FROM 
 	sessao s
