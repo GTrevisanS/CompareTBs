@@ -9,8 +9,9 @@ possibilidades = {
     'CODIGO-MANIFESTACAO': 'Código da manifestação',                              # UTILIZADO PARA CODIGO DE MANIFESTAÇÃO (E-SIC E OUVIDORIA)
     'cad_uni_nome': 'Nome do cadastro único (NovoWCM)',                           # UTILIZADO PARA NOMES (CADASTROS UNICOS) EM GERAL
     'usu_sis_login': 'Login / do usuário (NovoWCM)',                              # UTILIZADO PARA NOMES (USUARIOS)
+    'mes_dir_descricao': 'Nome da mesa diretora (NovoWCM)',                       # UTILIZADO PARA MESAS DIRETORAS
     'IDENTIFICADOR-REVOGACAO': 'ID da Query do NovoWCM que identifica a ação',    # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
-    'CODIGO-INDIVIDUAL-ANO': 'Codigo de identificação'                           # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
+    'CODIGO-INDIVIDUAL-ANO': 'Codigo de identificação'                            # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
 }   
 
 def trocar_id(documento, possibilidade):

@@ -7,7 +7,7 @@ SELECT
 	o.ofi_designacao,
 	o.ofi_enderecamento 'ENDERECAMENTO',
 	des.des_descricao 'DESTINATARIO',
-	o.ofi_numero_protocolo_prefeitura 'NUMERO-ORIGINAL-OFICIO',
+	o.ofi_numero_protocolo_prefeitura 'NUMERO-ORIGINAL',
 	o.ofi_mostra_online 'INTERNET'
 FROM 
 	wcm_oficios o

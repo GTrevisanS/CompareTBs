@@ -33,6 +33,12 @@
         "chave2": "codigo_legislatura_importada",
         "tabela": "wcm_legislaturas"
     },
+    "000-M": {
+        "nome": "Mesas Diretoras",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_mesa_importada",
+        "tabela": "wcm_mesas_diretoras"
+    },
     "000-U": {
         "nome": "Usuários",
         "chave1": "ID-WCM-ANTIGO",
@@ -262,13 +268,13 @@
     "23": {
         "nome": "Convites",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_convites_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 23,
             "tipo_protocolo_antigowcm": 23,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipo_documento_importado": "codigo_convites_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_convites"
     },
     "24": {
         "nome": "Correspondencias Recebidas",
@@ -466,17 +472,6 @@
         },
         "tabela": "wcm_oficios"
     },
-    "57": {
-        "nome": "Memorando",
-        "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
-        "parametros": {
-            "id_tipo_documento_novowcm": 57,
-            "tipo_protocolo_antigowcm": 57,
-            "tipo_documento_importado": "codigo_documento_importado"
-        },
-        "tabela": "wcm_documentos"
-    },
     "71": {
         "nome": "Certidões",
         "chave1": "ID-WCM-ANTIGO",
@@ -491,13 +486,13 @@
     "72": {
         "nome": "Atestados",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_atestado_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 72,
             "tipo_protocolo_antigowcm": 72,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipo_documento_importado": "codigo_atestado_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_atestados"
     },
     "73": {
         "nome": "Diário Oficial",
@@ -524,13 +519,13 @@
     "75": {
         "nome": "Relatório de viagens",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_financas_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 75,
             "tipo_protocolo_antigowcm": 75,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipo_documento_importado": "codigo_financas_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_financas"
     },
     "76": {
         "nome": "Controle de Veículos",
@@ -631,17 +626,6 @@
         },
         "tabela": "wcm_documentos"
     },
-    "95": {
-        "nome": "Balancete da Prefeitura",
-        "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_oficio_importado",
-        "parametros": {
-            "id_tipo_documento_novowcm": 95,
-            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 95",
-            "tipo_documento_importado": "codigo_oficio_importado"
-        },
-        "tabela": "wcm_oficios"
-    },
     "91": {
         "nome": "Protocolo Dinamico",
         "chave1": "ID-WCM-ANTIGO",
@@ -683,6 +667,61 @@
             "id_tipo_documento_novowcm": 94,
             "tipo_cadastro_generico_antigowcm": 94,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "95": {
+        "nome": "Balancete da Prefeitura",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_oficio_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 95,
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 95",
+            "tipo_documento_importado": "codigo_oficio_importado"
+        },
+        "tabela": "wcm_oficios"
+    },
+    "97": {
+        "nome": "Pedido de informação",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 97,
+            "tipo_protocolo_antigowcm": 97,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "98": {
+        "nome": "Pedido de retirada",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_documento_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 98,
+            "tipo_protocolo_antigowcm": 98,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "tabela": "wcm_documentos"
+    },
+    "99": {
+        "nome": "Documentos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 99,
+            "tipo_cadastro_generico_antigowcm": 99,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado"
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+    "101": {
+        "nome": "Memorando Externo",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 101,
+            "tipo_cadastro_generico_antigowcm": 101,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado"
         },
         "tabela": "wcm_cadastros_genericos"
     },
@@ -748,6 +787,17 @@
         "parametros": {
             "id_tipo_documento_novowcm": 107,
             "tipo_cadastro_generico_antigowcm": 107,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "tabela": "wcm_cadastros_genericos"
+    },
+   "110": {
+        "nome": "Registros de preços",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_generico_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 110,
+            "tipo_cadastro_generico_antigowcm": 110,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
         },
         "tabela": "wcm_cadastros_genericos"
