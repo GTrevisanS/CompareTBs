@@ -176,6 +176,7 @@ if input_documentos:
 moduloscomparados = 0
 moduloslimpos = 0
 modulosvazios = 0
+totalregistrosgeral = 0
 nomesmodulosvazios = []
 
 colors = ['orange', 'blue', 'red', 'violet', 'rainbow', 'yellow', 'green']
@@ -184,13 +185,14 @@ for resultado in resultados:
 
     nome_modulo = f'{resultado["modulo"]}'
     total_colunas = resultado["contatotalcolunas"]
-    total_registro = resultado["totalregistros"]
+    totalregistrosmodulo = resultado["totalregistros"]
     moduloscomparados += 1
 
-    if total_registro == 0:
+    if totalregistrosmodulo == 0:
         modulosvazios += 1
         nomesmodulosvazios.append(str(nome_modulo))
-
+    else:
+        totalregistrosgeral+=totalregistrosmodulo
 
     if not resultado["diferencas"] and not resultado["inexistentes"]:
         moduloslimpos += 1
@@ -204,7 +206,7 @@ for resultado in resultados:
 
             titulo_diferencas = f'###### :orange-background[:orange[{total_dif} Diferenças]]'
             titulo_inexistentes = f'###### :red-background[:red[{total_ine} Inexistentes]]'
-            titulo_registros = f'###### :violet-background[:violet[{total_registro} Registros]]'
+            titulo_registros = f'###### :violet-background[:violet[{totalregistrosmodulo} Registros]]'
 
             col1, col2, col3, col4, col5, col6 = st.columns([2.4, 3, 0.7, 0.7, 0.7, 0.7]) # Ajustei levemente os tamanhos para caber o texto do pills
             cor = random.choice(colors)
@@ -241,7 +243,7 @@ for resultado in resultados:
 #     with st.container(border=True):
 #         st.write(f":grey[Lista de módulos vazios encontrados: {nomesmodulosvazios}]")
 
-col1, col2, col3, col4, col5, col6 = st.columns([1.4, 2.8, 1, 0.7, 0.7, 1.2])
+col1, col2, col3, col4, col5, col6, col7 = st.columns([1.4, 2, 1.1, 0.9, 0.9, 1.2, 0.8])
 
 
 # Força o encerramento bruto do servidor
@@ -252,6 +254,7 @@ if col1.button(":red[Encerrar Processo !]", width='stretch'):
 moduloslimpos = moduloslimpos - modulosvazios
 
 if resultados:
+    st.toast(f"Foram comparados mais de {totalregistrosgeral*2} registros.")
     if totalerros:
         st.toast(f":red[{totalerros} Módulos deram erro!]")
         col2.write(f":red-background[:red[Módulos que deram erro...{totalerros}]]")
@@ -263,3 +266,4 @@ col3.write(f":red-background[:red[Módulos inconsistentes...{moduloscomparados -
 col4.write(f":blue-background[:blue[Módulos limpos...{moduloslimpos}]]")
 col5.write(f":green-background[:green[Módulos vazios...{modulosvazios}]]")
 col6.write(f":orange-background[:orange[Módulos sendo comparados...{moduloscomparados}]]")
+col7.write(f":violet-background[:violet[{totalregistrosgeral} comparações]]")
