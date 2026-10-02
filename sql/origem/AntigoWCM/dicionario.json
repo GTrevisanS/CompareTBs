@@ -1,4 +1,10 @@
 {
+    "000-P1": {
+        "nome": "Protocolos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_protocolo_importacao",
+        "tabela": "wcm_protocolos"
+    },
     "000-C": {
         "nome": "Comissões",
         "chave1": "ID-WCM-ANTIGO",

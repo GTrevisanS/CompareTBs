@@ -1,4 +1,16 @@
 {
+    "wcm_protocolos": {
+        "query1": "sql/origem/AntigoWCM/Protocolos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Protocolos-NovoWCM.sql",
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual",
+            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "TIPO-DOCUMENTO": "tip_doc_descricao",
+            "CODIGO-INDIVIDUAL-ANO": "CODIGO-TIPO-NOVOWCM",
+            "PROTOCOLANTE": "PROTOCOLANTE"
+        }
+    },
+
     "wcm_documentos": {
         "query1": "sql/origem/AntigoWCM/Documentos/Documentos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
