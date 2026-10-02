@@ -4,7 +4,7 @@
         "chave1": "ID-Protocolo-NovoWCM",
         "chave2": "codigo_protocolo_importacao",
         "query1": "sql/origem/Webcamara/Protocolos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Protocolos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Protocolos-NovoWCM.sql",
         "mapeamento": {
             "TIPO-PROTOCOLO-WEBCAMARA": "tip_doc_descricao",
             "CODIGO_TIPO":"CODIGO-TIPO-NOVOWCM",
@@ -233,7 +233,7 @@
         "chave1": "ID-Emenda-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Emendas e Subemendas/Emendas_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 1,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -254,7 +254,7 @@
         "chave1": "ID-SubEmenda-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Emendas e Subemendas/Subemendas_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 2,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -275,7 +275,7 @@
         "chave1": "ID-Requerimento-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Requerimentos/requerimentos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 3,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -300,7 +300,7 @@
         "chave1": "ID-Mocoes-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Moções/mocoes_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 4,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -316,7 +316,7 @@
             "TIPO-MOCAO": "sub_tip_doc_descricao",
             "TRAMITACAO": "sit_descricao",
             "Regime_Tramitacao": "reg_tra_descricao",
-            "Destinatario": "doc_observacao",
+            "Destinatario": "end_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -325,7 +325,7 @@
         "chave1": "ID-Indicacao-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Indicações/Indicacoes_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 5,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -350,7 +350,7 @@
         "chave1": "ID-Recurso-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Recurso/Recurso_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 7,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -370,7 +370,7 @@
         "chave1": "ID-Parecer-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Pareceres/Parecer_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 8,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -392,7 +392,7 @@
         "chave1": "ID-Anteprojeto-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Projetos/AnteProjeto_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 9,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -522,7 +522,7 @@
         "chave1": "ID-Audiencia-Publica-NovoWCM",
         "chave2": "codigo_audiencias_publicas_importado",
         "query1": "sql/origem/Webcamara/Diversos/Audiencias_Publicas_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 20,
             "tipo_documento_importado": "codigo_audiencias_publicas_importado"
@@ -541,7 +541,7 @@
         "chave1": "ID-Convite-NovoWCM",
         "chave2": "codigo_convites_importado",
         "query1": "sql/origem/Webcamara/Outros/Convites_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 23,
             "tipo_documento_importado": "codigo_convites_importado"
@@ -561,7 +561,7 @@
         "chave1": "ID-Correspondencia-NovoWCM",
         "chave2": "codigo_controle_correspondencia_enviada_importado",
         "query1": "sql/origem/Webcamara/Correspondencias/Correspondencia_Recebida_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 24,
             "tipo_documento_importado": "codigo_controle_correspondencia_enviada_importado"
@@ -582,7 +582,7 @@
         "chave1": "ID-Denuncia-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Denuncias/Denuncias_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 25,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -600,7 +600,7 @@
         "chave1": "ID-Mensagem-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Outros/Mensagens_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 28,
             "tipo_documento_importado": "codigo_documento_importado"
@@ -621,7 +621,7 @@
         "chave1": "ID-Portaria-NovoWCM",
         "chave2": "codigo_portaria_importado",
         "query1": "sql/origem/Webcamara/Proposituras/legislacoes/Portarias_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 33,
             "tipo_documento_importado": "codigo_portaria_importado"
@@ -642,7 +642,7 @@
         "chave1": "ID-Prestacao-Conta-NovoWCM",
         "chave2": "codigo_financas_importado",
         "query1": "sql/origem/Webcamara/Financas/Prestacao_Contas_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 34,
             "tipo_documento_importado": "codigo_financas_importado"
@@ -661,7 +661,7 @@
         "chave1": "ID-Protocolo-Municipe-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolo_Municipe_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 35,
             "tipo_documento_importado": "codigo_cadastro_generico_importado"
@@ -684,7 +684,7 @@
         "chave1": "ID-Recebido-Vereador-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Oficios/Recebido_Vereador_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 36,
             "tipo_documento_importado": "codigo_cadastro_generico_importado"
@@ -703,7 +703,7 @@
         "chave1": "ID-Tribuna-Livre-NovoWCM",
         "chave2": "codigo_diversos_importado",
         "query1": "sql/origem/Webcamara/Diversos/Tribuna_livre_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 43,
             "tipo_documento_importado": "codigo_diversos_importado"
@@ -720,7 +720,7 @@
         "chave1": "ID-Tribunal-Contas-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Tribunal_Contas_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 44,
             "tipo_documento_importado": "codigo_oficio_importado"
@@ -739,7 +739,7 @@
         "chave1": "ID-Ato-NovoWCM",
         "chave2": "codigo_atos_importado",
         "query1": "sql/origem/Webcamara/Atos/Atos_mesa_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 45,
             "tipo_documento_importado": "codigo_atos_importado"
@@ -758,7 +758,7 @@
         "chave1": "ID-Ato-NovoWCM",
         "chave2": "codigo_atos_importado",
         "query1": "sql/origem/Webcamara/Atos/Atos_presidente_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 46,
             "tipo_documento_importado": "codigo_atos_importado"
@@ -777,7 +777,7 @@
         "chave1": "ID-Autografo-NovoWCM",
         "chave2": "codigo_autografo_importado",
         "query1": "sql/origem/Webcamara/Diversos/Autografos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 48,
             "tipo_documento_importado": "codigo_autografo_importado"
@@ -794,7 +794,7 @@
         "chave1": "edi_id",
         "chave2": "codigo_editais_importado",
         "query1": "sql/origem/Webcamara/Editais/editais_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 50,
             "tipo_documento_importado": "codigo_editais_importado"
@@ -812,7 +812,7 @@
         "chave1": "ID-Ata-Sessao-NovoWCM",
         "chave2": "codigo_ata_importado",
         "query1": "sql/origem/Webcamara/Atas/Atas_sessoes_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 51,
             "tipo_documento_importado": "codigo_ata_importado"
@@ -833,7 +833,7 @@
         "chave1": "ID-Oficio-Enviado-Webcamara",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Oficios_Enviados_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 53,
             "tipo_documento_importado": "codigo_oficio_importado"
@@ -853,7 +853,7 @@
         "chave1": "ID-Certidao-NovoWCM",
         "chave2": "codigo_diversos_importado",
         "query1": "sql/origem/Webcamara/Diversos/Certidoes_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 71,
             "tipo_documento_importado": "codigo_diversos_importado"
@@ -871,7 +871,7 @@
         "chave1": "CODIGO-ATESTADO-WEBCAMARA",
         "chave2": "codigo_atestado_importado",
         "query1": "sql/origem/Webcamara/Diversos/Atestados_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 72,
             "tipo_documento_importado": "codigo_atestado_importado"
@@ -889,7 +889,7 @@
         "chave1": "ID-Diario-Oficial-NovoWCM",
         "chave2": "codigo_diversos_importado",
         "query1": "sql/origem/Webcamara/Diversos/Diario_Oficial_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 73,
             "tipo_documento_importado": "codigo_diversos_importado"
@@ -905,7 +905,7 @@
         "chave1": "ID-Declaracao-NovoWCM",
         "chave2": "codigo_diversos_importado",
         "query1": "sql/origem/Webcamara/Diversos/Declaracao_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 74,
             "tipo_documento_importado": "codigo_diversos_importado"
@@ -923,7 +923,7 @@
         "chave1": "ID-Relatorio-Viagem-NovoWCM",
         "chave2": "codigo_financas_importado",
         "query1": "sql/origem/Webcamara/Financas/Relatorio_viagem_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 75,
             "tipo_documento_importado": "codigo_financas_importado"
@@ -945,7 +945,7 @@
         "chave1": "ID-Oficio-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Recebido_executivo_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 81,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -964,7 +964,7 @@
         "chave1": "ID-Oficio-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Recebido_Judiciario_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 82,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -983,7 +983,7 @@
         "chave1": "ID-Oficio-Diverso-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Oficios_Diversos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 83,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -1003,7 +1003,7 @@
         "chave1": "ID-Recebimento-Diverso-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Recebimentos_Diversos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 87,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -1023,7 +1023,7 @@
         "chave1": "ID-Requerimento-Recebido-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Requerimentos/requerimento_recebido_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 88,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -1044,7 +1044,7 @@
         "chave1": "ID-Cessao-Dependencia-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Cessao_dependencia_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 90,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1062,7 +1062,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_1_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 91,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1081,7 +1081,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_2_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 92,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1100,7 +1100,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_3_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 93,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1120,7 +1120,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_4_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 94,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1142,7 +1142,7 @@
         "chave1": "ID-Oficio-NovoWCM",
         "chave2": "codigo_oficio_importado",
         "query1": "sql/origem/Webcamara/Oficios/Balancete_Prefeitura_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 95,
             "tipo_documento_importado": "codigo_oficio_importado" 
@@ -1161,7 +1161,7 @@
         "chave1": "ID-Pedido-Retirada-NovoWCM",
         "chave2": "codigo_documento_importado",
         "query1": "sql/origem/Webcamara/Proposituras/Pedidos/Pedido_Retirada_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 98,
             "tipo_documento_importado": "codigo_documento_importado" 
@@ -1182,7 +1182,7 @@
         "chave1": "ID-Documento-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Documentos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 99,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1201,7 +1201,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_5_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 102,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1221,7 +1221,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_6_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 103,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1241,7 +1241,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_7_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 104,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1261,7 +1261,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_8_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 105,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1281,7 +1281,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_9_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 106,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1301,7 +1301,7 @@
         "chave1": "ID-Protocolo-Dinamico-NovoWCM",
         "chave2": "codigo_cadastro_generico_importado",
         "query1": "sql/origem/Webcamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_dinamico_10_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 107,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
@@ -1321,7 +1321,7 @@
         "chave1": "CODIGO-CONTRATO-WEBCAMARA",
         "chave2": "codigo_contratos_importado",
         "query1": "sql/origem/Webcamara/Contratos/Contratos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Contratos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Contratos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 118,
             "tipo_documento_importado": "codigo_contratos_importado"
@@ -1345,7 +1345,7 @@
         "chave1": "ID-Convenio-NovoWCM",
         "chave2": "codigo_contratos_importado",
         "query1": "sql/origem/Webcamara/Contratos/Convenios_db1.sql",
-        "query2": "sql/destino/NovoWCM/Contratos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Contratos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 119,
             "tipo_documento_importado": "codigo_contratos_importado"
@@ -1455,7 +1455,7 @@
         "chave1": "ID-SIC",
         "chave2": "codigo_sic_importado",
         "query1": "sql/origem/Webcamara/Ouvidoria e Esic/SicDados_db1.sql",
-        "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/SIC/SIC-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 142,
             "id_tipo_documento_webcamara": 1,
@@ -1475,7 +1475,7 @@
         "chave1": "ID-SIC",
         "chave2": "codigo_sic_importado",
         "query1": "sql/origem/Webcamara/Ouvidoria e Esic/SicDados_db1.sql",
-        "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/SIC/SIC-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 145,
             "id_tipo_documento_webcamara": 0,
@@ -1495,7 +1495,7 @@
         "chave1": "ID-Ata-Comissao-NovoWCM",
         "chave2": "codigo_atas_comissoes_importado",
         "query1": "sql/origem/Webcamara/Atas/Atas_Comissoes_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 147,
             "tipo_documento_importado": "codigo_atas_comissoes_importado"
@@ -1512,7 +1512,7 @@
         "chave1": "ID-Ata-Edital-NovoWCM",
         "chave2": "codigo_outros_documentos_importado",
         "query1": "sql/origem/Webcamara/Atas/Atas_editais_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 155,
             "tipo_documento_importado": "codigo_outros_documentos_importado"

@@ -1,7 +1,7 @@
 {
     "wcm_documentos": {
-        "query1": "sql/origem/AntigoWCM/Documentos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Documentos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "DATA-HORA-PROTOCOLO": "pro_data_hora",
@@ -24,8 +24,8 @@
     },
 
     "wcm_cadastros_genericos": {
-        "query1": "sql/origem/AntigoWCM/CadastrosGenericos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "DATA-HORA-PROTOCOLO": "pro_data_hora",
@@ -46,8 +46,8 @@
     },
 
     "wcm_legislacoes": {
-        "query1": "sql/origem/AntigoWCM/Legislacoes-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Legislacoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "EMENTA": "doc_ementa",
@@ -60,8 +60,8 @@
     },
 
     "wcm_portarias": {
-        "query1": "sql/origem/AntigoWCM/Portarias-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Portarias-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
@@ -75,8 +75,8 @@
     },
 
     "wcm_oficios": {
-        "query1": "sql/origem/AntigoWCM/Oficios-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Oficios-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
@@ -89,8 +89,8 @@
     },
 
     "wcm_atos": {
-        "query1": "sql/origem/AntigoWCM/Atos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Atos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
@@ -106,8 +106,8 @@
     },
 
     "wcm_autografos": {
-        "query1": "sql/origem/AntigoWCM/Autografos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Autografos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
@@ -118,8 +118,8 @@
     },
 
     "wcm_contratos": {
-        "query1": "sql/origem/AntigoWCM/Contratos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Contratos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
@@ -134,8 +134,8 @@
     },
 
     "wcm_editais": {
-        "query1": "sql/origem/AntigoWCM/Editais-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Editais-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "SUBTIPO": "sub_tip_doc_descricao",
@@ -155,8 +155,8 @@
     },
 
     "sic_dados": {
-        "query1": "sql/origem/AntigoWCM/SIC-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/SIC-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/SIC/SIC-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/SIC/SIC-NovoWCM.sql",
         "mapeamento": {
             "ID-SIC": "codigo_sic_importado",
             "CODIGO-INDIVIDUAL-ANO": "CODIGO-MANIFESTACAO",
@@ -169,7 +169,7 @@
     },
 
     "wcm_legislaturas": {
-        "query1": "sql/origem/AntigoWCM/Legislaturas-AntigoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Legislatura/Legislaturas-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Legislatura/Legislaturas-NovoWCM.sql",
         "mapeamento": {
             "LEGISLATURA": "leg_descricao",
@@ -181,7 +181,7 @@
     },
 
     "wcm_parlamentares": {
-        "query1": "sql/origem/AntigoWCM/Parlamentares-AntigoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Legislatura/Parlamentares-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Legislatura/Pessoas-NovoWCM.sql",
         "mapeamento": {
             "NOME-POLITICO": "cad_uni_nome",
@@ -214,7 +214,7 @@
     },
 
     "wcm_usuarios": {
-        "query1": "sql/origem/AntigoWCM/Usuarios-AntigoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Camara/Usuarios-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Legislatura/Usuarios-NovoWCM.sql",
         "mapeamento": {
             "USUARIO": "usu_sis_login",
@@ -251,7 +251,7 @@
     },
 
     "wcm_sessoes": {
-        "query1": "sql/origem/AntigoWCM/Sessoes-AntigoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Sessoes/Sessoes-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Sessoes/Sessoes-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "ses_codigo_individual",

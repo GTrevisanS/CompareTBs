@@ -31,6 +31,6 @@ FROM
 	LEFT JOIN situacao_tramitacao st ON st.Codigo = r.Codigo_SITUACAO_TRAMITACAO
 	LEFT JOIN legislatura l ON l.Codigo = r.Codigo_LEGISLATURA
 	LEFT JOIN protocolo pr ON pr.Num_Protocolo = r.Num_Protocolo_PROTOCOLO
-	LEFT JOIN wcm_4_gabrielmonteiro.wcm_documentos wcm4 ON wcm4.codigo_recurso_webcamara = r.Codigo
+	LEFT JOIN {bancowcm4}.wcm_documentos wcm4 ON wcm4.codigo_recurso_webcamara = r.Codigo
 ORDER BY 
 	wcm4.doc_id DESC

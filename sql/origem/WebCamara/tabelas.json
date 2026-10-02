@@ -1,7 +1,7 @@
 {
     "projeto": {
         "query1": "sql/origem/WebCamara/Proposituras/Projetos/Projetos_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
@@ -22,7 +22,7 @@
     },
     "lei": {
         "query1": "sql/origem/WebCamara/Proposituras/Legislacoes/Leis_db1.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "leg_codigo_individual": "doc_codigo_individual_ano",
             "EMENTA": "doc_ementa",
@@ -31,18 +31,12 @@
             "LEGISLATURA": "leg_descricao",
             "CATEGORIA": "tip_cat_descricao",
             "DATA-REGISTRO": "doc_data_documento",
-            "DATA-PUBLICACAO": "",
-            "DATA-FINAL-PUBLICACAO": "",
-            "DATA-FINAL-PUBLICACAO": "", 
-            "LOCAL-PUBLICACAO": "", 
-            "EDICAO": "",
-            "PAGINA": "",
             "INTERNET": "doc_mostra_online"
         }
     },
     "protocolo_dinamico": {
         "query1": "sql/origem/WebCamara/Cadastros Genericos/Protocolos Dinamicos/Protocolo_Dinamico_Geral.sql",
-        "query2": "sql/destino/NovoWCM/Documentos-NovoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "ASSUNTO": "doc_ementa",

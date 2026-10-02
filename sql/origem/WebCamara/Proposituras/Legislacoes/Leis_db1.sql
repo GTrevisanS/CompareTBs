@@ -14,7 +14,7 @@ SELECT
 		IF(lei.Situacao_Lei_Parcialmente_Inconstitucional = 6, 'Parcialmente Inconstitucional', NULL),
 		IF(lei.Situacao_Lei_Revogada_Parcialmente = 2, 'Revogada Parcialmente', NULL),
 		IF(lei.Situacao_Lei_Revogada_Totalmente = 3, 'Revogada Totalmente', NULL),
-		IF(lei.Situacao_Lei_Suspensa_Lei_Complementar = 10, 'Suspensa Lei Complementar', NULL),
+		IF(lei.Situacao_Lei_Suspensa_Lei_Complementar = 10, 'suspensa por lei complementar', NULL),
 		IF(lei.Situacao_Lei_Suspensa_por_Liminar = 5, 'Suspensa por Liminar', NULL)
 	) AS 'SITUACAO-LEI',
     le.Nome AS 'LEGISLATURA',

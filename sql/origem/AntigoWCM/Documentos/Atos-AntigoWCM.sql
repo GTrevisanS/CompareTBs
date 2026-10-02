@@ -22,8 +22,8 @@ SELECT
     a.ato_mostra_online 'INTERNET'
 FROM 
     wcm_atos a
-	 LEFT JOIN wcm_legislaturas l ON l.leg_id = a.ato_legislaturas_id_fk
-	 LEFT JOIN wcm_mesas_diretoras m ON m.mes_dir_id = a.ato_mesas_diretoras_id_fk
+	LEFT JOIN wcm_legislaturas l ON l.leg_id = a.ato_legislaturas_id_fk
+	LEFT JOIN wcm_mesas_diretoras m ON m.mes_dir_id = a.ato_mesas_diretoras_id_fk
 WHERE
 	 -- 2 = aTOS DA PRESIDENCIA	
     a.ato_tipos_atos_id_fk = {tipos_atos_antigowcm}

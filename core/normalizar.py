@@ -139,7 +139,7 @@ def estados_civis(valor):
     else: pass
     match valor:
         case "solteira" | "solteiro":
-            valor = "Solteiro(a)"
+            valor = "Solteiro (a)"
         case "casado" | "casada":
             valor = "Casado (a)"
         case _:
