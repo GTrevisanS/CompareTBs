@@ -2,10 +2,10 @@ SELECT
 	wcm4.ato_id AS 'ID-Ato-NovoWCM',
 	am.Codigo_Individual_ano AS 'CODIGO-INDIVIDUAL-ANO',
 	am.Data AS 'DATA-REGISTRO',
-	am.Assunto,
+	am.ASSUNTO,
 	leg.Nome AS 'LEGISLATURA',
-	am.situacao,
-	am.observacao,
+	am.situacao AS 'SITUACAO-TRAMITACAO',
+	am.observacao AS 'OBSERVACOES',
 	am.orgaoimprensa,
 	am.INTERNET
 FROM 

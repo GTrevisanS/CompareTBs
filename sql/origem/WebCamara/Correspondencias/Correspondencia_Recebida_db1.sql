@@ -2,11 +2,11 @@ SELECT
 	wcm4.cor_id AS 'ID-Correspondencia-NovoWCM',
 	CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
 	cr.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	cr.Numero_Correspondencia,
-	cr.Tipo_Correspondencia,
+	cr.Numero_Correspondencia 'NUMERO-CORRESPONDENCIA',
+	cr.Tipo_Correspondencia AS 'SUBTIPO',
 	cr.Em_Resposta,
-	cr.Remetente,
-	cr.Assunto,
+	cr.REMETENTE,
+	cr.ASSUNTO,
 	cr.observacao AS 'OBSERVACOES',
 	cr.classificacao,
 	cr.Nome AS 'RESPONSAVEL-CORRESPONDENCIA',
@@ -33,4 +33,5 @@ FROM
 	correspondencias_recebidas cr
 	LEFT JOIN protocolo pr ON pr.Num_Protocolo = cr.Num_Protocolo_PROTOCOLO
 	LEFT JOIN {bancowcm4}.wcm_correspondencias wcm4 ON wcm4.codigo_correspondencia_recebidas_webcamara = cr.Codigo
-ORDER BY wcm4.cor_id DESC
+ORDER BY 
+	wcm4.cor_id DESC

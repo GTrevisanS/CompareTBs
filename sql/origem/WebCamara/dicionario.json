@@ -243,8 +243,9 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
-            "TIPO": "sub_tip_doc_descricao",
-            "TRAMITACAO": "sit_descricao",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "DISCUSSAO": "NULL",
             "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
@@ -262,8 +263,8 @@
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "TIPO-EMENDA": "sub_tip_doc_descricao",
             "TRAMITACAO": "sit_descricao",
             "LEGISLATURA": "leg_descricao",
@@ -284,14 +285,15 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "ementa": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "JUSTIFICATIVA": "doc_justificativa",
-            "observacao": "doc_observacao",
+            "OBSERVACOES": "doc_observacao",
             "LEGISLATURA": "leg_descricao",
-            "tipo": "sub_tip_doc_descricao",
-            "tramitacao": "sit_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "REGIME-TRAMITACAO": "reg_tra_descricao",
             "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
+            "RESPOSTAS-RECEBIDAS": "RESPOSTAS-RECEBIDAS-NOVOWCM",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -315,8 +317,8 @@
             "LEGISLATURA": "leg_descricao",
             "TIPO-MOCAO": "sub_tip_doc_descricao",
             "TRAMITACAO": "sit_descricao",
-            "Regime_Tramitacao": "reg_tra_descricao",
-            "Destinatario": "end_descricao",
+            "REGIME-TRAMITACAO": "reg_tra_descricao",
+            "DESTINATARIO": "end_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -335,12 +337,12 @@
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-INICIO-TRAMITACAO": "doc_data_documento",
-            "ementa": "doc_ementa",
-            "observacao": "doc_observacao",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "JUSTIFICATIVA": "doc_justificativa",
-            "TIPO": "sub_tip_doc_descricao",
+            "SUBTIPO": "sub_tip_doc_descricao",
             "SITUACAO-TRAMITACAO": "sit_descricao",
-            "REGIME": "reg_tra_descricao",
+            "REGIME-TRAMITACAO": "reg_tra_descricao",
             "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
@@ -380,8 +382,8 @@
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
-            "Ementa": "doc_ementa",
-            "observacao": "doc_observacao",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "TIPOS-PARECERES": "sub_tip_doc_descricao",
             "TIPO-PARECER-SITUACAO": "sit_descricao",
             "INTERNET": "doc_mostra_online"
@@ -400,10 +402,10 @@
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
-            "Ementa": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "JUSTIFICATIVA": "doc_justificativa",
-            "observacao": "doc_observacao",
-            "Regime_Tramitacao": "reg_tra_descricao",
+            "OBSERVACOES": "doc_observacao",
+            "REGIME-TRAMITACAO": "reg_tra_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -548,7 +550,7 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_ementa",
+            "ASSUNTO": "doc_ementa",
             "REPRESENTANTE": "cad_uni_nome",
             "Numero_Oficio": "doc_codigo_licitacao",
             "Local_Endereco": "doc_justificativa",
@@ -568,10 +570,10 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Numero_Correspondencia": "doc_codigo_licitacao",
-            "Assunto": "doc_ementa",
+            "NUMERO-CORRESPONDENCIA": "doc_codigo_licitacao",
+            "ASSUNTO": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
-            "Tipo_Correspondencia": "sub_tip_doc_descricao",
+            "SUBTIPO": "sub_tip_doc_descricao",
             "RESPONSAVEL-CORRESPONDENCIA": "cad_uni_nome",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
@@ -590,8 +592,9 @@
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "SITUACAO-TRAMITACAO":"sit_descricao",
             "LEGISLATURA": "leg_descricao",
-            "Ementa": "doc_ementa",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -610,7 +613,7 @@
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
-            "Assunto": "doc_ementa",
+            "ASSUNTO": "doc_ementa",
             "Numero_Oficio": "doc_codigo_licitacao",
             "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
@@ -628,12 +631,14 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_ementa",
-            "observacao": "doc_observacao",
-            "TIPO-PORTARIA": "sub_tip_doc_descricao",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "ORGAO-IMPRENSA": "doc_titulo_documento",
+            "EDICAO": "doc_edicao_documento",
             "DATA-REGISTRO": "doc_data_documento",
             "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
-            "situacao": "sit_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -651,8 +656,9 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Importancia": "doc_valor",
-            "Assunto": "doc_ementa",
+            "ASSUNTO": "doc_ementa",
+            "IMPORTANCIA": "doc_valor",
+            "RESPONSAVEL": "doc_fiscal_cadastro_unico",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -728,7 +734,7 @@
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
-            "Assunto": "doc_ementa",
+            "ASSUNTO": "doc_ementa",
             "Numero_Oficio": "doc_codigo_licitacao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
@@ -746,9 +752,9 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_ementa",
-            "situacao": "sit_descricao",
-            "observacao": "doc_observacao",
+            "ASSUNTO": "doc_ementa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
@@ -765,9 +771,9 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_ementa",
-            "situacao": "sit_descricao",
-            "observacao": "doc_observacao",
+            "ASSUNTO": "doc_ementa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
@@ -784,7 +790,7 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Ementa": "doc_ementa",
+            "EMENTA": "doc_ementa",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
@@ -801,9 +807,17 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "assunto": "doc_ementa",
-            "tipo edital": "sub_tip_doc_descricao",
+            "ASSUNTO": "doc_ementa",
+            "TIPO-EDITAL": "sub_tip_doc_descricao",
+            "TIPO-LICITACAO": "tip_lic_descricao",
+            "NUMERO-LICITACAO": "doc_codigo_licitacao",
+            "SITUACAO-LICITACAO": "sit_descricao",
             "DATA-REGISTRO": "doc_data_documento",
+            "DATA-ABERTURA": "doc_data_abertura",        
+            "DATA-REALIZACAO": "doc_data_realizacao",
+            "DATA-JULGAMENTO": "doc_data_julgamento" ,  
+            "DATA-ADJUDICACAO": "doc_data_adjudicacao",
+            "DATA-HOMOLOGACAO": "doc_data_homologacao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -954,8 +968,8 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
             "Numero_Oficio": "doc_codigo_licitacao",
-            "observacao": "doc_observacao",
-            "Assunto": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "ASSUNTO": "doc_ementa",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -992,8 +1006,8 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "Numero_Oficio": "doc_codigo_licitacao",
             "LEGISLATURA": "leg_descricao",
-            "Assunto": "doc_ementa",
-            "observacao": "doc_observacao",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
@@ -1011,10 +1025,10 @@
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_ementa",
-            "observacao": "doc_observacao",
-            "TRAMITACAO": "sit_descricao",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "LEGISLATURA": "leg_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1034,8 +1048,8 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
-            "Destinatario": "dep_descricao",
-            "Nome": "doc_codigo_licitacao",
+            "DESTINATARIO": "dep_descricao",
+            "NOME": "doc_codigo_licitacao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -1151,7 +1165,7 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
             "Numero_Oficio": "doc_codigo_licitacao",
-            "Assunto": "doc_ementa",
+            "ASSUNTO": "doc_ementa",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }
@@ -1171,8 +1185,8 @@
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
-            "Assunto": "doc_ementa",
-            "Quorum": "tip_quo_descricao",
+            "ASSUNTO": "doc_ementa",
+            "QUORUM": "tip_quo_descricao",
             "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
@@ -1189,8 +1203,8 @@
         },
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "assunto": "doc_ementa",
-            "observacao": "doc_observacao",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "TIPO": "sub_tip_doc_descricao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
@@ -1292,7 +1306,7 @@
             "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "LEGISLATURA": "leg_descricao",
-            "DESTINATARIO": "NULL",
+            "DESTINATARIO": "doc_ementa",
             "INTERNET": "doc_mostra_online"
         }
     },

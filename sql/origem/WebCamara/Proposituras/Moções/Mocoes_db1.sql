@@ -10,8 +10,8 @@ SELECT
     l.nome AS 'LEGISLATURA',
     tm.Descricao AS 'TIPO-MOCAO',
     st.Descricao AS 'TRAMITACAO',
-    m.Regime_Tramitacao,
-    m.Destinatario,
+    m.Regime_Tramitacao 'REGIME-TRAMITACAO',
+    m.DESTINATARIO,
 --     m.solicitacoes,
 --     m.Titulo_mocao,
     m.INTERNET

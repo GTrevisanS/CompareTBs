@@ -1,6 +1,6 @@
 {
     "wcm_protocolos": {
-        "query1": "sql/origem/AntigoWCM/Protocolos-AntigoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/Protocolos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Protocolos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual",

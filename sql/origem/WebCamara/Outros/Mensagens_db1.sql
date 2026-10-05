@@ -3,7 +3,7 @@ SELECT
 	CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
 	pr.Data_Protocolo,
 	m.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	m.Assunto,
+	m.ASSUNTO,
     CASE
 		WHEN m.Data IS NULL then pr.Data_Protocolo
 		WHEN m.Data = 0 THEN pr.Data_Protocolo

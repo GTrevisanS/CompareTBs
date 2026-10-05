@@ -1,8 +1,8 @@
 SELECT 
 	wcm4.cad_gen_id AS 'ID-Documento-NovoWCM',
 	CONCAT (d.codigo_individual, '-', d.ano)  AS 'CODIGO-INDIVIDUAL-ANO',
-	d.assunto,
-	d.observacao,
+	d.ASSUNTO,
+	d.observacao AS 'OBSERVACOES',
 	-- d.autoria,
 	td.descricao AS 'TIPO',
 	d.Data AS 'DATA-REGISTRO',

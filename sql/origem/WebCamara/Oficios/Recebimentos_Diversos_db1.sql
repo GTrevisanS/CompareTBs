@@ -3,11 +3,11 @@ SELECT
     CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
 	rd.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	l.nome AS 'LEGISLATURA',
-	rd.Assunto,
+	rd.ASSUNTO,
 	rd.Tipo_Solicitacao,
-	rd.nome,
-	rd.observacao,
-	st.Descricao AS 'TRAMITACAO',
+	rd.NOME,
+	rd.OBSERVACOES,
+	st.Descricao AS 'SITUACAO-TRAMITACAO',
 	rd.INTERNET
 FROM 
 	recebimentos_diversos rd

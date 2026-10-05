@@ -80,6 +80,6 @@ SELECT
 FROM
     politico p
     LEFT JOIN {bancowcm4}.wcm_parlamentares wcm4 ON wcm4.codigo_politico_webcamara = p.Codigo
-    LEFT JOIN parente_politico pai ON pai.Codigo_POLITICO = p.Codigo AND pai.Parentesco = 'pai'
-    LEFT JOIN parente_politico mae ON mae.Codigo_POLITICO = p.Codigo AND mae.Parentesco = 'mae'
+    LEFT JOIN parente_politico pai ON pai.Codigo_POLITICO = p.Codigo AND pai.Parentesco LIKE '%pai%'
+    LEFT JOIN parente_politico mae ON mae.Codigo_POLITICO = p.Codigo AND mae.Parentesco LIKE '%mae%'
 ORDER BY wcm4.par_id desc

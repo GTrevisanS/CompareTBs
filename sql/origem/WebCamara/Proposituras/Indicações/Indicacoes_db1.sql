@@ -8,12 +8,12 @@ SELECT
 		WHEN ind.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
 	 	ELSE ind.Data_Inicio_Tramitacao    
     END AS 'DATA-INICIO-TRAMITACAO',
-    ind.ementa,
-    ind.observacao,
+    ind.EMENTA,
+    ind.observacao AS 'OBSERVACOES',
     ind.JUSTIFICATIVA,
-    ti.Descricao AS 'TIPO',
+    ti.Descricao AS 'SUBTIPO',
     st.Descricao AS 'SITUACAO-TRAMITACAO',
-    ind.Regime_Tramitacao AS 'REGIME',
+    ind.Regime_Tramitacao AS 'REGIME-TRAMITACAO',
     ind.Destinatario,
     ind.solicitacoes,
     ind.Revogado,

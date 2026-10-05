@@ -3,10 +3,10 @@ SELECT
 	a.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	l.Nome AS 'LEGISLATURA',
 	a.Situacao_Final,
-	a.Ementa,
-	a.observacao,
+	a.EMENTA,
+	a.observacao AS 'OBSERVACOES',
 	a.JUSTIFICATIVA,
-	a.Regime_Tramitacao,
+	a.Regime_Tramitacao AS 'REGIME-TRAMITACAO',
 	a.INTERNET
 FROM 
 	anteprojeto a

@@ -142,6 +142,10 @@ def estados_civis(valor):
             valor = "Solteiro (a)"
         case "casado" | "casada":
             valor = "Casado (a)"
+        case "viuvo" | "viuva":
+            valor = "viuvo (a)"
+        case "juntada" | "juntado":
+            valor = "juntado (a)"
         case _:
             pass
 
@@ -166,12 +170,10 @@ def concat_nomes(valor):
 
 
 def ajusta_cpf(valor):
-    valor = str(valor).zfill(11)
+    valor = str(valor).strip().zfill(11)
     if valor.count('0') == 11:
         valor = '0' # Se for apenas zeros por completo, o valor volta a ser apenas 1 zero
-        # print(valor)
-        # print(type(valor))
-    return valor
+    return valor.replace(' ', '')
 
 
 
@@ -399,6 +401,7 @@ NORMALIZADORES = {
     "DATA-EMISSAO-TITULO-ELEITORAL": n_data,
     "DATA-EMISSAO-RG": n_data,
     "DATA-CONTRATO": n_data,
+    "DATA-REALIZACAO": n_data,
     "DATA-REGISTRO": add_hour,
     "DATA-INICIO": add_hour,
     "DATA-FIM": add_hour,

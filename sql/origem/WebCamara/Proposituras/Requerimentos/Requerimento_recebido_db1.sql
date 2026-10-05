@@ -5,8 +5,8 @@ SELECT
 	req.codigo_Individual_ano AS 'CODIGO-INDIVIDUAL-ANO', 
 	req.EMENTA, 
 	req.observacao AS 'OBSERVACOES',
-	req.Destinatario,
-	req.Nome,
+	req.DESTINATARIO,
+	req.NOME,
 	req.INTERNET
 FROM 
 	requerimento_recebido req	

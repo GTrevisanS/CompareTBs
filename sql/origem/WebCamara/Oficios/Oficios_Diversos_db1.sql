@@ -2,8 +2,8 @@ SELECT
 	wcm4.ofi_id AS 'ID-Oficio-Diverso-NovoWCM',
 	od.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	l.nome AS 'LEGISLATURA',
-	od.Assunto,
-	od.observacao,
+	od.ASSUNTO,
+	od.observacao AS 'OBSERVACOES',
 	od.Numero_Oficio,
 	CASE
 		WHEN od.Data IS NULL then wcm4.ofi_data_hora

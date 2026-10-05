@@ -8,12 +8,12 @@ SELECT
 		WHEN p.Data = 0 THEN pr.Data_Protocolo
 	 	ELSE p.Data
 	 END AS 'DATA-REGISTRO',
-    p.Ementa,
+    p.EMENTA,
     p.Tipo AS 'TIPOS-PARECERES',
     l.Nome AS 'LEGISLATURA',
     tp.Descricao 'TIPO-PARECER-SITUACAO',
     tpp.Descricao AS 'TIPO-PROPOSITURA-PARECER',
-    p.observacao,
+    p.observacao AS 'OBSERVACOES',
 --     p.Num_Sequencial_PROJETO,
     p.INTERNET
 FROM

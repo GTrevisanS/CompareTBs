@@ -254,7 +254,7 @@ if col1.button(":red[Encerrar Processo !]", width='stretch'):
 moduloslimpos = moduloslimpos - modulosvazios
 
 if resultados:
-    st.toast(f"Foram comparados mais de {totalregistrosgeral*2} registros.")
+    st.toast(f":grey[Foram comparados mais de {totalregistrosgeral*2} registros.]")
     if totalerros:
         st.toast(f":red[{totalerros} Módulos deram erro!]")
         col2.write(f":red-background[:red[Módulos que deram erro...{totalerros}]]")

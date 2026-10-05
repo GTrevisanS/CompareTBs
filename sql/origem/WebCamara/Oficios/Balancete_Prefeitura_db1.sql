@@ -15,7 +15,7 @@ SELECT
 		WHEN bp.Data = 0 THEN pr.Data_Protocolo
 		ELSE bp.Data
 	END AS 'DATA-REGISTRO',
-	bp.Assunto,
+	bp.ASSUNTO,
 	bp.INTERNET
 FROM 	 
 	balancete_prefeitura bp

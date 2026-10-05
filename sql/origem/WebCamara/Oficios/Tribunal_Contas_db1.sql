@@ -14,7 +14,7 @@ SELECT
 		WHEN tc.Data = 0 THEN pr.Data_Protocolo
 		ELSE tc.Data
 	END AS 'DATA-REGISTRO',
-	tc.Assunto,
+	tc.ASSUNTO,
 	tc.Em_Resposta,
 	tc.Em_resposta_Tipo,
 	tc.Em_resposta_codigo,

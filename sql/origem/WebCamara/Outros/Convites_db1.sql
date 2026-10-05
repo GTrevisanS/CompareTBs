@@ -2,7 +2,7 @@ SELECT
 	wcm4.con_id AS 'ID-Convite-NovoWCM',
 	CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
 	c.Codigo_Individial_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	c.Assunto,
+	c.ASSUNTO,
 	c.Ano,
 	c.Numero_Oficio,
 	CASE
