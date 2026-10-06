@@ -311,12 +311,13 @@
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "Data_Protocolo": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
             "JUSTIFICATIVA": "doc_justificativa",
             "LEGISLATURA": "leg_descricao",
-            "TIPO-MOCAO": "sub_tip_doc_descricao",
-            "TRAMITACAO": "sit_descricao",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
             "REGIME-TRAMITACAO": "reg_tra_descricao",
             "DESTINATARIO": "end_descricao",
             "INTERNET": "doc_mostra_online"
@@ -675,12 +676,12 @@
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "Assunto": "doc_justificativa",
-            "Texto": "doc_ementa",
+            "ASSUNTO": "doc_justificativa",
+            "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
-            "TRAMITACAO": "sit_descricao",
-            "Autor_Solicitante": "cad_uni_nome",
-            "CPF-NOVOWCM": "cad_uni_documento",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "SOLICITANTE": "cad_uni_nome",
+            "CPF-SOLICITANTE": "CPF-NOVOWCM",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }

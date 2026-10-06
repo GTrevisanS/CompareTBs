@@ -46,7 +46,7 @@ SELECT
     wmes.mes_dir_descricao, -- Nome da mesa diretora referente ao registro
     wd.doc_retificacao, -- Define se uma ata da sessão foi retificada ou não
     wd.doc_despacho_presidencia, -- "Despacho presidencia (Cessão dependencia)"
-    wd.doc_cadastro_unico_id_fk, -- Cadastro único vinculado ao documento
+    -- wd.doc_cadastro_unico_id_fk, -- Cadastro único vinculado ao documento
     wd.doc_titulo_documento, -- Utilizado no "orgaoimprensa" de portarias
     wd.doc_edicao_documento, --  Utilizado na "edicao" de portarias
     wtl.tip_lic_descricao, -- Tipo de licitação (Geralmente Edital)

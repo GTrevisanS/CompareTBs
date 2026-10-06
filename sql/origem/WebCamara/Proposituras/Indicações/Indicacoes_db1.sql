@@ -2,7 +2,9 @@ SELECT
     wcm4.doc_id 'ID-Indicacao-NovoWCM',
     CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
     pr.Data_Protocolo,
+    -- CONCAT_WS('-',ind.Codigo_Individual, YEAR(ind.Data_Inicio_Tramitacao)) AS 'CODIGO-INDIVIDUAL-ANO',
     ind.Codigo_Individial_Ano AS 'CODIGO-INDIVIDUAL-ANO',
+    -- CONCAT_WS('-',ind.Codigo_Individual, ind.Ano) AS 'CODIGO-INDIVIDUAL-ANO',
     CASE
 		WHEN ind.Data_Inicio_Tramitacao IS NULL then pr.Data_Protocolo
 		WHEN ind.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo

@@ -3,13 +3,24 @@ SELECT
     CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
     pr.Data_Protocolo,
     m.Codigo_individial_ano AS 'CODIGO-INDIVIDUAL-ANO',
-    m.data_inicio_tramitacao,
+	CASE
+	 	WHEN m.Data_Inicio_Tramitacao IS NULL THEN pr.Data_Protocolo
+		WHEN m.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo
+		ELSE m.Data_Inicio_Tramitacao
+    END AS 'DATA-REGISTRO',
     m.EMENTA,
     m.JUSTIFICATIVA,
-    m.observacao as 'OBSERVACOES',
+    m.observacao AS 'OBSERVACOES',
+    m.Titulo_mocao 'TITULO',
+	 CASE
+		WHEN m.quorum_votacao = 1 THEN 'Simples'
+		WHEN m.quorum_votacao = 2 THEN 'Absoluta'
+		WHEN m.quorum_votacao = 3 THEN 'Qualificada'
+		WHEN m.quorum_votacao = 4 THEN 'Dois Terços'
+	 END AS 'QUORUM',
     l.nome AS 'LEGISLATURA',
-    tm.Descricao AS 'TIPO-MOCAO',
-    st.Descricao AS 'TRAMITACAO',
+    tm.Descricao AS 'SUBTIPO',
+    st.Descricao AS 'SITUACAO-TRAMITACAO',
     m.Regime_Tramitacao 'REGIME-TRAMITACAO',
     m.DESTINATARIO,
 --     m.solicitacoes,
