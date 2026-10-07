@@ -31,32 +31,21 @@ else:
 
 
 def sistema(padrao, documento):
-    if padrao == 'Migração do Webcamara':
-        cfg = CONFIGURACOES.get(str(documento))
-        parametros = cfg.get("parametros")
-        if cfg.get("mapeamento"):
-            mapeamento = cfg["mapeamento"]
-            query1 = cfg["query1"]
-            query2 = cfg["query2"]
-        else:
-            padrao = PADROES.get(str(cfg["tabela"]))
-            mapeamento = padrao["mapeamento"]
-            query1 = padrao["query1"]
-            query2 = padrao["query2"]
-        chave1 = cfg["chave1"]
-        chave2 = cfg["chave2"]
-        nomemodulo = cfg["nome"]
+    cfg = CONFIGURACOES.get(str(documento))
+    parametros = cfg.get("parametros")
+    if cfg.get("mapeamento"):
+        mapeamento = cfg["mapeamento"]
+        query1 = cfg["query1"]
+        query2 = cfg["query2"]
     else:
-        cfg = CONFIGURACOES.get(str(documento))
         tabela = cfg["tabela"]
         padrao = PADROES.get(str(tabela))
-        parametros = cfg.get("parametros")
         mapeamento = padrao["mapeamento"]
         query1 = padrao["query1"]
         query2 = padrao["query2"]
-        nomemodulo = cfg["nome"]
-        chave1 = cfg["chave1"]
-        chave2 = cfg["chave2"]
+    chave1 = cfg["chave1"]
+    chave2 = cfg["chave2"]
+    nomemodulo = cfg["nome"]
     return cfg, parametros, mapeamento, query1, query2, chave1, chave2, nomemodulo
 
 
@@ -254,7 +243,7 @@ if col1.button(":red[Encerrar Processo !]", width='stretch'):
 moduloslimpos = moduloslimpos - modulosvazios
 
 if resultados:
-    st.toast(f":grey[Foram comparados mais de {totalregistrosgeral*2} registros.]")
+    st.toast(f":grey[Foram comparados {totalregistrosgeral*2} registros.]")
     if totalerros:
         st.toast(f":red[{totalerros} Módulos deram erro!]")
         col2.write(f":red-background[:red[Módulos que deram erro...{totalerros}]]")

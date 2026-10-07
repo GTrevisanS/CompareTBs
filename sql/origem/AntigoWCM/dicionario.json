@@ -473,7 +473,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 53,
-            "tipo_protocolo_antigowcm": "o.ofi_tipos_protocolos_id_fk = 47 AND o.ofi_tipos_oficios_id_fk = 13",
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_oficios_id_fk = 13",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -636,12 +636,27 @@
         "nome": "Protocolo Dinamico",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
+        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 91,
             "tipo_cadastro_generico_antigowcm": 91,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
         },
-        "tabela": "wcm_cadastros_genericos"
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "ASSUNTO": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "DESCRICAO": "doc_justificativa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "VALOR": "doc_valor",
+            "LEGISLATURA": "leg_descricao",
+            "CADASTRO-UNICO-VINCULADO": "cad_uni_nome",
+            "INTERNET": "doc_mostra_online"
+        }
     },
     "92": {
         "nome": "Protocolo Dinamico 2",
