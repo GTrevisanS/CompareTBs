@@ -15,8 +15,7 @@
         "query1": "sql/origem/AntigoWCM/Documentos/Documentos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
-            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "PROTOCOLO-REGISTRO": "PROTOCOLO-CONCATENADO-NOVOWCM",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
             "SUBTIPO": "sub_tip_doc_descricao",
@@ -31,6 +30,20 @@
             "LEGISLATURA": "leg_descricao",
             "DATA-INICIO-TRAMITACAO": "doc_data_inicio_tramitacao",
             "DATA-LIMITE-TRAMITACAO": "doc_data_limite_tramitacao",
+            "NUMERO-PROCESSO": "NUMERO-PROCESSO-NOVOWCM",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_audiencias_publicas": {
+        "query1": "sql/origem/AntigoWCM/Documentos/AudienciasPublicas-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "EMENTA": "doc_ementa",
+            "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -81,7 +94,8 @@
             "EMENTA": "doc_ementa",
             "SUBTIPO": "sub_tip_doc_descricao",
             "MESA-DIRETORA": "mes_dir_descricao",
-            "ORGAO-IMPRENSA": "doc_inventei_orgao",
+            "ORGAO-IMPRENSA": "doc_titulo_documento",
+            "EDICAO": "doc_edicao_documento",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -96,6 +110,22 @@
             "OBSERVACOES": "doc_observacao",
             "DESTINATARIO": "end_descricao",
             "NUMERO-ORIGINAL": "doc_codigo_licitacao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
+    "wcm_atas": {
+        "query1": "sql/origem/AntigoWCM/Documentos/AtasSessoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-APROVACAO": "doc_data_limite_tramitacao",
+            "DATA-AFIXACAO": "doc_data_fim",
+            "TIPO-SESSAO": "sub_tip_doc_descricao",
+            "MESA-DIRETORA": "mes_dir_descricao",
+            "RETIFICACAO": "doc_retificacao",
             "INTERNET": "doc_mostra_online"
         }
     },
@@ -250,6 +280,44 @@
             "REDE-SOCIAL-LINKEDIN": "pol_linkedin",
             "REDE-SOCIAL-TWITTER": "pol_twitter",
             "REDE-SOCIAL-YOUTUBE": "pol_youtube"
+        }
+    },
+
+    "wcm_cadastros_unicos": {
+        "query1": "sql/origem/AntigoWCM/Camara/CadastrosUnicos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Pessoas-NovoWCM.sql",
+        "mapeamento": {
+            "NOME": "cad_uni_nome",
+            "APELIDO": "cad_uni_apelido",
+            "DATA-NASCIMENTO": "DATA-NASCIMENTO-NOVOWCM",
+            "NACIONALIDADE": "cad_uni_nacionalidade",
+            "NATURALIDADE": "cad_uni_naturalidade",
+            "SEXO": "cad_uni_sexo",
+            "ENDERECO-RESIDENCIAL": "end_endereco",
+            "RG": "RG-NOVOWCM",
+            "DATA-EMISSAO-RG": "cad_uni_data_emissao_rg",
+            "CPF": "CPF-NOVOWCM",
+            "CARTEIRA-HABILITACAO": "cad_uni_carteira_habilitacao",
+            "TITULO-ELEITOR": "cad_uni_titulo_eleitor",
+            "DATA-EMISSAO-TE": "cad_uni_data_emissao_titulo_eleitor",
+            "ZONA-ELEITORAL": "cad_uni_zona_eleitoral",
+            "SECAO-ELEITORAL": "cad_uni_secao_eleitoral",
+            "CARTEIRA-PROFISSIONAL": "cad_uni_carteira_profissional",
+            "PROFISSAO": "pro_descricao",
+            "CARGO": "cad_uni_car_descricao",
+            "RESERVISTA": "cad_uni_reservista",
+            "PIS": "cad_uni_numero_pis_pasep",
+            "CONJUGE": "cad_uni_conjuge",
+            "ESTADO-CIVIL": "est_civ_descricao",
+            "CEP": "cep_numero",
+            "ESCOLARIDADE": "esc_descricao",
+            "NOME-PAI": "cad_uni_nome_pai",
+            "NOME-MAE": "cad_uni_nome_mae",
+            "HISTORIA": "pol_historia",
+            "FACEBOOK": "pol_facebook",
+            "LINKEDIN": "pol_linkedin",
+            "TWITTER": "pol_twitter",
+            "YOUTUBE": "pol_youtube"
         }
     },
 

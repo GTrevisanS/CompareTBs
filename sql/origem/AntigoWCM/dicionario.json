@@ -33,6 +33,16 @@
         },
         "tabela": "wcm_parlamentares"
     },
+    "001-C": {
+        "nome": "Cadastros Unicos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_cadastro_unico_importado",
+        "parametros": {
+            "tipo_documento_importado": "codigo_cadastro_unico_importado",
+            "parametro_where": "wc.codigo_cadastro_unico_importado IS NOT NULL"
+        },
+        "tabela": "wcm_cadastros_unicos"
+    },
     "000-L": {
         "nome": "Legislaturas",
         "chave1": "ID-WCM-ANTIGO",
@@ -263,13 +273,12 @@
     "20": {
         "nome": "Audiências Públicas",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_audiencias_publicas_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 20,
-            "tipo_protocolo_antigowcm": 20,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipo_documento_importado": "codigo_audiencias_publicas_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_audiencias_publicas"
     },
     "23": {
         "nome": "Convites",
@@ -459,13 +468,12 @@
     "51": {
         "nome": "Atas das Sessões",
         "chave1": "ID-WCM-ANTIGO",
-        "chave2": "codigo_documento_importado",
+        "chave2": "codigo_ata_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 51,
-            "tipo_protocolo_antigowcm": 51,
-            "tipo_documento_importado": "codigo_documento_importado"
+            "tipo_documento_importado": "codigo_ata_importado"
         },
-        "tabela": "wcm_documentos"
+        "tabela": "wcm_atas"
     },
     "53": {
         "nome": "Oficios Enviados",

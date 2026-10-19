@@ -10,26 +10,36 @@
 #     # print(numero)
 #     return f'{nome} {numero}'
 
-def codigo_individual_ano(valor):
-    valor = str(valor)
-    if valor.count("-") != 1:
-        return valor
-    else:
-        import re
-        valor = re.sub(r'[a-zA-Z]', '', valor) # Nessa linha utilizo a biblioteca re para remover toda e qualquer letra de "A" até "Z"
-        numero, ano = valor.split("-")
-        if not numero:
+
+def ajustarCodigoIndividual(valor):
+
+    import re
+
+    def ajustaCaractere(valor, caractere):
+        numero, ano = valor.split(caractere, 1)
+        if not numero or ',' in numero:
             numero = '0000'
-        if ',' in numero:
-            codigocerto = f"{numero}-{ano}"
         else:
-            codigocerto = f"{int(numero):04d}-{ano}"
-    return codigocerto
+            numero = f"{int(numero):04d}"
+        return f"{numero}{caractere}{ano}"
+
+    valor = str(valor)
+
+    if "-" not in valor and "/" not in valor:
+        return valor
+
+    valor = re.sub(r'[a-zA-Z]', '', valor)
+
+    if "-" in valor:
+        valor = ajustaCaractere(valor, "-")
+    if "/" in valor:
+        valor = ajustaCaractere(valor, "/")
+    return valor
 
 # ================================ NORMALIZA O NUMERO DE DOCUMENTO PESSOAL DESCRIPTOGRAFADO ===============================
 
 
-def descriptografia_hex(valor):
+def limparDescriptografiasHex(valor):
     valor = str(valor).strip()
     valor = valor.replace("b", "").replace("'","")
     # valor = valor.replace("/", "").replace("-", "").replace(".", "")
@@ -38,24 +48,12 @@ def descriptografia_hex(valor):
     return valor
     
 
-def descriptografia_hex_limpa(valor):
+def limparDescriptografiasHexPorCompleto(valor):
     valor = str(valor).strip()
     valor = valor.replace("b", "").replace("'","")
     valor = valor.replace("/", "").replace("-", "").replace(".", "")
     # if not valor.isdigit() and not valor.isalpha(): # Retirei o IF em 08/09 por causa de um cliente que escrevia os documentos com a numeração espaçada
     valor = valor.replace(" ", "")
-    return valor
-
-
-# =========================================== NORMALIZA SITUACOES DE TRAMITACAO ===========================================
-
-
-def situacao(valor):
-    match str(valor):
-        case "totalmente revogado":
-            valor = "revogada totalmente"
-        case _:
-            pass
     return valor
 
 
@@ -76,7 +74,7 @@ def tipo_parecer(valor):
 # ======================================== NORMALIZA A DATA DO NOVOWCM -> WEBCAMARA =======================================
 
 
-def n_data(valor): 
+def limitarData(valor): 
     valor = str(valor).strip()
     valor = valor[:10] 
     # A linha acima faz com que a data tenha somente 10 caracteres 
@@ -84,10 +82,10 @@ def n_data(valor):
     return valor
 
 
-def add_hour(valor): 
+def aumentarData(valor): 
     valor = str(valor).strip()
     if valor == '0' or valor == '' or valor is None:
-        return '0'
+        return ''
     elif len(valor) <= 11:
         return f'{valor} 00:00:00'
     return valor
@@ -96,7 +94,7 @@ def add_hour(valor):
 # =============================================== NORMALIZAR COLUNAS DO E-SIC =============================================
 
 
-def sic_code(valor):
+def ajustarCodigoSic(valor):
     valor = str(valor).split("-")
     PrimeiraFatia = valor[0]
     if PrimeiraFatia.isdigit():
@@ -106,18 +104,17 @@ def sic_code(valor):
     return str(novovalor)
 
 
-def sic_tipo(valor):
+def ajustarTipoSic(valor):
     valor = valor.strip().lower()
     tiposmanifestacoes = {
         'denúncias': 'denúncia',
         'denuncias': 'denuncia',
         'elogios': 'elogio'
     }
-
     return tiposmanifestacoes.get(valor, valor)
 
 
-def sic_sit(valor):
+def ajustarSituacaoSic(valor):
     valor = str(valor)
     match valor:
         case "0" | "":
@@ -130,7 +127,7 @@ def sic_sit(valor):
 # =============================================== NORMALIZAR ESTADOS CIVIS DOS POLITICOS =============================================
 
 
-def estados_civis(valor):
+def ajustarEstadosCivis(valor):
     valor = str(valor).lower()
     if valor.count("separado") > 0 or valor.count("separada") > 0:
         valor = "Divorciado (a)"
@@ -155,7 +152,7 @@ def estados_civis(valor):
 # ========================================= NORMALIZA OS NOMES CONCATENADOS QUE VEM DAS COMISSOES =========================================
 
 
-def concat_nomes(valor):
+def desconcatenarNomes(valor):
     valores = valor.split('___') # Pego a string concatenada e separo pelo ___ criando uma lista
     valores = sorted(valores)    # Reordeno essa lista para ficar em ordem alfabética
     newlista = []                # Crio uma nova lista vazia onde seram adicionados os nomes tratados
@@ -169,7 +166,7 @@ def concat_nomes(valor):
     return resultado
 
 
-def ajusta_cpf(valor):
+def ajustarCPF(valor):
     valor = str(valor).strip().zfill(11)
     if valor.count('0') == 11:
         valor = '0' # Se for apenas zeros por completo, o valor volta a ser apenas 1 zero
@@ -243,15 +240,19 @@ def corrige_tipo_doc_novowcm(valor):
     return valor
 
 
-
-# =========================================================== wcm ===========================================================
-# =========================================================== wcm ===========================================================
 # =========================================================== wcm ===========================================================
 
 
-def corrige_numero_protocolo_wcm(valor):
+def ajustaNumeroProtocoloWCM(valor):
     # Se não for uma string válida ou não tiver hífen, garante o padrão básico
     valor_str = str(valor).strip()
+
+    # print(f"valor com strip: {valor}")
+    # input()
+
+    if valor_str.startswith('-1-'):
+        return ''
+
     if '-' not in valor_str:
         return valor_str if valor_str else "0000-0000"
     
@@ -267,7 +268,6 @@ def corrige_numero_protocolo_wcm(valor):
     direita_formatada = direita if direita else "0000"
     
     return f"{esquerda_formatada}-{direita_formatada}"
-
 
 
 def corrige_int(valor):
@@ -312,7 +312,7 @@ def limpa_format_lista(valor):
     return ', '.join(valores)
 
 
-def limpa_format_dicionario(valor):
+def limparFormatoDicionario(valor):
     if valor is None:
         return '0'
 
@@ -362,54 +362,54 @@ def limpa_format_dicionario(valor):
 
 
 
-def aperfeicoa_revog(valor):
+def aperfeicoarRevogacao(valor):
     valor = corrige_int(valor)
     valor = corrige_tipo_doc(valor)
     return valor
 
 
-
-
 NORMALIZADORES = {
-    "LEI-QUE-REVOGA": aperfeicoa_revog,
-    "LEI-REVOGADA": aperfeicoa_revog,
-    "LEI-REVOGADA-NOVOWCM": aperfeicoa_revog,
-    "LEI-QUE-REVOGA-NOVOWCM": aperfeicoa_revog,
-    "doc_despacho_presidencia": limpa_format_dicionario,
+    "PROTOCOLO-REGISTRO": ajustaNumeroProtocoloWCM,
+    "LEI-QUE-REVOGA": aperfeicoarRevogacao,
+    "LEI-REVOGADA": aperfeicoarRevogacao,
+    "LEI-REVOGADA-NOVOWCM": aperfeicoarRevogacao,
+    "LEI-QUE-REVOGA-NOVOWCM": aperfeicoarRevogacao,
+    "doc_despacho_presidencia": limparFormatoDicionario,
     "DOCUMENTO-EXPEDIENTE-WEBCAMARA": corrige_tipo_doc,
     "DOCUMENTO-EXPEDIENTE-NOVOWCM": corrige_tipo_doc_novowcm,
-    "MEMBROS-COMISSAO-WEBCAMARA": concat_nomes,
-    "MEMBROS-COMISSAO": concat_nomes,
-    "CODIGO-INDIVIDUAL-ANO": codigo_individual_ano,
-    "CODIGO-MANIFESTACAO": sic_code,
-    "NUMERO-PROTOCOLO-NOVOWCM": corrige_numero_protocolo_wcm,
-    "CNPJ-NOVOWCM": descriptografia_hex_limpa,
-    "CPF-NOVOWCM": descriptografia_hex,
-    "RG-NOVOWCM": descriptografia_hex,
-    "CNPJ": descriptografia_hex_limpa,
-    "CPF-WEBCAMARA": ajusta_cpf,
-    "RG": descriptografia_hex,
-    "Estado_Civil": estados_civis,
-    "DATA-NASCIMENTO-NOVOWCM": descriptografia_hex,
-    "DATA-NASCIMENTO": n_data,
-    "TIPO-MANIFESTACAO": sic_tipo,
-    "SIC-SIT": sic_sit,
-    "situacao": situacao,
+    "MEMBROS-COMISSAO-WEBCAMARA": desconcatenarNomes,
+    "MEMBROS-COMISSAO": desconcatenarNomes,
+    "CODIGO-INDIVIDUAL-ANO": ajustarCodigoIndividual,
+    "doc_codigo_individual": ajustarCodigoIndividual,
+    "NUMERO-PROCESSO": ajustarCodigoIndividual,
+    "CODIGO-MANIFESTACAO": ajustarCodigoSic,
+    "NUMERO-PROTOCOLO-NOVOWCM": ajustaNumeroProtocoloWCM,
+    "CNPJ-NOVOWCM": limparDescriptografiasHexPorCompleto,
+    "CPF-NOVOWCM": limparDescriptografiasHex,
+    "RG-NOVOWCM": limparDescriptografiasHex,
+    "CNPJ": limparDescriptografiasHexPorCompleto,
+    "CPF-WEBCAMARA": ajustarCPF,
+    "RG": limparDescriptografiasHex,
+    "Estado_Civil": ajustarEstadosCivis,
+    "DATA-NASCIMENTO-NOVOWCM": limparDescriptografiasHex,
+    "DATA-NASCIMENTO": limitarData,
+    "TIPO-MANIFESTACAO": ajustarTipoSic,
+    "SIC-SIT": ajustarSituacaoSic,
     "TIPOS-PARECERES": tipo_parecer,
     "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
     "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante,
-    "DATA-EMISSAO-TITULO-ELEITORAL": n_data,
-    "DATA-EMISSAO-RG": n_data,
-    "DATA-CONTRATO": n_data,
-    "DATA-REALIZACAO": n_data,
-    "DATA-REGISTRO": add_hour,
-    "DATA-INICIO": add_hour,
-    "DATA-FIM": add_hour,
-    "DATA-INICIO-TRAMITACAO": add_hour,
-    "DATA-LIMITE-TRAMITACAO": add_hour,
-    "com_data_inicio": add_hour,
-    "com_data_fim": add_hour,
-    "ses_codigo_individual": codigo_individual_ano
+    "DATA-EMISSAO-TITULO-ELEITORAL": limitarData,
+    "DATA-EMISSAO-RG": limitarData,
+    "DATA-CONTRATO": limitarData,
+    "DATA-REALIZACAO": limitarData,
+    "DATA-REGISTRO": aumentarData,
+    "DATA-INICIO": aumentarData,
+    "DATA-FIM": aumentarData,
+    "DATA-INICIO-TRAMITACAO": aumentarData,
+    "DATA-LIMITE-TRAMITACAO": aumentarData,
+    "com_data_inicio": aumentarData,
+    "com_data_fim": aumentarData,
+    "ses_codigo_individual": ajustarCodigoIndividual
 }
 
 

@@ -1,6 +1,6 @@
 SELECT 
 	wl.leg_id 'ID-WCM-ANTIGO',
-	wl.leg_codigo_individual 'CODIGO-INDIVIDUAL-ANO',
+	CONCAT(wl.leg_codigo_individual, '/', YEAR(leg_data_hora)) 'CODIGO-INDIVIDUAL-ANO',
 	wl.leg_data_hora 'DATA-REGISTRO',
 --  wtl.tip_lei_descricao 'TIPO-LEI', 
 -- 	wl.leg_tipos_leis_id_fk,

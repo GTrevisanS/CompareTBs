@@ -1,10 +1,10 @@
 SELECT 	
 	w.doc_id 'ID-WCM-ANTIGO',
-	CONCAT(wp.pro_numero, '-', YEAR(w.doc_data_documento)) 'NUMERO-PROTOCOLO-NOVOWCM',
-	wp.pro_data_hora 'DATA-HORA-PROTOCOLO',
+ 	CONCAT(wp.pro_numero, '-', YEAR(w.doc_data_documento), '  ( ', wp.pro_data_hora ,' )') 	'PROTOCOLO-REGISTRO',
+--  	CONCAT(wp.pro_numero, '-', YEAR(w.doc_data_documento)) 'NUMERO-PROTOCOLO-NOVOWCM',
+-- 	wp.pro_data_hora 'DATA-HORA-PROTOCOLO',
 	CONCAT(w.doc_codigo_individual, '-', YEAR(w.doc_data_documento)) 'CODIGO-INDIVIDUAL-ANO',
 	w.doc_data_documento 'DATA-REGISTRO',
-	-- wpro.pro_id,
 	wtd.tip_doc_descricao 'SUBTIPO',
 	w.doc_ementa 'EMENTA',
 	w.doc_justificativa 'JUSTIFICATIVA',
@@ -22,10 +22,12 @@ SELECT
 	w.doc_data_inicio_tramitacao 'DATA-INICIO-TRAMITACAO',
 	CASE
 		WHEN w.doc_data_limite_tramitacao != NULL THEN w.doc_data_limite_tramitacao
-		ELSE 	w.doc_data_fim_tramitacao 
-		END AS 'DATA-LIMITE-TRAMITACAO',
+		ELSE w.doc_data_fim_tramitacao 
+	END AS 'DATA-LIMITE-TRAMITACAO',
 	w.doc_data_fim_tramitacao 'DATA-FIM-TRAMITACAO',
 	wl.leg_descricao 'LEGISLATURA',
+	wfxp.pro_id 'ID-PROCESSO',
+	concat(wfxp.pro_codigo_individual_documentos, '-', wfxp.pro_ano) 'NUMERO-PROCESSO',
 	w.doc_mostra_online 'INTERNET'
 FROM 
 	wcm_documentos w
@@ -39,7 +41,8 @@ FROM
 	LEFT JOIN wcm_processos_votacoes wpv ON wpv.pro_vot_id = w.doc_processos_votacoes_id_fk
 	-- LEFT JOIN wfx_processos wpro ON wpro.pro_codigo_individual_documentos = w.doc_id
 	LEFT JOIN wcm_legislaturas wl ON wl.leg_id = w.doc_legislaturas_id_fk
+	LEFT JOIN wfx_processos wfxp ON wfxp.pro_numero_protocolo = wp.pro_id
 WHERE 
 	w.doc_tipos_protocolos_id_fk = {tipo_protocolo_antigowcm}
 ORDER BY 
-	w.doc_id DESC
+	w.doc_id DESC 

@@ -3,6 +3,8 @@ SELECT
     -- A coluna acima define de qual coluna o registro é importado
     -- (que como é o id que bate com o do webcamara, é o id que eu uso para comparar)
     -- (Por exemplo, se for filtrar por editais, a coluna equivalente do código de importação sera a "codigo_editais_importado")
+
+    CONCAT(wpr.pro_codigo_individual_ano, '  ( ', wpr.pro_data_hora, ' )') AS 'PROTOCOLO-CONCATENADO-NOVOWCM',
     wpr.pro_data_hora, -- Data / Hora do protocolo do registro no novoWCM
     wpr.pro_codigo_individual_ano, -- Numero do protocolo do registro no novoWCM
     wd.doc_codigo_individual_ano, -- Codigo individual ano 
@@ -31,8 +33,8 @@ SELECT
     wti.tip_ini_descricao, -- Iniciativa (Só vi em projeto)
     wtq.tip_quo_descricao, -- Tipo de quorum de votação
     wtc.tip_cat_descricao, -- Categoria
-    wd.doc_data_documento, -- Data do registro
     wpv.pro_vot_descricao, -- Processo de votação
+    wd.doc_data_documento, -- Data do registro
     wd.doc_data_inicio_tramitacao, -- Data de inicio da tramitação
     wd.doc_data_limite_tramitacao, -- Data de limite da tramitação
     wd.doc_data_abertura, -- Data de abertura (Geralmente do edital)
@@ -41,6 +43,8 @@ SELECT
     wd.doc_data_julgamento, -- Data do julgamento (Geralmente do edital)
     wd.doc_data_adjudicacao, -- Data de adjudicacao (Geralmente do edital)
     wd.doc_data_homologacao, -- Data de homologacao (Geralmente do edital)
+    wd.doc_data_fim, -- Data Fim (Utilizo em atas no lugar da data de afixacao)
+    wd.doc_data_arquivamento, -- Data arquivamento
     wde.dep_descricao, -- Nome do departamento responsável pelo registro
     wleg.leg_descricao, -- Nome da legislatura referente ao registro
     wmes.mes_dir_descricao, -- Nome da mesa diretora referente ao registro
@@ -52,10 +56,10 @@ SELECT
     wtl.tip_lic_descricao, -- Tipo de licitação (Geralmente Edital)
     we.end_descricao, -- Enderecamento (Destinatario)
     wcu1.cad_uni_nome as 'doc_fiscal_cadastro_unico' ,
+    wdpro.doc_codigo_individual_ano 'NUMERO-PROCESSO-NOVOWCM',
     wd.doc_mostra_online -- Se está ativo na internet
 FROM 
     wcm_documentos wd
-
     LEFT JOIN wcm_protocolos wpr ON wpr.pro_documento_id_fk = wd.doc_id
     LEFT JOIN wcm_sub_tipos_documentos wst ON wst.sub_tip_doc_id = wd.doc_subtipo_documento_id_fk
     LEFT JOIN wcm_regimes_tramitacoes wreg ON wreg.reg_tra_id = wd.doc_regimes_tramitacoes_id_fk
@@ -73,14 +77,19 @@ FROM
 	LEFT JOIN wcm_documentos_enderecamentos wden ON wden.doc_end_documento_id_fk = wd.doc_id
 	LEFT JOIN wcm_enderecamentos we ON we.end_id = wden.doc_end_enderecamento_id_fk
 
+-- ========================================== PROCESSO DO DOCUMENTO ==========================================
+	LEFT JOIN wcm_documentos_vinculados wdvinc ON wdvinc.doc_vin_documento_vinculado_id_fk = wd.doc_id
+	LEFT JOIN wcm_documentos wdpro ON wdpro.doc_id = wdvinc.doc_vin_documento_principal_id_fk
+	 	AND wdpro.doc_tipo_documento_id_fk IN (55, 146) -- Somente o tipo de processo legislativo e administrativo 	 
+-- 	 LEFT JOIN wcm_processos_mensagens wpm ON wpm. 
+-- ===========================================================================================================
+
 -- =========================================== RESPOSTAS RECEBIDAS ===========================================
-	  	 
-	 LEFT JOIN wcm_documentos_respostas_encaminhamentos resp1 
-	 	ON resp1.doc_res_enc_documento_encaminhado_respondido_id_fk = wd.doc_id
+	LEFT JOIN wcm_documentos_respostas_encaminhamentos resp1 
+	    ON resp1.doc_res_enc_documento_encaminhado_respondido_id_fk = wd.doc_id
 	 	AND resp1.doc_res_enc_designacao = 1 -- 1 = Resposta (nesse caso, estou coletando as respostas recebidas)
-	 LEFT JOIN wcm_documentos wdresp1 ON wdresp1.doc_id = resp1.doc_res_enc_documento_origem_id_fk
-	 LEFT JOIN wcm_tipos_documentos wdtp1 ON wdtp1.tip_doc_id = wdresp1.doc_tipo_documento_id_fk
-	 
+	LEFT JOIN wcm_documentos wdresp1 ON wdresp1.doc_id = resp1.doc_res_enc_documento_origem_id_fk
+	LEFT JOIN wcm_tipos_documentos wdtp1 ON wdtp1.tip_doc_id = wdresp1.doc_tipo_documento_id_fk 
 -- ===========================================================================================================
 
     -- Situações de tramitação

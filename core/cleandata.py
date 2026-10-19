@@ -29,7 +29,7 @@ def limparvalor(valor):
     """
     # 1º - No caso do valor vir Nulo ou vazio, transformo ele em "0" e termino a função aqui mesmo (Porque fica mais fácil de trabalhar)
     if valor is None or str(valor).strip() == "":
-        return "0" 
+        return '' 
     # 2º - Eu faço ter certeza que o valor é uma string limpa (sem espaços ou caracteres em caixa alta)
     valor = str(valor).strip().lower()
     valor = re.sub(r"\s+", " ", valor)
@@ -43,10 +43,4 @@ def limparvalor(valor):
     # 5º - Por último, verifico se o valor é apenas digitos, caso for, retorna o número formatado ("000" -> "0")
     if valor.isdigit():
         valor = str(int(valor))
-    return valor
-
-
-def retornar(valor):
-    if valor == '0':
-        valor = None
     return valor

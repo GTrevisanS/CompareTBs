@@ -228,9 +228,9 @@ for resultado in resultados:
             
 # ==================== Informações adicionais que ficam no "rodapé" ==================== #
 
-# if nomesmodulosvazios:
-#     with st.container(border=True):
-#         st.write(f":grey[Lista de módulos vazios encontrados: {nomesmodulosvazios}]")
+if nomesmodulosvazios:
+    with st.container(border=True):
+        st.write(f":grey[Lista de módulos vazios encontrados: {nomesmodulosvazios}]")
 
 col1, col2, col3, col4, col5, col6, col7 = st.columns([1.4, 2, 1.1, 0.9, 0.9, 1.2, 0.8])
 
