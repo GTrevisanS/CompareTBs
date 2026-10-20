@@ -11,6 +11,18 @@
         }
     },
 
+    "wfx_processos": {
+        "query1": "sql/origem/AntigoWCM/Processos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-ARQUIVAMENTO": "doc_arq_his_data",
+            "QUANTIDADE-MENSAGENS": "QUANTIDADE-MENSAGENS-NOVOWCM",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+
     "wcm_documentos": {
         "query1": "sql/origem/AntigoWCM/Documentos/Documentos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
@@ -56,10 +68,10 @@
             "DATA-HORA-PROTOCOLO": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
-            "ASSUNTO": "doc_ementa",
+            "ASSUNTO": "doc_justificativa",
             "EMENTA": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
-            "DESCRICAO": "doc_justificativa",
+            "DESCRICAO": "NULL",
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "VALOR": "doc_valor",
             "DATA-INICIO": "doc_data_inicio_tramitacao",
@@ -202,7 +214,7 @@
             "LEGISLATURA": "leg_descricao",
             "PROVIDENCIA": "doc_providencias",
             "TRAMITACOES": "sit_descricao",
-            "REGIME-EXECUCAO": "NULL",
+            "REGIME-EXECUCAO": "doc_observacao",
             "DATA-REALIZACAO": "doc_data_realizacao",
             "DATA-ABERTURA": "doc_data_abertura",
             "HORA-ABERTURA": "doc_hora_abertura",

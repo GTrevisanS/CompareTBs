@@ -1,5 +1,15 @@
 {
     "000-P1": {
+        "nome": "Processos",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_processo_wcm",
+        "parametros": {
+            "tipo_documento_importado": "codigo_processo_wcm",
+            "id_tipo_documento_novowcm": "55, 146, 57, 60, 65, 101"
+        },
+        "tabela": "wfx_processos"
+    },
+    "000-P2": {
         "nome": "Protocolos",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_protocolo_importacao",
@@ -23,7 +33,7 @@
         "chave2": "codigo_sessao_importado",
         "tabela": "wcm_sessoes"
     },
-    "000-P": {
+    "000-P3": {
         "nome": "Politicos",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_politico_importado",
@@ -481,7 +491,7 @@
         "chave2": "codigo_oficio_importado",
         "parametros": {
             "id_tipo_documento_novowcm": 53,
-            "tipo_protocolo_antigowcm": "o.ofi_tipos_oficios_id_fk = 13",
+            "tipo_protocolo_antigowcm": "o.ofi_tipos_oficios_id_fk = 13 OR o.ofi_tipos_protocolos_id_fk = 53",
             "tipo_documento_importado": "codigo_oficio_importado"
         },
         "tabela": "wcm_oficios"
@@ -657,8 +667,8 @@
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
             "ASSUNTO": "doc_ementa",
+            "EMENTA": "doc_justificativa",
             "OBSERVACOES": "doc_observacao",
-            "DESCRICAO": "doc_justificativa",
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "VALOR": "doc_valor",
             "LEGISLATURA": "leg_descricao",

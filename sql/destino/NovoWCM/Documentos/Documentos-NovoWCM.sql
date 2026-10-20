@@ -45,6 +45,7 @@ SELECT
     wd.doc_data_homologacao, -- Data de homologacao (Geralmente do edital)
     wd.doc_data_fim, -- Data Fim (Utilizo em atas no lugar da data de afixacao)
     wd.doc_data_arquivamento, -- Data arquivamento
+    arqva.doc_arq_his_data, -- Data arquivamento (Da tabela de arquivamento)
     wde.dep_descricao, -- Nome do departamento responsável pelo registro
     wleg.leg_descricao, -- Nome da legislatura referente ao registro
     wmes.mes_dir_descricao, -- Nome da mesa diretora referente ao registro
@@ -57,6 +58,11 @@ SELECT
     we.end_descricao, -- Enderecamento (Destinatario)
     wcu1.cad_uni_nome as 'doc_fiscal_cadastro_unico' ,
     wdpro.doc_codigo_individual_ano 'NUMERO-PROCESSO-NOVOWCM',
+    (
+    	SELECT COUNT(*)
+    	FROM wcm_processos_mensagens process_men
+    	WHERE process_men.pro_men_documento_id_fk = wd.doc_id
+    ) AS 'QUANTIDADE-MENSAGENS-NOVOWCM',
     wd.doc_mostra_online -- Se está ativo na internet
 FROM 
     wcm_documentos wd
@@ -76,6 +82,7 @@ FROM
     LEFT JOIN wcm_processos_votacoes wpv ON wpv.pro_vot_id = wd.doc_processo_votacao_id_fk
 	LEFT JOIN wcm_documentos_enderecamentos wden ON wden.doc_end_documento_id_fk = wd.doc_id
 	LEFT JOIN wcm_enderecamentos we ON we.end_id = wden.doc_end_enderecamento_id_fk
+    LEFT JOIN wcm_documentos_arquivamentos_historicos arqva ON arqva.doc_arq_his_documento_id_fk = wd.doc_id 
 
 -- ========================================== PROCESSO DO DOCUMENTO ==========================================
 	LEFT JOIN wcm_documentos_vinculados wdvinc ON wdvinc.doc_vin_documento_vinculado_id_fk = wd.doc_id
@@ -147,7 +154,7 @@ FROM
         ON ord.ses_doc_documento_id_fk = wd.doc_id
 
 WHERE
-    wd.doc_tipo_documento_id_fk = {id_tipo_documento_novowcm} -- ID que define o tipo de documento (Ex: Requerimento = 3)
+    wd.doc_tipo_documento_id_fk IN ( {id_tipo_documento_novowcm} ) -- ID que define o tipo de documento (Ex: Requerimento = 3)
     -- Pra ter certeza que não vou coletar registros deletados no novowcm (que geralmente são os de teste)
     AND wd.deleted_at IS NULL 
     

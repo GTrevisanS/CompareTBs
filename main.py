@@ -32,7 +32,11 @@ else:
 
 def sistema(padrao, documento):
     cfg = CONFIGURACOES.get(str(documento))
+    nomemodulo = cfg["nome"]
+    chave1 = cfg["chave1"]
+    chave2 = cfg["chave2"]
     parametros = cfg.get("parametros")
+
     if cfg.get("mapeamento"):
         mapeamento = cfg["mapeamento"]
         query1 = cfg["query1"]
@@ -43,9 +47,7 @@ def sistema(padrao, documento):
         mapeamento = padrao["mapeamento"]
         query1 = padrao["query1"]
         query2 = padrao["query2"]
-    chave1 = cfg["chave1"]
-    chave2 = cfg["chave2"]
-    nomemodulo = cfg["nome"]
+        
     return cfg, parametros, mapeamento, query1, query2, chave1, chave2, nomemodulo
 
 
@@ -228,10 +230,6 @@ for resultado in resultados:
             
 # ==================== Informações adicionais que ficam no "rodapé" ==================== #
 
-if nomesmodulosvazios:
-    with st.container(border=True):
-        st.write(f":grey[Lista de módulos vazios encontrados: {nomesmodulosvazios}]")
-
 col1, col2, col3, col4, col5, col6, col7 = st.columns([1.4, 2, 1.1, 0.9, 0.9, 1.2, 0.8])
 
 
@@ -256,3 +254,9 @@ col4.write(f":blue-background[:blue[Módulos limpos...{moduloslimpos}]]")
 col5.write(f":green-background[:green[Módulos vazios...{modulosvazios}]]")
 col6.write(f":orange-background[:orange[Módulos sendo comparados...{moduloscomparados}]]")
 col7.write(f":violet-background[:violet[{totalregistrosgeral} comparações]]")
+
+# if nomesmodulosvazios:
+#     st.write('LISTA DE MÓDULOS VAZIOS: ')
+#     for numero, nome in enumerate(nomesmodulosvazios):
+#         nome = str(nome).strip()
+#         st.markdown(f':grey[{numero+1}. {nome}]')

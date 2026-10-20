@@ -12,8 +12,14 @@ SELECT
 	g.cad_gen_descricao 'DESCRICAO',
 	t.tra_descricao 'SITUACAO-TRAMITACAO',
 	g.cad_gen_valor 'VALOR',
-	g.cad_gen_data_inicio 'DATA-INICIO',
-	g.cad_gen_data_fim 'DATA-FIM',
+	CASE g.cad_gen_data_inicio
+		WHEN g.cad_gen_data_inicio THEN g.cad_gen_data_inicio
+		ELSE CONCAT(YEAR(g.cad_gen_data_hora), '-01-01 00:00:00') 
+	END AS 'DATA-INICIO',
+	CASE g.cad_gen_data_fim
+		WHEN g.cad_gen_data_fim THEN g.cad_gen_data_fim
+		ELSE CONCAT(YEAR(g.cad_gen_data_hora), '-01-01 00:00:00') 
+	END AS 'DATA-FIM',
 	l.leg_descricao 'LEGISLATURA',
 	c.cad_uni_nome 'CADASTRO-UNICO-VINCULADO',
 	g.cad_gen_presidente_id_fk 'PRESIDENTE',
@@ -24,8 +30,9 @@ FROM
 	LEFT JOIN wcm_tramitacoes t ON t.tra_id = g.cad_gen_tramitacoes_id_fk
 	LEFT JOIN wcm_legislaturas l ON l.leg_id = g.cad_gen_legislaturas_id_fk
 	LEFT JOIN wcm_cadastros_unicos c ON c.cad_uni_id = g.cad_gen_cadastros_unicos_id_fk
-	LEFT JOIN wcm_protocolos wp ON wp.pro_documentos_id_fk = g.cad_gen_id
 	LEFT JOIN wcm_tipos_protocolos wtp ON wtp.tip_pro_id = g.cad_gen_tipos_protocolos_id_fk
+	LEFT JOIN wcm_protocolos wp ON wp.pro_documentos_id_fk = g.cad_gen_id
+		AND wp.pro_tipos_protocolos_id_fk = g.cad_gen_tipos_protocolos_id_fk
 WHERE 
 	g.cad_gen_tipos_protocolos_id_fk = {tipo_cadastro_generico_antigowcm}
 ORDER BY

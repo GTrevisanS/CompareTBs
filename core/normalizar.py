@@ -1,16 +1,6 @@
 
 # ================================= NORMALIZA OS CODIGOS DE ANO QUE VEM ERRADOS / BUGADOS =================================
 
-
-# def corrige_int(valor):
-#     nome, numero = valor.split(" - ")
-#     # print(numero)
-#     numero = numero.replace(" ", "")
-#     numero = str(int(numero))
-#     # print(numero)
-#     return f'{nome} {numero}'
-
-
 def ajustarCodigoIndividual(valor):
 
     import re
@@ -21,7 +11,7 @@ def ajustarCodigoIndividual(valor):
             numero = '0000'
         else:
             numero = f"{int(numero):04d}"
-        return f"{numero}{caractere}{ano}"
+        return f"{numero}-{ano}" # Foi alterado para sempre retornar com o traço (Padrão do novoWCM)
 
     valor = str(valor)
 
@@ -34,7 +24,7 @@ def ajustarCodigoIndividual(valor):
         valor = ajustaCaractere(valor, "-")
     if "/" in valor:
         valor = ajustaCaractere(valor, "/")
-    return valor
+    return valor[:9]
 
 # ================================ NORMALIZA O NUMERO DE DOCUMENTO PESSOAL DESCRIPTOGRAFADO ===============================
 
@@ -60,7 +50,7 @@ def limparDescriptografiasHexPorCompleto(valor):
 # =============================================== NORMALIZA TIPOS DE PARECER ==============================================
 
 
-def tipo_parecer(valor):
+def corrigeTipoParecer(valor):
     match str(valor):
         case "comissao permanente" | "comissao temporaria":
             valor = "comissoes"
@@ -205,7 +195,7 @@ termosajustados = {
     }
 
 
-def tipo_protocolo(valor):
+def corrigeTipoProtocolo(valor):
     return termosajustados.get(valor, valor)
 
 
@@ -219,7 +209,7 @@ def protocolante(valor):
 # ========================================= LISTA DAS COLUNAS À SEREM NORMALIZADAS =========================================
 
 
-def corrige_tipo_doc(valor):
+def corrigeTipoDocumento(valor):
     for termo, substituto in termosajustados.items():
         if termo in valor:
             valor = valor.replace(termo, substituto, 1)
@@ -227,7 +217,7 @@ def corrige_tipo_doc(valor):
 
 
 
-def corrige_tipo_doc_novowcm(valor):
+def corrigeTipoDocumentoNovoWCM(valor):
     tipos_atas = {
         " - ordinaria": "",
         " - extraordinaria": "",
@@ -254,7 +244,7 @@ def ajustaNumeroProtocoloWCM(valor):
         return ''
 
     if '-' not in valor_str:
-        return valor_str if valor_str else "0000-0000"
+        return valor_str if valor_str else ""
     
     # Divide garantindo que sempre teremos duas partes, mesmo se faltar um lado
     partes = valor_str.split('-', 1)
@@ -364,7 +354,7 @@ def limparFormatoDicionario(valor):
 
 def aperfeicoarRevogacao(valor):
     valor = corrige_int(valor)
-    valor = corrige_tipo_doc(valor)
+    valor = corrigeTipoDocumento(valor)
     return valor
 
 
@@ -374,14 +364,15 @@ NORMALIZADORES = {
     "LEI-REVOGADA": aperfeicoarRevogacao,
     "LEI-REVOGADA-NOVOWCM": aperfeicoarRevogacao,
     "LEI-QUE-REVOGA-NOVOWCM": aperfeicoarRevogacao,
-    "doc_despacho_presidencia": limparFormatoDicionario,
-    "DOCUMENTO-EXPEDIENTE-WEBCAMARA": corrige_tipo_doc,
-    "DOCUMENTO-EXPEDIENTE-NOVOWCM": corrige_tipo_doc_novowcm,
+    "doc_despacho_presidencia": limparFormatoDicionario,        # NovoWCM
+    "DOCUMENTO-EXPEDIENTE-WEBCAMARA": corrigeTipoDocumento,
+    "DOCUMENTO-EXPEDIENTE-NOVOWCM": corrigeTipoDocumentoNovoWCM,
     "MEMBROS-COMISSAO-WEBCAMARA": desconcatenarNomes,
     "MEMBROS-COMISSAO": desconcatenarNomes,
-    "CODIGO-INDIVIDUAL-ANO": ajustarCodigoIndividual,
-    "doc_codigo_individual": ajustarCodigoIndividual,
+    "CODIGO-INDIVIDUAL-ANO": ajustarCodigoIndividual,           # AntigoWCm / Webcamara 
+    "doc_codigo_individual_ano": ajustarCodigoIndividual,       # NovoWCM
     "NUMERO-PROCESSO": ajustarCodigoIndividual,
+    "ses_codigo_individual": ajustarCodigoIndividual,           # NovoWCM
     "CODIGO-MANIFESTACAO": ajustarCodigoSic,
     "NUMERO-PROTOCOLO-NOVOWCM": ajustaNumeroProtocoloWCM,
     "CNPJ-NOVOWCM": limparDescriptografiasHexPorCompleto,
@@ -395,8 +386,8 @@ NORMALIZADORES = {
     "DATA-NASCIMENTO": limitarData,
     "TIPO-MANIFESTACAO": ajustarTipoSic,
     "SIC-SIT": ajustarSituacaoSic,
-    "TIPOS-PARECERES": tipo_parecer,
-    "TIPO-PROTOCOLO-WEBCAMARA": tipo_protocolo,
+    "TIPOS-PARECERES": corrigeTipoParecer,
+    "TIPO-PROTOCOLO-WEBCAMARA": corrigeTipoProtocolo,
     "RESPONSAVEL-PROTOCOLO-WEBCAMARA": protocolante,
     "DATA-EMISSAO-TITULO-ELEITORAL": limitarData,
     "DATA-EMISSAO-RG": limitarData,
@@ -408,8 +399,7 @@ NORMALIZADORES = {
     "DATA-INICIO-TRAMITACAO": aumentarData,
     "DATA-LIMITE-TRAMITACAO": aumentarData,
     "com_data_inicio": aumentarData,
-    "com_data_fim": aumentarData,
-    "ses_codigo_individual": ajustarCodigoIndividual
+    "com_data_fim": aumentarData
 }
 
 
