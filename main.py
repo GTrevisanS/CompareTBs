@@ -1,24 +1,24 @@
 import streamlit as st # Biblioteca responsável por gerar o Frontend
 import random # Biblioteca que eu uso pra trazer cores aleatórias nos nomes dos documentos
 import pandas # Biblioteca utilizada pra montar as tabelas de diferenças que são exibidas no streamlit
-from core.cleansql import ajustar_query # Função para trocar os termos / variáveis das consultas (ex: "{bancowcm4}")
-from utils.pdname import encontrar_nome_protocolo as findpdname # Função utilizada para corrigir / trocar 
+from core.cleansql import ajustarQuery # Função para trocar os termos / variáveis das consultas (ex: "{bancowcm4}")
+from utils.pdname import encontrarNomeProtocolo as findpdname # Função utilizada para corrigir / trocar 
 # os nomes retornados dos protocolos dinamicos (visto que o cliente geralmente troca o nome)
 import json # Biblioteca usada para manusear os arquivos json
-from core.db import carregar_bancos # Arquivo separado que define as conexões de banco
-from core.compare import carregar_sql, executar_query, procurar_inexistentes, procurar_diferencas
-from utils.switchdata import trocar_dados
-from utils.sistemas import identificar # arquivo pra coletar nome, conexão e porta que é exibido no tooltip acíma
+from core.db import carregarBancos # Arquivo separado que define as conexões de banco
+from core.compare import carregarSql, executarQuery, procurarInexistentes, procurarDiferencas
+from utils.switchdata import trocarDados
+from utils.sistemas import identificarSistema # arquivo pra coletar nome, conexão e porta que é exibido no tooltip acíma
 
 def abrirJson(caminho):
     with open(caminho, encoding="utf8") as combinacoes:
         ARQUIVO = json.load(combinacoes)
     return ARQUIVO
 
-DB1, DB2, DB3 = carregar_bancos()
-b1, b1_host, b1_port, b2, b2_host, b2_port, tipo_migracao = identificar(DB1, DB2)
+DB1, DB2, DB3 = carregarBancos()
+b1, b1_host, b1_port, b2, b2_host, b2_port, tipomigracao = identificarSistema(DB1, DB2)
 
-if tipo_migracao == 'Migração do Webcamara':
+if tipomigracao == 'Migração do Webcamara':
     caminho_dicionario = 'sql/origem/WebCamara/dicionario.json'
     caminho_dicionario_padroes = 'sql/origem/WebCamara/tabelas.json'
     CONFIGURACOES = abrirJson(caminho_dicionario)
@@ -30,7 +30,7 @@ else:
     PADROES = abrirJson(caminho_dicionario_padroes)
 
 
-def sistema(padrao, documento):
+def identificarPadraoQuery(padrao, documento):
     cfg = CONFIGURACOES.get(str(documento))
     nomemodulo = cfg["nome"]
     chave1 = cfg["chave1"]
@@ -54,20 +54,18 @@ def sistema(padrao, documento):
 def comparar_todos(documentos, totalerros):
     resultados = []
     for documento in documentos:
-        cfg, parametros, mapeamento, query1, query2, chave1, chave2, nomemodulo = sistema(tipo_migracao, documento)
+        cfg, parametros, mapeamento, query1, query2, chave1, chave2, nomemodulo = identificarPadraoQuery(tipomigracao, documento)
         try:
-            query1 = ajustar_query(carregar_sql(query1), parametros)
-            query2 = ajustar_query(carregar_sql(query2), parametros)
+            query1 = ajustarQuery(carregarSql(query1), parametros)
+            query2 = ajustarQuery(carregarSql(query2), parametros)
 
-            resultado1 = executar_query(DB1, query1)
-            if tipo_migracao == 'Migração do Webcamara':
-                query2 = trocar_dados(resultado1, query2, cfg)  # corrigir depois no webcamara
-            resultado2 = executar_query(DB2, query2)
+            resultado1 = executarQuery(DB1, query1)
+            if tipomigracao == 'Migração do Webcamara':
+                query2 = trocarDados(resultado1, query2, cfg)  # corrigir depois no webcamara
+            resultado2 = executarQuery(DB2, query2)
 
-            # if len(resultado1) != len(resultado2):
-            #     print(f"opa, {nomemodulo} está com problemas")
-            totalregistros, inexistentes = procurar_inexistentes(resultado1, resultado2, chave1, chave2)
-            diferencas = procurar_diferencas(resultado1, resultado2, chave1, chave2, mapeamento)
+            totalregistros, inexistentes = procurarInexistentes(resultado1, resultado2, chave1, chave2)
+            diferencas = procurarDiferencas(resultado1, resultado2, chave1, chave2, mapeamento)
 
         except Exception as erro:
             diferencas, inexistentes, totalregistros = 0, 0, 1
@@ -81,15 +79,15 @@ def comparar_todos(documentos, totalerros):
             print('\n\n')
         
         totalcolunas = len(mapeamento)
-        if tipo_migracao == 'Migração do Webcamara' and nomemodulo.count("Protocolo Dinamico") != 0:
+        if tipomigracao == 'Migração do Webcamara' and nomemodulo.count("Protocolo Dinamico") != 0:
             try:
-                nomemodulo = findpdname(nomemodulo, tipo_migracao)
+                nomemodulo = findpdname(nomemodulo, tipomigracao)
             except Exception as falha:
                 print(f"Não foi possivel altetar o nome do {nomemodulo} pelo seguinte erro:")
                 print(falha)
         elif nomemodulo.count("Protocolo Dinamico") != 0: 
             try:
-                nomemodulo = findpdname(nomemodulo, tipo_migracao, parametros.get('tipo_cadastro_generico_antigowcm'))
+                nomemodulo = findpdname(nomemodulo, tipomigracao, parametros.get('tipo_cadastro_generico_antigowcm'))
             except Exception as falha:
                 print(f"Não foi possivel altetar o nome do {nomemodulo} pelo seguinte erro:")
                 print(falha)
@@ -118,7 +116,7 @@ st.set_page_config(
 )
 
 st.title("CompareTBs 🐞")
-st.markdown(f':grey[Conectado à:] :green["{b2}"]  :grey[({tipo_migracao})]', 
+st.markdown(f':grey[Conectado à:] :green["{b2}"]  :grey[({tipomigracao})]', 
     help=f"""
 ```text
 DB1......  {b1}

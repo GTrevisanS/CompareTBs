@@ -1,8 +1,8 @@
-from core.db import carregar_conexao # Meu arquivo separado que define as conexões de banco
+from core.db import carregarConexao # Meu arquivo separado que define as conexões de banco
 
-DB1, DB2, DB3, DESCRIPT = carregar_conexao()
+DB1, DB2, DB3, DESCRIPT = carregarConexao()
 
-def ajustar_query(query, parametros):
+def ajustarQuery(query, parametros):
     query = query.replace("{bancowcm4}", DB3) # Se encontrar a chave do wcm4, faz o replace (Somente ocorre na query1 / Webcamara)
     query = query.replace("{codigo_descriptografia_rg_cpf}", DESCRIPT) # Se encontrar o código de descriptografias, troca (Somente ocorre na query2 / NovoWCM)
 

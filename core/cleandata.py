@@ -1,12 +1,13 @@
 import unicodedata
 import re 
 
-def remover_acentos(texto: str) -> str:
+def removerAcentos(texto: str) -> str:
     # Normaliza o texto separando o caractere base do seu acento
     nfkd = unicodedata.normalize('NFKD', texto)
     # Filtra mantendo apenas caracteres que não possuem propriedades de acentuação
-    texto_sem_acento = "".join([c for c in nfkd if not unicodedata.combining(c)])
-    return texto_sem_acento
+    textolimpo = "".join([c for c in nfkd if not unicodedata.combining(c)])
+    return textolimpo
+    
 
 CARACTERES_NORMALIZADOS = str.maketrans({ 
         # Crio um dicionário de tradução contendo os caracteres de acentuação
@@ -20,7 +21,8 @@ CARACTERES_NORMALIZADOS = str.maketrans({
         "•": "."
 })
 
-def limparvalor(valor):
+
+def limparValor(valor):
     """
     (Função PRINCIPAL para normalizar valores / colunas)
     Essa função roda para todos as colunas, independente
@@ -38,7 +40,7 @@ def limparvalor(valor):
     valor = valor.translate(CARACTERES_NORMALIZADOS)  
     
     # 4º - Passo pela minha função de remoção de acentuação geral e retorno o valor 100% formatado.
-    valor = remover_acentos(valor)
+    valor = removerAcentos(valor)
 
     # 5º - Por último, verifico se o valor é apenas digitos, caso for, retorna o número formatado ("000" -> "0")
     if valor.isdigit():

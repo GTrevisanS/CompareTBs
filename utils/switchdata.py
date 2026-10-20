@@ -8,8 +8,7 @@ listadosvariaveis = {
     }
 }
 
-
-def trocar_dados(resultado1, query2, cfg):
+def trocarDados(resultado1, query2, cfg):
     if "{parametro_where}" in query2:
         listain = []
         documento = listadosvariaveis.get(cfg["nome"])

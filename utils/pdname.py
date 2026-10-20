@@ -1,8 +1,10 @@
-from core.compare import executar_query
-from core.db import carregar_bancos
+from core.compare import executarQuery
+from core.db import carregarBancos
 
-def encontrar_nome_protocolo(nome_dicionario, tipo_migracao, numeroprotocolo=None):
-    DB1, DB2, DB3 = carregar_bancos()
+def encontrarNomeProtocolo(nome_dicionario, tipo_migracao, numeroprotocolo=None):
+
+    # Coleta e ajuste das informacoes
+    DB1, DB2, DB3 = carregarBancos()
     nome_dinamico = nome_dicionario.replace("Protocolo Dinamico", "").strip()
     nome_dinamico = nome_dinamico or "1"
     tabeladaquery = nome_dicionario.lower().strip().replace(" ", "_") # EX: Protocolo Dinamico 2 -> protocolo_dinamico_2
@@ -20,7 +22,7 @@ def encontrar_nome_protocolo(nome_dicionario, tipo_migracao, numeroprotocolo=Non
             WHERE t.tip_pro_id = {numeroprotocolo}
         """
 
-    resultado = executar_query(DB1, query)
+    resultado = executarQuery(DB1, query)
     nome = resultado[0]["nome"]
 
     if not resultado:

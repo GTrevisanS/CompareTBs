@@ -1,5 +1,3 @@
-# ====================================================== AJUSTE DE ID ======================================================
-
 possibilidades = {
     'ses_nome_identificador': 'Numero / tipo da sessão (NovoWCM)',                                       # UTILIZADO PARA SESSÕES  
     'IDENTIFICADOR-PROTOCOLO-NOVOWCM': 'ID / Data Hora do Protocolo (NovoWCM)',   # UTILIZADO SOMENTE EM PROTOCOLOS
@@ -14,18 +12,19 @@ possibilidades = {
     'CODIGO-INDIVIDUAL-ANO': 'Codigo de identificação'                            # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
 }   
 
-def trocar_id(documento, possibilidade):
+
+def trocarId(documento, possibilidade):
     colunacerta = documento.get(possibilidade)
     if colunacerta is not None and colunacerta != "":
         return colunacerta
     return None
 
 
-def encontrar_id(linha):
+def encontrarId(linha):
     dadoscoluna = None
     nome_identificador = ""
     for nome_coluna, descricao in possibilidades.items():
-        newdados = trocar_id(linha, nome_coluna)
+        newdados = trocarId(linha, nome_coluna)
         if newdados is not None:
             dadoscoluna = newdados
             nome_identificador = descricao

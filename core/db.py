@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path='./data/.env') # CARREGA O ARQUIVO .ENV
 import os
 
-def carregar_bancos():
+def carregarBancos():
     DB1 = { 
         "host": os.getenv("DATABASE-1-HOST"),
         "port": int(os.getenv("DATABASE-1-PORT")),
@@ -20,8 +20,8 @@ def carregar_bancos():
     }
     return DB1, DB2, DB3
 
-def carregar_conexao():
-    DB1, DB2, DB3 = carregar_bancos()
+def carregarConexao():
+    DB1, DB2, DB3 = carregarBancos()
     DESCRIPT = os.getenv("NOVOWCM_DESCRIPTOGRAFIA_DOCUMENTO")    # Código de descriptografia usado para ler corretamente os dados sensiveis
 
     os.system('cls')

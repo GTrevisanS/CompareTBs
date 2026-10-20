@@ -1,14 +1,14 @@
 import mysql.connector as mysql # Biblioteca usada para conectar com o banco de dados
 from core.normalizar import NORMALIZADORES # Arquivo Py que "normaliza" colunas ESPECIFICAS para que consigam ser comparadas corretamente
 from core import db # Meu arquivo separado que define as conexões de banco
-from utils.repairid import encontrar_id
-from core.cleandata import limparvalor
+from utils.repairid import encontrarId
+from core.cleandata import limparValor
 
-def carregar_sql(caminho):
+def carregarSql(caminho):
     with open(caminho, "r", encoding="utf-8") as f:
         return f.read()
 
-def executar_query(config, query):
+def executarQuery(config, query):
     try:
         conexao = mysql.connect(**config)
     except Exception as erro:
@@ -21,7 +21,7 @@ def executar_query(config, query):
     conexao.close()
     return resultado
 
-def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
+def procurarInexistentes(resultado1, resultado2, chave_db1, chave_db2):
 
     dados1 = {
         linha[chave_db1]: linha
@@ -46,7 +46,7 @@ def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
             # Pega a linha completa do Banco 2 referente ao ID
             linha = dados2[registro_id]
 
-            dadoslinha, nome_identificador = encontrar_id(linha)
+            dadoslinha, nome_identificador = encontrarId(linha)
 
             inexistentes.append(
                 f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 2'
@@ -56,7 +56,7 @@ def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
             # Pega a linha completa do Banco 1 referente ao ID
             linha = dados1[registro_id]
 
-            dadoslinha, nome_identificador = encontrar_id(linha)
+            dadoslinha, nome_identificador = encontrarId(linha)
 
             inexistentes.append(
                 f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 1'
@@ -68,7 +68,7 @@ def procurar_inexistentes(resultado1, resultado2, chave_db1, chave_db2):
 # COMPARADOR DOS CAMPOS
 # =====================================================
 
-def procurar_diferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento):
+def procurarDiferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento):
     
     dados1 = {
         linha[chave_db1]: linha
@@ -89,8 +89,8 @@ def procurar_diferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento
 
         for campo_db1, campo_db2 in mapeamento.items():
 
-            valor1 = limparvalor(linha1.get(campo_db1))
-            valor2 = limparvalor(linha2.get(campo_db2))
+            valor1 = limparValor(linha1.get(campo_db1))
+            valor2 = limparValor(linha2.get(campo_db2))
 
             if campo_db1 in NORMALIZADORES:
                 valor1 = NORMALIZADORES[campo_db1](valor1) # Procura a coluna nos normalizadores, e retorna ela normalizada
@@ -99,7 +99,7 @@ def procurar_diferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento
                 valor2 = NORMALIZADORES[campo_db2](valor2)
                 
             if valor1 != valor2:
-                dadoslinha, nome_identificador = encontrar_id(linha2)
+                dadoslinha, nome_identificador = encontrarId(linha2)
                 diferencas.append({
                     f"{nome_identificador}": dadoslinha,
                     "COLUNA-WEBCAMARA": campo_db1,
