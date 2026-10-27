@@ -126,7 +126,7 @@
         }
     },
 
-    "wcm_atas": {
+    "wcm_atas_sessoes": {
         "query1": "sql/origem/AntigoWCM/Documentos/AtasSessoes-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
@@ -137,6 +137,20 @@
             "DATA-AFIXACAO": "doc_data_fim",
             "TIPO-SESSAO": "sub_tip_doc_descricao",
             "MESA-DIRETORA": "mes_dir_descricao",
+            "RETIFICACAO": "doc_retificacao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+    
+    "wcm_atas_comissoes": {
+        "query1": "sql/origem/AntigoWCM/Documentos/AtasComissoes-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "TITULO": "doc_observacao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "DATA-APROVACAO": "doc_data_inicio_tramitacao",
             "RETIFICACAO": "doc_retificacao",
             "INTERNET": "doc_mostra_online"
         }

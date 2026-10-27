@@ -483,7 +483,7 @@
             "id_tipo_documento_novowcm": 51,
             "tipo_documento_importado": "codigo_ata_importado"
         },
-        "tabela": "wcm_atas"
+        "tabela": "wcm_atas_sessoes"
     },
     "53": {
         "nome": "Oficios Enviados",
@@ -812,12 +812,30 @@
         "nome": "Protocolo Dinamico 9",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
+        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 106,
             "tipo_cadastro_generico_antigowcm": 106,
             "tipo_documento_importado": "codigo_cadastro_generico_importado" 
         },
-        "tabela": "wcm_cadastros_genericos"
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "DATA-HORA-PROTOCOLO": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "ASSUNTO": "doc_justificativa",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "DESCRICAO": "doc_edicao_documento",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "VALOR": "doc_valor",
+            "DATA-INICIO": "doc_data_inicio_tramitacao",
+            "DATA-FIM": "doc_data_limite_tramitacao",
+            "LEGISLATURA": "leg_descricao",
+            "CADASTRO-UNICO-VINCULADO": "cad_uni_nome",
+            "INTERNET": "doc_mostra_online"
+        }
     },
    "107": {
         "nome": "Protocolo Dinamico 10",
@@ -982,5 +1000,15 @@
             "tipo_documento_importado": "codigo_sic_importado"
         },
         "tabela": "sic_dados"
+    },
+    "147": {
+        "nome": "Atas das comissões",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_atas_comissoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 147,
+            "tipo_documento_importado": "codigo_atas_comissoes_importado"
+        },
+        "tabela": "wcm_atas_comissoes"
     }
 }
