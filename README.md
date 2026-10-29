@@ -52,5 +52,3 @@ Além dos arquivos principais, o projeto utiliza:
 
 Com a combinação desses arquivos, o CompareTBs consegue identificar problemas de migração de bancos de dados praticamente em tempo real.
 Isso elimina boa parte da necessidade de abrir sistemas, consultar tabelas manualmente ou realizar conferências repetitivas, tornando o processo de validação muito mais rápido, confiável e produtivo.
-
-
