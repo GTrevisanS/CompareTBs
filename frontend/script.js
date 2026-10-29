@@ -40,6 +40,17 @@ async function api(url, opts) {
     return d;
 }
 
+// Limita o texto exibido sem alterar o valor original.
+function limitarTexto(valor, limite) {
+    var texto = String(valor == null ? "" : valor);
+
+    if (texto.length <= limite) {
+        return esc(texto);
+    }
+
+    return esc(texto.substring(0, limite)) + "...";
+}
+
 
 /* ========================================
    Inicialização da aplicação
@@ -340,7 +351,14 @@ function renderModulo(r) {
                                 return `
                                     <tr>
                                         ${keys.map(function (k) {
-                                            return `<td>${esc(row[k])}</td>`;
+                                            var valor = String(row[k] == null ? "" : row[k]);
+                                            var limite = 100;
+
+                                            return `
+                                                <td title="${esc(valor)}">
+                                                    ${limitarTexto(valor, limite)}
+                                                </td>
+                                            `;
                                         }).join("")}
                                     </tr>
                                 `;

@@ -2,27 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-    --bg: rgb(24, 24, 24);
-    --card: #1c1c1c;
+    /* --bg: rgb(24, 24, 24); */
+    --bg: #04001f;
+    --card: #171717;
     --text: #ffffff;
     --muted: #4c94ff;
     --border: #2e2e2e;
-    --blue: #3d63dd;
-    --green: #2f9771;
-
-    --sucess: #24ce46;
-    --sucess-bg: color-mix(in srgb, var(--sucess) 10%, transparent);
-
-    --error: #ce2424;
-
-    --orange: #c87512;
-
-    --red: #c43e4d;
-
     --textgrey: rgb(111, 111, 111);
+    --whitehover: #ffffff52;
     --textgreymin: color-mix(in srgb, var(--textgrey) 25%, transparent);
 
-    --whitehover: #ffffff52;
+    /* CORES DE RESPOSTA  */
+    --sucess: #24ce46;
+    --sucess-bg: color-mix(in srgb, var(--sucess) 10%, transparent);
+    --error: #f23131;
+    --error-bg: color-mix(in srgb, var(--error) 10%, transparent);
+
+
+    /* CORES PRIMARIAS  */
+    --blue: #3d63dd;
+    --green: #2f9771;
+    --orange: #c87512;
+    --red: #c43e4d;
+
 }
 
 
@@ -45,10 +47,29 @@
 }
 
 body {
+    position: relative;
+    min-height: 100vh;
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font: 14px Inter, "Segoe UI", sans-serif;
+}
+
+/* Fundo animado de partículas */
+.background {
+    position: fixed;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Mantém toda a aplicação acima do canvas */
+.shell {
+    position: relative;
+    z-index: 1;
 }
 
 input{
@@ -67,6 +88,8 @@ button {
 /* Estrutura principal */
 
 .shell {
+    position: relative;
+    z-index: 1;
     max-width: 1400px;
     margin: auto;
     padding: 0 32px;
@@ -418,7 +441,7 @@ main {
 }
 
 .message.error {
-    background: var(--card);
+    background: var(--error-bg);
     color: var(--error);
     border-color: var(--error);
 }
@@ -432,8 +455,15 @@ main {
 /* Lista e cabeçalho dos resultados */
 
 .result-list {
+    /* border: 1px solid var(--whitehover); */
+    border-radius: 9px;
+    /* animation: 1s; */
     display: grid;
-    gap: 12px;
+    gap: 8px;
+}
+
+.result-list:hover{
+    border-color: #2277ff;
 }
 
 .result-card {
@@ -548,7 +578,7 @@ td {
 }
 
 .error-text {
-    color: var(--red);
+    color: var(--error);
     white-space: pre-wrap;
     font-size: 12px;
 }

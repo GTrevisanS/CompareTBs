@@ -122,7 +122,7 @@ def index():
 
 @app.route("/<path:arquivo>")
 def arquivos_frontend(arquivo):
-    if arquivo in ("style.css", "script.js"):
+    if arquivo in ("style.css", "script.js", "particles.js"):
         return send_from_directory(str(FRONTEND), arquivo)
     return resposta({"erro": "Arquivo não encontrado."}, 404)
 
