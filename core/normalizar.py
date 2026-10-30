@@ -10,7 +10,10 @@ def ajustarCodigoIndividual(valor):
         if not numero or ',' in numero:
             numero = '0000'
         else:
-            numero = f"{int(numero):04d}"
+            if numero.isdigit():
+                numero = f"{int(numero):04d}"
+            else:
+                pass
         return f"{numero}-{ano}" # Foi alterado para sempre retornar com o traço (Padrão do novoWCM)
 
     valor = str(valor)

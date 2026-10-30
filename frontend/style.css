@@ -30,6 +30,9 @@
     --orange-pill-bg: color-mix(in srgb, var(--orange-pill) 20%, transparent);
     --neutral-pill: #7d839d;
     --neutral-pill-bg: color-mix(in srgb, var(--neutral-pill) 20%, transparent);
+    --orange-pill-bg: color-mix(in srgb, var(--orange-pill) 20%, transparent);
+    --registers-pill: #766ca7;
+    --registers-pill-bg: color-mix(in srgb, var(--registers-pill) 20%, transparent);
 
     /* CORES PRIMARIAS  */
     --blue: #3d63dd;
@@ -46,6 +49,71 @@
     --migration-border: color-mix(in srgb, var(--migration) 40%, transparent);
 }
 
+
+/* ========================================
+   SweetAlert2 - Toast Notifications
+======================================== */
+
+.toast-custom {
+    background: var(--solid-card) !important;
+    border: 1px solid var(--muted) !important;
+    border-radius: 6px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+    padding: 10px !important;
+}
+
+.toast-title {
+    color: var(--text) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.toast-message {
+    color: var(--textgrey) !important;
+    font-size: 12px !important;
+}
+
+.toast-progress {
+    background: var(--blue) !important;
+    height: 1px !important;
+}
+
+
+/* ========================================
+   Cores dos ícones Toast
+======================================== */
+
+/* Sucesso */
+.swal2-icon.swal2-success {
+    color: var(--sucess);
+    border-color: var(--sucess);
+}
+
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: var(--sucess);
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: var(--sucess);
+}
+
+/* Erro */
+.swal2-icon.swal2-error {
+    color: var(--error);
+    border-color: var(--error);
+}
+
+.swal2-icon.swal2-error [class^='swal2-x-mark-line'] {
+    background-color: var(--error);
+}
+
+/* Aviso */
+.swal2-icon.swal2-warning {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+
 /* Configurações gerais */
 
 * {
@@ -58,7 +126,7 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 14px Inter, "Segoe UI", sans-serif;
+    font: 16px Inter, "Segoe UI", sans-serif;
 }
 
 /* Fundo animado de partículas */
@@ -96,7 +164,7 @@ button {
 .shell {
     position: relative;
     z-index: 1;
-    max-width: 1650px;
+    max-width: 1420px;
     margin: auto;
     padding: 0 28px;
 }
@@ -149,6 +217,27 @@ button {
     border-radius: 9px;
     padding: 10px 13px;
     font-size: 12px;
+    transition: 0.4s;
+}
+
+.connection:hover{
+    box-shadow: 0 0 13px var(--connection-border);
+}
+
+.migration {
+    border: 1px solid var(--migration-border);
+    background: var(--transparent-card);
+    color: var(--migration);
+    padding: 10px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.4s;
+}
+
+.migration:hover{
+    box-shadow: 0 0 13px var(--migration-border);
 }
 
 /* Conteúdo principal */
@@ -192,17 +281,6 @@ main {
 .panel-head p {
     color: var(--textgrey);
     margin: 8px 0 0;
-}
-
-.migration {
-    border: 1px solid var(--migration-border);
-    background: var(--transparent-card);
-    color: var(--migration);
-    padding: 10px 13px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
 }
 
 /* Painéis e botões */
@@ -484,7 +562,7 @@ main {
 .result-list {
     /* border: 1px solid var(--whitehover); */
     border-radius: 9px;
-    /* animation: 1s; */
+    animation: 1s;
     display: grid;
     gap: 8px;
 }
@@ -535,6 +613,11 @@ main {
 .pill.orange {
     color: var(--orange-pill);
     background: var(--orange-pill-bg);
+}
+
+.pill.registers {
+    color: var(--registers-pill);
+    background: var(--registers-pill-bg);
 }
 
 .pill.red {

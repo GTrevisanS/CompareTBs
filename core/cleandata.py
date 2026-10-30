@@ -30,8 +30,8 @@ def limparValor(valor):
     INT (como o codigo do documento)  
     """
     # 1º - No caso do valor vir Nulo ou vazio, transformo ele em "0" e termino a função aqui mesmo (Porque fica mais fácil de trabalhar)
-    if valor is None or str(valor).strip() == "":
-        return '' 
+    if valor is None or str(valor).replace(" ", "") == "":
+        return '0'
     # 2º - Eu faço ter certeza que o valor é uma string limpa (sem espaços ou caracteres em caixa alta)
     valor = str(valor).strip().lower()
     valor = re.sub(r"\s+", " ", valor)
@@ -46,3 +46,9 @@ def limparValor(valor):
     if valor.isdigit():
         valor = str(int(valor))
     return valor
+
+def finalmenteRetornar(valor):
+    if valor is None or valor.strip() == "":
+        valor = "0"
+    return valor
+

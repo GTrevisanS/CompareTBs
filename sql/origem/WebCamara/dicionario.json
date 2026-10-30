@@ -112,7 +112,7 @@
         },
         "mapeamento": {
             "Nome_completo": "cad_uni_nome",
-            "Data_Nascimento": "cad_uni_apelido",
+            "Data_Nascimento": "DATA-NASCIMENTO-NOVOWCM",
             "Sexo": "cad_uni_sexo",
             "Cargo": "cad_uni_car_descricao",
             "RG": "RG-NOVOWCM",

@@ -7,7 +7,7 @@ SELECT
 	ws.ses_data_hora_limite_protocolo,
 	ws.ses_observacao,
 	ws.ses_video_link,
-	NULL AS 'ses_local', -- pq n existe a coluna
+	ws.ses_local,
 	ws.ses_mostra_online
 FROM 
 	wcm_sessoes ws

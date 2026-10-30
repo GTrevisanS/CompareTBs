@@ -1,3 +1,65 @@
+/* ========================================
+   Notificações Toast
+======================================== */
+
+function alertaSucesso(titulo, mensagem) {
+    Swal.fire({
+        toast: true,
+        position: 'top-start',
+        icon: 'success',
+        title: titulo,
+        text: mensagem,
+        showConfirmButton: false,
+        timer: 6500,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'toast-custom',
+            title: 'toast-title',
+            htmlContainer: 'toast-message',
+            timerProgressBar: 'toast-progress'
+        }
+    });
+}
+
+function alertaErro(titulo, mensagem) {
+    Swal.fire({
+        toast: true,
+        position: 'top-start',
+        icon: 'error',
+        title: titulo,
+        text: mensagem,
+        showConfirmButton: false,
+        timer: 8000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'toast-custom',
+            title: 'toast-title',
+            htmlContainer: 'toast-message',
+            timerProgressBar: 'toast-progress'
+        }
+    });
+}
+
+function alertaAviso(titulo, mensagem) {
+    Swal.fire({
+        toast: true,
+        position: 'top-start',
+        icon: 'warning',
+        title: titulo,
+        text: mensagem,
+        showConfirmButton: false,
+        timer: 7000,
+        timerProgressBar: true,
+        customClass: {
+            popup: 'toast-custom',
+            title: 'toast-title',
+            htmlContainer: 'toast-message',
+            timerProgressBar: 'toast-progress'
+        }
+    });
+}
+
+
 
 /* ========================================
    Variáveis globais
@@ -57,6 +119,7 @@ function limitarTexto(valor, limite) {
 ======================================== */
 
 async function iniciar() {
+
     // Verifica a conexão e identifica o tipo de migração.
     try {
         var s = await api("/api/status");
@@ -67,6 +130,11 @@ async function iniciar() {
     } catch (e) {
         $("connection").textContent = "Falha ao carregar conexão";
         $("migration").textContent = "Migração não identificada";
+
+        alertaErro(
+            "Falha na conexão!",
+            e.message
+        );
     }
 
     // Carrega os módulos disponíveis para comparação.
@@ -79,6 +147,11 @@ async function iniciar() {
 
     } catch (e) {
         $("modules").textContent = "Erro ao carregar módulos: " + e.message;
+
+        alertaErro(
+            "Erro ao carregar módulos!",
+            e.message
+        );
     }
 }
 
@@ -184,12 +257,12 @@ $("clear").addEventListener("click", function () {
 ======================================== */
 
 $("compare").addEventListener("click", async function () {
+
     // Desabilita o botão e exibe o indicador de carregamento.
     $("compare").disabled = true;
 
     $("loading").classList.remove("hidden");
     $("results").classList.add("hidden");
-    // Esconde o footer e mostra os resultados
     $("footer").classList.add("hidden");
 
     try {
@@ -210,14 +283,11 @@ $("compare").addEventListener("click", async function () {
         renderResultados(ultimoResultado);
 
     } catch (e) {
-        // Exibe uma mensagem caso a comparação falhe.
-        $("messages").innerHTML = `
-            <div class="message error">
-                ${esc(e.message)}
-            </div>
-        `;
 
-        $("results").classList.remove("hidden");
+        alertaErro(
+            "Erro na comparação!",
+            e.message
+        );
 
     } finally {
         // Oculta o carregamento e atualiza os módulos.
@@ -257,18 +327,18 @@ function renderResultados(d) {
 
 
     // Exibe o status geral da comparação.
-    $("messages").innerHTML = d.totalerros
-        ? `
-            <div class="message error">
-                ${d.totalerros} módulo(s) apresentaram erro.
-                Confira os detalhes.
-            </div>
-        `
-        : `
-            <div class="message success">
-                Comparação concluída sem erros de execução.
-            </div>
-        `;
+    if (d.totalerros) {
+        alertaAviso(
+            "Comparação concluída com ressalvas!",
+            d.totalerros + " módulo(s) apresentaram erro. Confira os detalhes."
+        );
+
+    } else {
+        alertaSucesso(
+            "Comparação concluída!",
+            "Comparação concluída sem erros de execução."
+        );
+    }
 
 
     // Mantém apenas módulos com erros ou inconsistências.
@@ -312,6 +382,8 @@ function renderModulo(r) {
         : [];
 
     var cols = r.contatotalcolunas || 0;
+    var registros = r.totalregistros || 0;
+
     var body = "";
 
 
@@ -401,6 +473,7 @@ function renderModulo(r) {
         `;
     }
 
+
     // Retorna o card completo do módulo.
     return `
         <article class="result-card">
@@ -412,6 +485,10 @@ function renderModulo(r) {
                 </div>
 
                 <div class="pills">
+
+                    <span class="pill registers">
+                        ${registros} registro(s)
+                    </span>
 
                     <span class="pill neutral">
                         ${cols} colunas
@@ -450,7 +527,7 @@ function renderModulo(r) {
 
             <div class="body">
                 ${body || `
-                    <div class="message success">
+                    <div class="empty">
                         Nenhuma inconsistência neste módulo.
                     </div>
                 `}
@@ -466,8 +543,14 @@ function renderModulo(r) {
 ======================================== */
 
 $("export").addEventListener("click", function () {
+
     // Não exporta caso ainda não exista resultado.
     if (!ultimoResultado) {
+        alertaAviso(
+            "Nenhum resultado disponível!",
+            "Realize uma comparação antes de exportar."
+        );
+
         return;
     }
 
