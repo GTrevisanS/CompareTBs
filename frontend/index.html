@@ -31,47 +31,17 @@
             </div>
 
             <div style="display: flex; flex-direction: row; gap: 10px" >
-                <div id="connection" class="connection">
-                Verificando conexão...
-                </div>
-                <span id="migration" class="migration">
-                        Identificando migração...
-                </span>
+                <div id="connection" class="connection">Verificando conexão...</div>
+                <span id="migration" class="migration">Identificando migração...</span>
             </div>
-
-
 
         </header>
 
         <!-- Conteúdo principal -->
         <main>
 
-            <!-- Apresentação
-            <section class="intro">
-
-                <div>
-                    <span class="eyebrow">
-                        CONTROLE DE MIGRAÇÃO
-                    </span>
-
-
-                </div>
-
-
-
-            </section> -->
-
             <!-- Seleção de módulos -->
             <section class="panel">
-
-                <div class="panel-head">
-
-                    <div>
-                        <h3>Módulos para comparar</h3>
-                        <p>Selecione um ou mais itens da lista.</p>
-                    </div>
-
-                </div>
 
                 <!-- Pesquisa e quantidade selecionada -->
                 <div class="toolbar">
@@ -81,43 +51,20 @@
                         type="search"
                         placeholder="Buscar módulo..."
                     >
-
-                    <span id="count">
-                        0 selecionados
-                    </span>
-
                 </div>
 
                 <!-- Lista de módulos carregada pelo JavaScript -->
-                <div id="modules" class="modules">
-                    Carregando módulos...
-                </div>
+                <div id="modules" class="modules">Carregando módulos...</div>
 
                 <!-- Execução da comparação -->
                 <div class="run-row">
 
-                    <span id="hint">
-                        Selecione os módulos para começar.
-                    </span>
+                    <span id="hint">Selecione os módulos para começar.</span>
 
                     <div class="actions">
-
-                        <button id="selectAll" class="btn light">
-                            Selecionar todos
-                        </button>
-
-                        <button id="clear" class="btn light">
-                            Limpar
-                        </button>
-                        
-                        <button
-                            id="compare"
-                            class="btn primary"
-                            disabled
-                        >
-                       Comparar
-                    </button>
-
+                        <button id="selectAll" class="btn select-all">Selecionar todos</button>
+                        <button id="clear" class="btn clear-all">Limpar</button>
+                        <button id="compare" class="btn primary" disabled>Comparar</button>
                     </div>
 
                 </div>
@@ -126,17 +73,11 @@
 
             <!-- Indicador de carregamento -->
             <section id="loading" class="loading hidden">
-
                 <span class="spinner"></span>
-
                 <div>
                     <b>Comparando os bancos...</b>
-
-                    <p>
-                        Aguarde enquanto o Python executa as consultas SQL.
-                    </p>
+                    <p>Python executando as queries para comparar os registros</p>
                 </div>
-
             </section>
 
             <!-- Mensagens de status e erros -->
@@ -145,40 +86,31 @@
             <!-- Resultados da comparação -->
             <section id="results" class="hidden">
 
+                <!-- Lista detalhada dos resultados -->
+                <div id="resultList" class="result-list"></div>
+
                 <!-- Cabeçalho dos resultados -->
                 <div class="result-heading">
-
                     <div>
-                        <span class="eyebrow">
-                            RESULTADO DA EXECUÇÃO
-                        </span>
-
+                        <span class="eyebrow">RESULTADO DA EXECUÇÃO</span>
                         <h2>Resumo da comparação</h2>
                     </div>
-
-                    <button id="export" class="btn light">
-                        Exportar JSON
-                    </button>
-
+                    <button id="export" class="btn primary">Exportar JSON</button>
                 </div>
 
                 <!-- Cards de resumo -->
                 <div id="summary" class="summary"></div>
-
-                <!-- Lista detalhada dos resultados -->
-                <div id="resultList" class="result-list"></div>
-
             </section>
-
+            
         </main>
 
         <!-- Rodapé -->
-        <footer>
-
-            <b>CompareTBs (Iniciado em maio de 2026)</b>
-            <span>HTML · CSS · JavaScript · Python · Flask</span>
-
-        </footer>
+         <section id="footer">
+            <footer>
+                <b>CompareTBs (Iniciado em maio de 2026)</b>
+                <span>HTML · CSS · JavaScript · Python · Flask</span>
+            </footer>
+         </section>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>

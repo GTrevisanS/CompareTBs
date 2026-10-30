@@ -1,18 +1,18 @@
 window.addEventListener("load", function () {
     Particles.init({
-        selector: ".background",
+        selector: ".background", // Identifica a div do fundo pela classe
 
-        maxParticles: 70,
-        sizeVariations: 4,
-        speed: 0.3,
+        maxParticles: 80,        // Define o número máximo de particulas
+        sizeVariations: 3,       // Define a variação do tamanho das particulas
+        speed: 0.15,             // Define a velocidade das particulas
 
-        color: [
-            "#38bdf8",
+        color: [                 // Cores sorteadas pelas particulas
+            "#75f838",
             "#818cf8",
             "#ffffff"
         ],
 
-        minDistance: 90,
-        connectParticles: true
+        minDistance: 60,
+        connectParticles: false
     });
 });

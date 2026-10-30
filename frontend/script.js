@@ -133,15 +133,12 @@ function renderModulos() {
         });
     });
 
-    // Atualiza a quantidade de módulos selecionados.
-    $("count").textContent = selecionados.length + " selecionado(s)";
-
     // Habilita a comparação somente quando houver seleção.
     $("compare").disabled = !selecionados.length;
 
     // Atualiza a orientação exibida ao usuário.
     $("hint").textContent = selecionados.length
-        ? selecionados.length + " módulo(s) pronto(s) para comparação."
+        ? selecionados.length + " módulo(s) sendo comparados."
         : "Selecione os módulos para começar.";
 }
 
@@ -192,6 +189,8 @@ $("compare").addEventListener("click", async function () {
 
     $("loading").classList.remove("hidden");
     $("results").classList.add("hidden");
+    // Esconde o footer e mostra os resultados
+    $("footer").classList.add("hidden");
 
     try {
         // Envia os módulos selecionados para a API Python.
@@ -285,7 +284,7 @@ function renderResultados(d) {
         ? rs.map(renderModulo).join("")
         : `
             <div class="empty">
-                Nenhuma diferença ou registro inexistente foi encontrado.
+                Eba!, nenhum problema encontrado!!
             </div>
         `;
 
@@ -402,7 +401,6 @@ function renderModulo(r) {
         `;
     }
 
-
     // Retorna o card completo do módulo.
     return `
         <article class="result-card">
@@ -411,11 +409,6 @@ function renderModulo(r) {
 
                 <div>
                     <h3>${esc(r.modulo)}</h3>
-
-                    <p>
-                        ${cols} coluna(s) mapeada(s)
-                        · ${esc(r.totalregistros || 0)} registro(s)
-                    </p>
                 </div>
 
                 <div class="pills">
