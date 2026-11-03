@@ -1,4 +1,4 @@
-from core.db import carregarConexao # Meu arquivo separado que define as conexões de banco
+from backend.core.db import carregarConexao # Meu arquivo separado que define as conexões de banco
 
 DB1, DB2, DB3, DESCRIPT = carregarConexao()
 

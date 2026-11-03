@@ -8,6 +8,7 @@ SELECT
     wpr.pro_data_hora, -- Data / Hora do protocolo do registro no novoWCM
     wpr.pro_codigo_individual_ano, -- Numero do protocolo do registro no novoWCM
     wd.doc_codigo_individual_ano, -- Codigo individual ano 
+    wd.doc_data_documento, -- Data do registro
     wd.doc_ementa, -- Ementa 
     wd.doc_observacao, -- Observacoes
     wd.doc_justificativa, -- Justificativa
@@ -32,9 +33,9 @@ SELECT
     wd.doc_local_viagem, -- Local viagem (se tiver)
     wti.tip_ini_descricao, -- Iniciativa (Só vi em projeto)
     wtq.tip_quo_descricao, -- Tipo de quorum de votação
-    wtc.tip_cat_descricao, -- Categoria
     wpv.pro_vot_descricao, -- Processo de votação
-    wd.doc_data_documento, -- Data do registro
+    wtc.tip_cat_descricao, -- Categoria
+    wtcompe.tip_com_descricao, -- Competencia (Só vi em projeto)
     wd.doc_data_inicio_tramitacao, -- Data de inicio da tramitação
     wd.doc_data_limite_tramitacao, -- Data de limite da tramitação
     wd.doc_data_abertura, -- Data de abertura (Geralmente do edital)
@@ -83,6 +84,7 @@ FROM
 	LEFT JOIN wcm_documentos_enderecamentos wden ON wden.doc_end_documento_id_fk = wd.doc_id
 	LEFT JOIN wcm_enderecamentos we ON we.end_id = wden.doc_end_enderecamento_id_fk
     LEFT JOIN wcm_documentos_arquivamentos_historicos arqva ON arqva.doc_arq_his_documento_id_fk = wd.doc_id 
+    LEFT JOIN wcm_tipos_competencia wtcompe ON wtcompe.tip_com_id = wd.doc_tipo_competencia_id_fk
 
 -- ========================================== PROCESSO DO DOCUMENTO ==========================================
 	LEFT JOIN wcm_documentos_vinculados wdvinc ON wdvinc.doc_vin_documento_vinculado_id_fk = wd.doc_id

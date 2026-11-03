@@ -6,7 +6,6 @@
         "query1": "sql/origem/Webcamara/Protocolos_db1.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Protocolos-NovoWCM.sql",
         "mapeamento": {
-            "TIPO-PROTOCOLO-WEBCAMARA": "tip_doc_descricao",
             "CODIGO_TIPO":"CODIGO-TIPO-NOVOWCM",
             "processo_numero": "pro_codigo_individual",
             "Data_Protocolo": "pro_data_hora",
@@ -320,6 +319,25 @@
             "SITUACAO-TRAMITACAO": "sit_descricao",
             "REGIME-TRAMITACAO": "reg_tra_descricao",
             "DESTINATARIO": "end_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+    "06": {
+        "nome": "Redação final",
+        "chave1": "ID-Redacao-Final-NovoWCM",
+        "chave2": "codigo_documento_importado",
+        "query1": "sql/origem/Webcamara/Proposituras/Redacoes/Redacao_final_db1.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "parametros": {
+            "id_tipo_documento_novowcm": 6,
+            "tipo_documento_importado": "codigo_documento_importado"
+        },
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
+            "LEGISLATURA": "leg_descricao",
             "INTERNET": "doc_mostra_online"
         }
     },

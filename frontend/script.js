@@ -1,3 +1,4 @@
+
 /* ========================================
    Notificações Toast
 ======================================== */
@@ -5,7 +6,7 @@
 function alertaSucesso(titulo, mensagem) {
     Swal.fire({
         toast: true,
-        position: 'top-start',
+        position: 'top-end',
         icon: 'success',
         title: titulo,
         text: mensagem,
@@ -24,7 +25,7 @@ function alertaSucesso(titulo, mensagem) {
 function alertaErro(titulo, mensagem) {
     Swal.fire({
         toast: true,
-        position: 'top-start',
+        position: 'top-end',
         icon: 'error',
         title: titulo,
         text: mensagem,
@@ -43,7 +44,7 @@ function alertaErro(titulo, mensagem) {
 function alertaAviso(titulo, mensagem) {
     Swal.fire({
         toast: true,
-        position: 'top-start',
+        position: 'top-end',
         icon: 'warning',
         title: titulo,
         text: mensagem,
@@ -60,14 +61,15 @@ function alertaAviso(titulo, mensagem) {
 }
 
 
-
 /* ========================================
    Variáveis globais
 ======================================== */
 
 var modulos = [];
 var selecionados = [];
-var ultimoResultado = null;
+
+var temporizadorComparacao = null;
+var idComparacao = 0;
 
 
 /* ========================================
@@ -157,117 +159,259 @@ async function iniciar() {
 
 
 /* ========================================
-   Renderização dos módulos
+   Renderização do Taggable Multi-Select
 ======================================== */
 
 function renderModulos() {
+
     var q = $("search").value
         .toLocaleLowerCase("pt-BR")
         .trim();
 
-    // Filtra os módulos conforme o texto pesquisado.
+    // Normaliza os identificadores.
+    selecionados = selecionados.map(String);
+
+    // Recupera os módulos selecionados.
+    var selecionadosHtml = modulos
+        .filter(function (m) {
+            return selecionados.includes(String(m.id));
+        })
+        .map(function (m) {
+            return `
+                <span class="module-tag">
+                    ${esc(m.nome)}
+
+                    <button
+                        type="button"
+                        class="remove-tag"
+                        data-remove="${esc(m.id)}"
+                        title="Remover módulo"
+                    >
+                        ×
+                    </button>
+                </span>
+            `;
+        }).join("");
+
+    $("selectedModules").innerHTML = selecionadosHtml;
+
+    // Filtra os módulos disponíveis.
     var lista = modulos.filter(function (m) {
-        return m.nome.toLocaleLowerCase("pt-BR").includes(q);
+        return m.nome
+            .toLocaleLowerCase("pt-BR")
+            .includes(q);
     });
 
-    // Monta a lista de módulos na interface.
+    // Renderiza as opções.
     $("modules").innerHTML = lista.length
         ? lista.map(function (m) {
-            var on = selecionados.includes(m.id);
+
+            var id = String(m.id);
+            var on = selecionados.includes(id);
 
             return `
-                <label class="module ${on ? "selected" : ""}">
-                    <input
-                        type="checkbox"
-                        data-id="${esc(m.id)}"
-                        ${on ? "checked" : ""}
-                    >
+                <div
+                    class="module-option ${on ? "selected" : ""}"
+                    data-id="${esc(id)}"
+                >
                     <span>${esc(m.nome)}</span>
-                </label>
+
+                    <span class="option-check">
+                        ${on ? "✓" : ""}
+                    </span>
+                </div>
             `;
+
         }).join("")
-        : "Nenhum módulo encontrado.";
+        : `
+            <div class="no-options">
+                Nenhum módulo encontrado.
+            </div>
+        `;
 
-    // Atualiza a seleção quando um checkbox é alterado.
-    $("modules").querySelectorAll("input").forEach(function (input) {
-        input.addEventListener("change", function () {
-            var id = input.dataset.id;
+    // Evento de seleção dos módulos.
+    $("modules").querySelectorAll(".module-option").forEach(function (option) {
 
-            if (input.checked && !selecionados.includes(id)) {
-                selecionados.push(id);
+        option.addEventListener("click", function () {
 
-            } else {
+            var id = option.dataset.id;
+
+            if (selecionados.includes(id)) {
+
                 selecionados = selecionados.filter(function (x) {
                     return x !== id;
                 });
-            }
 
+            } else {
+
+                selecionados.push(id);
+
+            }
+            // Limpa o campo de pesquisa após selecionar.
+            $("search").value = "";
             renderModulos();
+
+            // Agenda a comparação automática.
+            agendarComparacao();
+
+            // $("search").focus();
+
         });
+
     });
 
-    // Habilita a comparação somente quando houver seleção.
-    $("compare").disabled = !selecionados.length;
+    // Evento para remover uma tag individualmente.
+    $("selectedModules").querySelectorAll(".remove-tag").forEach(function (button) {
+
+        button.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            var id = button.dataset.remove;
+
+            selecionados = selecionados.filter(function (x) {
+                return x !== id;
+            });
+
+            renderModulos();
+
+            // Agenda a comparação automática.
+            agendarComparacao();
+
+            $("search").focus();
+
+        });
+
+    });
 
     // Atualiza a orientação exibida ao usuário.
     $("hint").textContent = selecionados.length
-        ? selecionados.length + " módulo(s) sendo comparados."
-        : "Selecione os módulos para começar.";
+        ? selecionados.length + " módulo(s) selecionado(s)."
+        : "";
 }
 
 
 /* ========================================
-   Eventos da seleção de módulos
+   Eventos do Taggable Multi-Select
 ======================================== */
 
-// Pesquisa de módulos.
-$("search").addEventListener("input", renderModulos);
+// Abre a lista ao clicar ou focar no campo de pesquisa.
+$("search").addEventListener("focus", function () {
+    $("modules").classList.add("open");
+});
 
+$("search").addEventListener("click", function () {
+    $("modules").classList.add("open");
+});
+
+// Pesquisa em tempo real.
+$("search").addEventListener("input", function () {
+    $("modules").classList.add("open");
+    renderModulos();
+});
+
+// Fecha a lista ao clicar fora do componente.
+document.addEventListener("click", function (e) {
+    if (!$("multiSelect").contains(e.target)) {
+        $("modules").classList.remove("open");
+    }
+});
 
 // Seleciona todos os módulos que correspondem à pesquisa.
 $("selectAll").addEventListener("click", function () {
+
     var q = $("search").value
         .toLocaleLowerCase("pt-BR")
         .trim();
 
     modulos.forEach(function (m) {
+
         var corresponde = m.nome
             .toLocaleLowerCase("pt-BR")
             .includes(q);
 
-        if (corresponde && !selecionados.includes(m.id)) {
-            selecionados.push(m.id);
+        var id = String(m.id);
+
+        if (corresponde && !selecionados.includes(id)) {
+            selecionados.push(id);
         }
+
     });
 
     renderModulos();
-});
 
+    // Agenda a comparação automática.
+    agendarComparacao();
+
+});
 
 // Limpa todos os módulos selecionados.
 $("clear").addEventListener("click", function () {
+
     selecionados = [];
 
     renderModulos();
+
+    // Agenda a comparação automática.
+    agendarComparacao();
+
 });
 
 
 /* ========================================
-   Execução da comparação
+   Comparação automática
 ======================================== */
 
-$("compare").addEventListener("click", async function () {
+// Aguarda um pequeno intervalo antes de iniciar a comparação.
+// Isso evita várias execuções em sequência durante a seleção.
+function agendarComparacao() {
 
-    // Desabilita o botão e exibe o indicador de carregamento.
-    $("compare").disabled = true;
+    clearTimeout(temporizadorComparacao);
 
-    $("loading").classList.remove("hidden");
-    $("results").classList.add("hidden");
+    // Invalida uma possível comparação anterior.
+    idComparacao++;
+
+    var idAtual = idComparacao;
+
+    // Se não houver módulos selecionados, limpa os resultados.
+    if (!selecionados.length) {
+
+        $("results").classList.add("hidden");
+        $("footer").classList.add("hidden");
+        $("loading").classList.add("hidden");
+
+        return;
+    }
+
+    temporizadorComparacao = setTimeout(function () {
+
+        compararModulos(idAtual);
+
+    }, 350);
+
+}
+
+
+// Executa a comparação dos módulos selecionados.
+async function compararModulos(id) {
+
+    // Ignora execuções antigas.
+    if (id !== idComparacao) {
+        return;
+    }
+
+    // Oculta o rodapé sempre que uma comparação for iniciada.
     $("footer").classList.add("hidden");
 
+    // Exibe o carregamento e oculta os resultados anteriores.
+    $("loading").classList.remove("hidden");
+    $("results").classList.add("hidden");
+
     try {
+
         // Envia os módulos selecionados para a API Python.
-        ultimoResultado = await api("/api/comparar", {
+        var resultado = await api("/api/comparar", {
+
             method: "POST",
 
             headers: {
@@ -277,25 +421,47 @@ $("compare").addEventListener("click", async function () {
             body: JSON.stringify({
                 documentos: selecionados
             })
+
         });
 
+        // Ignora resultados de comparações antigas.
+        if (id !== idComparacao) {
+            return;
+        }
+
         // Exibe os resultados recebidos.
-        renderResultados(ultimoResultado);
+        renderResultados(resultado);
 
     } catch (e) {
 
-        alertaErro(
-            "Erro na comparação!",
-            e.message
-        );
+        // Só exibe o erro se a comparação ainda for a atual.
+        if (id === idComparacao) {
+
+            alertaErro(
+                "Erro na comparação!",
+                e.message
+            );
+
+        }
 
     } finally {
-        // Oculta o carregamento e atualiza os módulos.
-        $("loading").classList.add("hidden");
 
-        renderModulos();
+        // Só atualiza a interface se esta ainda for
+        // a comparação mais recente.
+        if (id === idComparacao) {
+
+            $("loading").classList.add("hidden");
+
+            // Mantém o rodapé oculto após a comparação.
+            $("footer").classList.add("hidden");
+
+            renderModulos();
+
+        }
+
     }
-});
+
+}
 
 
 /* ========================================
@@ -303,6 +469,7 @@ $("compare").addEventListener("click", async function () {
 ======================================== */
 
 function renderResultados(d) {
+
     var s = d.resumo || {};
 
     // Dados dos cards de resumo.
@@ -316,6 +483,7 @@ function renderResultados(d) {
 
     // Monta os cards de resumo.
     $("summary").innerHTML = cards.map(function (c) {
+
         return `
             <div class="summary-card ${c[2]}">
                 <div class="label">${esc(c[0])}</div>
@@ -323,29 +491,35 @@ function renderResultados(d) {
                 <div class="line"></div>
             </div>
         `;
+
     }).join("");
 
 
     // Exibe o status geral da comparação.
     if (d.totalerros) {
+
         alertaAviso(
             "Comparação concluída com ressalvas!",
             d.totalerros + " módulo(s) apresentaram erro. Confira os detalhes."
         );
 
     } else {
+
         alertaSucesso(
             "Comparação concluída!",
             "Comparação concluída sem erros de execução."
         );
+
     }
 
 
     // Mantém apenas módulos com erros ou inconsistências.
     var rs = (d.resultados || []).filter(function (r) {
+
         return r.erro
             || (r.diferencas || []).length
             || (r.inexistentes || []).length;
+
     });
 
 
@@ -358,13 +532,27 @@ function renderResultados(d) {
             </div>
         `;
 
+    tippy('[data-tippy-content]', {
+        placement: 'top',
+        animation: 'fade',
+        theme: 'custom',
+        appendTo: document.body
+    });
 
-    // Exibe a seção e direciona a tela para os resultados.
+
+    // Inicializa os tooltips do Bootstrap.
+    $("resultList").querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+
+        bootstrap.Tooltip.getOrCreateInstance(el, {
+            container: 'body'
+        });
+
+    });
+
+
+    // Exibe a seção de resultados.
     $("results").classList.remove("hidden");
 
-    // $("results").scrollIntoView({
-    //     behavior: "smooth"
-    // });
 }
 
 
@@ -373,6 +561,7 @@ function renderResultados(d) {
 ======================================== */
 
 function renderModulo(r) {
+
     var dif = Array.isArray(r.diferencas)
         ? r.diferencas
         : [];
@@ -386,67 +575,97 @@ function renderModulo(r) {
 
     var body = "";
 
+    // Identifica as colunas que apresentaram divergências.
+    var colunasErro = Array.from(new Set(
+        dif.map(function (row) {
+            return row["COLUNA-WEBCAMARA"];
+        }).filter(Boolean)
+    ));
+
 
     // Exibe o erro do módulo, se houver.
     if (r.erro) {
+
         body += `
             <div class="error-text">
                 ${esc(r.erro)}
             </div>
         `;
+
     }
 
 
     // Monta a tabela de diferenças.
     if (dif.length) {
+
         var keys = Object.keys(dif[0]);
 
         body += `
             <details>
-                <summary>
+                <summary style="color: var(--textgrey)">
                     ${dif.length} diferença(s) encontrada(s)
+                    <span
+                        class="info-tooltip"
+                        data-tippy-content="Colunas com divergência: [${esc(colunasErro.join(", "))}] ">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </span>
                 </summary>
 
                 <div class="table-wrap">
                     <table>
                         <thead>
                             <tr>
-                                ${keys.map(function (k) {
-                                    return `<th>${esc(k)}</th>`;
+                                ${keys.map(function (k, index) {
+
+                                    return `
+                                        <th class="coluna-${index}">
+                                            ${esc(k)}
+                                        </th>
+                                    `;
+
                                 }).join("")}
                             </tr>
                         </thead>
 
                         <tbody>
                             ${dif.map(function (row) {
+
                                 return `
                                     <tr>
-                                        ${keys.map(function (k) {
+                                        ${keys.map(function (k, index) {
+
                                             var valor = String(row[k] == null ? "" : row[k]);
                                             var limite = 100;
 
                                             return `
-                                                <td title="${esc(valor)}">
+                                                <td
+                                                    title="${esc(valor)}"
+                                                    class="td-obscure coluna-${index}"
+                                                >
                                                     ${limitarTexto(valor, limite)}
                                                 </td>
                                             `;
+
                                         }).join("")}
                                     </tr>
                                 `;
+
                             }).join("")}
                         </tbody>
                     </table>
                 </div>
             </details>
         `;
+
     }
 
 
     // Monta a tabela de registros inexistentes.
     if (ine.length) {
+
         body += `
             <details>
-                <summary>
+                <summary style="color: var(--textgrey)">
                     ${ine.length} registro(s) inexistente(s)
                 </summary>
 
@@ -460,17 +679,20 @@ function renderModulo(r) {
 
                         <tbody>
                             ${ine.map(function (x) {
+
                                 return `
                                     <tr>
                                         <td>${esc(x)}</td>
                                     </tr>
                                 `;
+
                             }).join("")}
                         </tbody>
                     </table>
                 </div>
             </details>
         `;
+
     }
 
 
@@ -480,18 +702,20 @@ function renderModulo(r) {
 
             <div class="result-head">
 
-                <div>
-                    <h3>${esc(r.modulo)}</h3>
-                </div>
+                <h3>
+                    ${esc(r.modulo)}
+                    <span
+                        class="info-tooltip"
+                        data-tippy-content="Este módulo esta comparando ${cols} colunas"
+                    >
+                        <i class="fa-solid fa-circle-info"></i>
+                    </span>
+                </h3>
 
                 <div class="pills">
 
                     <span class="pill registers">
                         ${registros} registro(s)
-                    </span>
-
-                    <span class="pill neutral">
-                        ${cols} colunas
                     </span>
 
                     ${dif.length
@@ -535,47 +759,8 @@ function renderModulo(r) {
 
         </article>
     `;
+
 }
-
-
-/* ========================================
-   Exportação dos resultados
-======================================== */
-
-$("export").addEventListener("click", function () {
-
-    // Não exporta caso ainda não exista resultado.
-    if (!ultimoResultado) {
-        alertaAviso(
-            "Nenhum resultado disponível!",
-            "Realize uma comparação antes de exportar."
-        );
-
-        return;
-    }
-
-    // Converte o resultado em um arquivo JSON.
-    var blob = new Blob(
-        [
-            JSON.stringify(ultimoResultado, null, 2)
-        ],
-        {
-            type: "application/json"
-        }
-    );
-
-    // Cria um link temporário para iniciar o download.
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-
-    a.href = url;
-    a.download = "comparacao-CompareTBs.json";
-
-    a.click();
-
-    // Libera a URL temporária.
-    URL.revokeObjectURL(url);
-});
 
 
 /* ========================================

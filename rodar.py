@@ -1,15 +1,19 @@
 import json
 from pathlib import Path
 from flask import Flask, Response, request, send_from_directory
-from core.db import carregarBancos
-from core.cleansql import ajustarQuery
-from core.compare import carregarSql, executarQuery, procurarInexistentes, procurarDiferencas
-from utils.pdname import encontrarNomeProtocolo as findpdname
-from utils.switchdata import trocarDados
-from utils.sistemas import identificarSistema
+from backend.core.db import carregarBancos
+from backend.core.cleansql import ajustarQuery
+from backend.core.compare import carregarSql, executarQuery, procurarInexistentes, procurarDiferencas
+from backend.utils.pdname import encontrarNomeProtocolo as findpdname
+from backend.utils.switchdata import trocarDados
+from backend.utils.sistemas import identificarSistema
 
-ROOT = Path(__file__).resolve().parent
-FRONTEND = ROOT / "frontend"
+
+BASE_DIR = Path(__file__).resolve().parent
+
+ROOT = BASE_DIR / "backend"
+FRONTEND = BASE_DIR / "frontend"
+
 app = Flask(__name__, static_folder=None)
 
 DB1, DB2, DB3 = carregarBancos()
@@ -20,13 +24,13 @@ if tipo_migracao == "Migração do Webcamara":
 else:
     pasta_origem = ROOT / "sql" / "origem" / "AntigoWCM"
 
-def abrir_json(caminho):
+def abrirJSON(caminho):
     with open(str(caminho), encoding="utf-8") as arquivo:
         return json.load(arquivo)
 
-CONFIGURACOES = abrir_json(pasta_origem / "dicionario.json")
-PADROES = abrir_json(pasta_origem / "tabelas.json")
-REJEITAR = ["Sessões (Expedientes)", "Leis - Revogação", "Leis - Alteração"]
+CONFIGURACOES = abrirJSON(pasta_origem / "dicionario.json")
+PADROES = abrirJSON(pasta_origem / "tabelas.json")
+REJEITAR = ["Sessões (Expedientes)", "Leis - Revogação", "Leis - Alteração", "Protocolos"]
 
 def resposta(dados, status=200):
     return Response(json.dumps(dados, ensure_ascii=False, default=str),

@@ -1,5 +1,5 @@
-from core.compare import executarQuery
-from core.db import carregarBancos
+from backend.core.compare import executarQuery
+from backend.core.db import carregarBancos
 
 def encontrarNomeProtocolo(nome_dicionario, tipo_migracao, numeroprotocolo=None):
 

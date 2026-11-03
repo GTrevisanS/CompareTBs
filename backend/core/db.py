@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-load_dotenv(dotenv_path='./data/.env') # CARREGA O ARQUIVO .ENV
+load_dotenv(dotenv_path='./backend/data/.env') # CARREGA O ARQUIVO .ENV
 import os
 
 def carregarBancos():

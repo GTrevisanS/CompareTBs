@@ -2,7 +2,7 @@ SELECT
     wcm4.doc_id 'ID-Projeto-NovoWCM',
     -- proj.Num_Protocolo_PROTOCOLO, # NUMERO DO PROTOCOLO NA TABELA DE PROTOCOLO DO WEBCAMARA
     CONCAT(pr.processo_numero, '-', pr.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
-	pr.Data_Protocolo,
+	 pr.Data_Protocolo,
     proj.codigo_individual_ano AS 'CODIGO-INDIVIDUAL-ANO',
     l.Nome AS 'LEGISLATURA',
     proj.EMENTA,
@@ -12,7 +12,10 @@ SELECT
     proj.Regime_Tramitacao 'REGIME-TRAMITACAO',
     proj.Iniciativa AS 'INICIATIVA',
     proj.QUORUM,
+    proj.DISCUSSAO,
     c.Nome AS 'CATEGORIA',
+    proj.COMPETENCIA,
+    proj.num_processo AS 'CODIGO-PROCESSO',
     CASE
 		WHEN proj.Data_Inicio_Tramitacao IS NULL THEN pr.Data_Protocolo
 		WHEN proj.Data_Inicio_Tramitacao = 0 THEN pr.Data_Protocolo

@@ -1,8 +1,8 @@
 import mysql.connector as mysql # Biblioteca usada para conectar com o banco de dados
-from core.normalizar import NORMALIZADORES # Arquivo Py que "normaliza" colunas ESPECIFICAS para que consigam ser comparadas corretamente
-from core import db # Meu arquivo separado que define as conexões de banco
-from utils.repairid import encontrarId
-from core.cleandata import limparValor, finalmenteRetornar
+from backend.core.normalizar import NORMALIZADORES # Arquivo Py que "normaliza" colunas ESPECIFICAS para que consigam ser comparadas corretamente
+from backend.core import db # Meu arquivo separado que define as conexões de banco
+from backend.utils.repairid import encontrarId
+from backend.core.cleandata import limparValor, finalmenteRetornar
 
 def carregarSql(caminho):
     with open(caminho, "r", encoding="utf-8") as f:
@@ -111,6 +111,3 @@ def procurarDiferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento)
                 })
 
     return diferencas
-
-
-
