@@ -1,7 +1,7 @@
 SELECT 
 	wcm4.div_id AS 'ID-Declaracao-NovoWCM',
 	d.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	d.Assunto,
+	d.ASSUNTO,
 	td.Descricao AS 'TIPO-DECLARACAO',
 	d.Data AS 'DATA-REGISTRO',
 	0 AS 'INTERNET' -- Crio uma coluna para confirmar que será importado sem internet ativo no NovoWCM

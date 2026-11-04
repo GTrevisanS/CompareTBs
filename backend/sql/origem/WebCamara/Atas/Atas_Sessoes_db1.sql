@@ -3,13 +3,13 @@ SELECT
 	a.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	l.Nome AS 'LEGISLATURA',
 	m.Nome AS 'MESA-DIRETORA',
-	a.Tipo_Sessao,
+	a.Tipo_Sessao AS 'SUBTIPO',
 	a.Data_Sessao,
 	a.Codigo_Ata,
 	a.Numero_Ata,
-	a.Descricao,
+	a.DESCRICAO,
 	st.Descricao AS 'TRAMITACAO',
-	a.observacao,
+	a.observacao AS 'OBSERVACOES',
 	CASE
 		WHEN a.Retificacao = 'SIM' THEN 1
 		ELSE 0
@@ -26,4 +26,5 @@ FROM
 	LEFT JOIN mesa m ON m.Codigo = a.Codigo_MESA
 	LEFT JOIN situacao_tramitacao st ON a.Codigo_SITUACAO_TRAMITACAO = st.Codigo
 	LEFT JOIN {bancowcm4}.wcm_atas_sessoes wcm4 ON wcm4.codigo_ata_sessao_webcamara = a.Codigo
-ORDER BY wcm4.ata_ses_id DESC
+ORDER BY 
+	wcm4.ata_ses_id DESC

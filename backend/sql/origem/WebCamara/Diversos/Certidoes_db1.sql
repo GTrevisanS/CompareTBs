@@ -1,7 +1,7 @@
 SELECT 
 	wcm4.div_id AS 'ID-Certidao-NovoWCM',
 	c.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
-	c.Assunto,
+	c.ASSUNTO,
 	tc.Descricao AS 'TIPO-CERTIDAO',
 	-- c.Solicitante,
 	-- l.Nome AS 'LEGISLATURA',

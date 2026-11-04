@@ -126,8 +126,12 @@ async function iniciar() {
     try {
         var s = await api("/api/status");
 
-        $("connection").textContent = "Conectado: " + s.banco2;
-        $("migration").textContent = s.tipo_migracao;
+        $("connection").innerHTML = `
+            ${esc(s.banco2)}
+        `;
+        $("migration").innerHTML = `
+            ${esc(s.tipo_migracao)}
+        `;
 
     } catch (e) {
         $("connection").textContent = "Falha ao carregar conexão";
@@ -287,7 +291,7 @@ function renderModulos() {
     // Atualiza a orientação exibida ao usuário.
     $("hint").textContent = selecionados.length
         ? selecionados.length + " módulo(s) selecionado(s)."
-        : "";
+        : "Nenhum módulo selecionado ainda.";
 }
 
 
@@ -309,6 +313,61 @@ $("search").addEventListener("input", function () {
     $("modules").classList.add("open");
     renderModulos();
 });
+
+
+ // Pesquisa em tempo real.
+$("search").addEventListener("input", function () {
+    $("modules").classList.add("open");
+    renderModulos();
+});
+
+// NOVO: Seleciona os módulos filtrados ao pressionar Enter.
+$("search").addEventListener("keydown", function (e) {
+
+    if (e.key !== "Enter") {
+        return;
+    }
+
+    e.preventDefault();
+
+    var q = $("search").value
+        .toLocaleLowerCase("pt-BR")
+        .trim();
+
+    // Não seleciona tudo caso o campo esteja vazio.
+    if (!q) {
+        return;
+    }
+
+    // Recupera os módulos que correspondem à pesquisa.
+    var encontrados = modulos.filter(function (m) {
+
+        return m.nome
+            .toLocaleLowerCase("pt-BR")
+            .includes(q);
+
+    });
+
+    // Adiciona os módulos encontrados.
+    encontrados.forEach(function (m) {
+
+        var id = String(m.id);
+
+        if (!selecionados.includes(id)) {
+            selecionados.push(id);
+        }
+
+    });
+
+    // Limpa a pesquisa e atualiza a interface.
+    $("search").value = "";
+    renderModulos();
+
+    // Executa a comparação automática.
+    agendarComparacao();
+
+});
+
 
 // Fecha a lista ao clicar fora do componente.
 document.addEventListener("click", function (e) {
@@ -475,10 +534,14 @@ function renderResultados(d) {
     // Dados dos cards de resumo.
     var cards = [
         ["Módulos comparados", s.modulos_comparados || 0, ""],
-        ["Módulos limpos", s.modulos_limpos || 0, "green"],
-        ["Diferenças encontradas", s.total_diferencas || 0, "orange"],
-        ["Registros Inexistentes", s.total_inexistentes || 0, "red"],
-        ["Erros de execução", d.totalerros || 0, "red"]
+        ["Módulos vazios", s.modulos_vazios || 0, "green"],
+        ["Módulos limpos", s.modulos_limpos || 0, "blue"],
+        ["Módulos divergentes", s.modulos_divergentes || 0, "orange"],
+
+        // ["Diferenças encontradas", s.total_diferencas || 0, "orange"],
+        // ["Registros Inexistentes", s.total_inexistentes || 0, "red"],
+        // ["Erros de execução", d.totalerros || 0, "red"],
+        ["Tempo de execução", (d.tempo_execucao + "s") || 0, "red"]
     ];
 
     // Monta os cards de resumo.
@@ -507,7 +570,7 @@ function renderResultados(d) {
 
         alertaSucesso(
             "Comparação concluída!",
-            "Comparação concluída sem erros de execução."
+            d.tempo_execucao.toFixed(0) + " segundos de comparação sem erros de execução."
         );
 
     }
@@ -574,6 +637,8 @@ function renderModulo(r) {
     var registros = r.totalregistros || 0;
 
     var body = "";
+    var tempo = r.tempo_execucao_individual;
+    var milissegundo_registro = Math.round((r.tempo_execucao_individual / registros) * 1000);
 
     // Identifica as colunas que apresentaram divergências.
     var colunasErro = Array.from(new Set(
@@ -594,7 +659,6 @@ function renderModulo(r) {
 
     }
 
-
     // Monta a tabela de diferenças.
     if (dif.length) {
 
@@ -607,7 +671,7 @@ function renderModulo(r) {
                     <span
                         class="info-tooltip"
                         data-tippy-content="Colunas com divergência: [${esc(colunasErro.join(", "))}] ">
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-regular fa-circle-question"></i>
                     </span>
                 </summary>
 
@@ -708,19 +772,16 @@ function renderModulo(r) {
                         class="info-tooltip"
                         data-tippy-content="Este módulo esta comparando ${cols} colunas"
                     >
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-solid fa-chart-simple" style="font-size: 13px; margin-left: 4px;"></i>
                     </span>
                 </h3>
 
                 <div class="pills">
 
-                    <span class="pill registers">
-                        ${registros} registro(s)
-                    </span>
-
                     ${dif.length
                         ? `
                             <span class="pill orange">
+                                <i class="fa-solid fa-triangle-exclamation" style="font-size: 10px; margin-right: 2px;" ></i>
                                 ${dif.length} diferenças
                             </span>
                         `
@@ -730,6 +791,7 @@ function renderModulo(r) {
                     ${ine.length
                         ? `
                             <span class="pill red">
+                                <i class="fa-solid fa-triangle-exclamation" style="font-size: 10px; margin-right: 2px;" ></i>
                                 ${ine.length} inexistentes
                             </span>
                         `
@@ -738,12 +800,26 @@ function renderModulo(r) {
 
                     ${r.erro
                         ? `
-                            <span class="pill red">
-                                Erro
+                            <span class="pill red info-tooltip"
+                            data-tippy-content="Ocorreu algum tipo de erro durante a execução, cheque abaixo o erro e valide os campos necessários!">
+                                <i class="fa-solid fa-bug" style="font-size: 10px; margin-right: 2px;"></i>
+                                Erro durante comparação
                             </span>
                         `
                         : ""
                     }
+
+                    <span class="pill registers info-tooltip"
+                    data-tippy-content="Este módulo demorou ${tempo} segundos para ser comparado. uma média de ${milissegundo_registro} milisegundos por registro!">
+                        <i class="fa-solid fa-stopwatch" style="font-size: 10px; margin-right: 2px;"></i>
+                        ${tempo}s
+                    </span>
+
+                    <span class="pill registers info-tooltip"
+                    data-tippy-content="Total de registros que foram encontrados no WEBCAMARA (pode variar em relação ao NovoWCM)">
+                        <i class="fa-solid fa-database" style="font-size: 10px; margin-right: 2px;"></i>
+                        ${registros} registro(s)
+                    </span>
 
                 </div>
 

@@ -1,4 +1,4 @@
-import json
+import time, json, os
 from pathlib import Path
 from flask import Flask, Response, request, send_from_directory
 from backend.core.db import carregarBancos
@@ -65,10 +65,15 @@ def caminho_sql(caminho):
     caminho = Path(str(caminho))
     return str(caminho if caminho.is_absolute() else ROOT / caminho)
 
+
 def comparar_todos(documentos):
     resultados, total_erros = [], 0
 
     for documento in documentos:
+
+        # Inicia o temporizador do documento.
+        inicio_documento = time.perf_counter()
+
         nome = "Módulo desconhecido"
         mapeamento, parametros = {}, {}
         diferencas, inexistentes, total_registros, erro_texto = [], [], 0, None
@@ -82,16 +87,20 @@ def comparar_todos(documentos):
             query2 = ajustarQuery(carregarSql(caminho_sql(q2_path)), parametros)
 
             resultado1 = executarQuery(DB1, query1)
+
             if tipo_migracao == "Migração do Webcamara":
                 query2 = trocarDados(resultado1, query2, cfg)
+
             resultado2 = executarQuery(DB2, query2)
 
             total_registros, inexistentes = procurarInexistentes(
                 resultado1, resultado2, chave1, chave2
             )
+
             diferencas = procurarDiferencas(
                 resultado1, resultado2, chave1, chave2, mapeamento
             )
+
         except Exception as erro:
             total_erros += 1
             erro_texto = str(erro)
@@ -108,6 +117,13 @@ def comparar_todos(documentos):
             except Exception:
                 pass
 
+        # Finaliza o temporizador do documento.
+        fim_documento = time.perf_counter()
+
+        tempo_documento = round(
+            fim_documento - inicio_documento, 3
+        )
+
         resultados.append({
             "id": str(documento),
             "modulo": nome,
@@ -115,10 +131,14 @@ def comparar_todos(documentos):
             "diferencas": diferencas,
             "inexistentes": inexistentes,
             "totalregistros": total_registros,
-            "erro": erro_texto
+            "erro": erro_texto,
+
+            # Tempo individual do documento.
+            "tempo_execucao_individual": tempo_documento
         })
 
     return resultados, total_erros
+
 
 @app.route("/")
 def index():
@@ -142,36 +162,74 @@ def status():
 def modulos():
     return resposta({"modulos": opcoes_modulos()})
 
+
 @app.route("/api/comparar", methods=["POST"])
 def comparar():
     dados = request.get_json(silent=True) or {}
     documentos = dados.get("documentos", [])
+
     if not isinstance(documentos, list) or not documentos:
         return resposta({"erro": "Selecione pelo menos um módulo."}, 400)
 
     ids_validos = set(item["id"] for item in opcoes_modulos())
     documentos = [str(item) for item in documentos if str(item) in ids_validos]
+
     if not documentos:
         return resposta({"erro": "Nenhum módulo válido foi selecionado."}, 400)
 
+    # Inicia o temporizador da comparação.
+    inicio = time.perf_counter()
+
     resultados, total_erros = comparar_todos(documentos)
+
     diferencas = sum(len(r["diferencas"]) for r in resultados)
     inexistentes = sum(len(r["inexistentes"]) for r in resultados)
-    limpos = sum(1 for r in resultados if not r["erro"] and not r["diferencas"] and not r["inexistentes"])
-    vazios = sum(1 for r in resultados if not r["erro"] and r["totalregistros"] == 0)
+
+    # Módulos sem registros para comparação.
+    vazios = sum(
+        1 for r in resultados
+        if not r["erro"]
+        and r["totalregistros"] == 0
+    )
+
+    # Módulos que possuem registros e não apresentam divergências.
+    limpos = sum(
+        1 for r in resultados
+        if not r["erro"]
+        and r["totalregistros"] > 0
+        and not r["diferencas"]
+        and not r["inexistentes"]
+    )
+
+    divergentes = len(resultados) - (vazios + limpos)
+
+    # Finaliza o temporizador.
+    fim = time.perf_counter()
+
+    tempo_execucao = round(fim - inicio, 3)
 
     return resposta({
         "resultados": resultados,
         "totalerros": total_erros,
+
+        # Tempo total da comparação em segundos.
+        "tempo_execucao": tempo_execucao,
+
         "resumo": {
             "modulos_comparados": len(resultados),
             "modulos_limpos": limpos,
             "modulos_vazios": vazios,
+            "modulos_divergentes": divergentes,
             "total_diferencas": diferencas,
             "total_inexistentes": inexistentes,
             "totalregistros": sum(r["totalregistros"] for r in resultados)
         }
     })
 
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    PORTA = 5000
+    HOST = "127.0.0.1"
+    URL = HOST + ":" + str(PORTA)
+    os.system(f'start chrome "{URL}"') # Abre já na página correta 
+    app.run(host=HOST, port=PORTA, debug=False) # Executa o programa no instante seguinte

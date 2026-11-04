@@ -5,7 +5,7 @@ SELECT
 	l.nome AS 'LEGISLATURA',
 	rj.Numero_Oficio,
 	rj.Em_Resposta,
-	rj.Assunto,
+	rj.ASSUNTO,
 	CASE
 		WHEN (rj.Data IS NULL AND pr.Data_Protocolo IS NULL) 
 			OR (rj.Data = 0 AND pr.Data_Protocolo IS NULL)
@@ -22,4 +22,5 @@ FROM
 	LEFT JOIN legislatura l ON l.Codigo = rj.Codigo_LEGISLATURA
 	LEFT JOIN protocolo pr ON pr.Num_Protocolo = rj.Num_Protocolo_PROTOCOLO
 	LEFT JOIN {bancowcm4}.wcm_oficios wcm4 ON wcm4.codigo_recebido_judiciario_webcamara = rj.Codigo
-ORDER BY wcm4.ofi_id DESC
+ORDER BY 
+	wcm4.ofi_id DESC
