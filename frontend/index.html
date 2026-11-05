@@ -1,79 +1,54 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CompareTBs</title>
-    <!-- Estilos da aplicação -->
     <link rel="stylesheet" href="/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
     <canvas class="background"></canvas>
-
     <div class="shell">
-
-        <!-- Cabeçalho -->
         <header class="topbar">
-
             <div class="brand">
-
                 <!-- <span class="bug">🐞</span> -->
-                <i class="fa-solid fa-bug icon-comparetbs"></i>
-
+                 <a href="https://github.com/GTrevisanS" target="_blank">
+                    <i class="fa-solid fa-bug icon-comparetbs"></i>
+                 </a>
                 <div>
                     <h1>CompareTBs</h1>
                     <p>Comparação de migrações de bancos de dados</p>
                 </div>
-
             </div>
-
             <div style="display: flex; flex-direction: row; gap: 10px" >
                 <div id="connection" class="connection">Verificando conexão...</div>
                 <span id="migration" class="migration">Identificando migração...</span>
             </div>
-
         </header>
-
-        <!-- Conteúdo principal -->
         <main>
-
             <!-- Seleção de módulos -->
             <section class="panel">
-
                 <!-- Taggable Multi-Select -->
                 <div class="multi-select" id="multiSelect">
-
                     <label for="search" class="multi-select-label">Procure o módulo que deseja</label>
                     <div class="multi-select-control" id="multiSelectControl">
-
                         <!-- Tags dos módulos selecionados -->
-
                         <div id="selectedModules" class="selected-tags"></div>
-
                         <!-- Campo de pesquisa -->
                         <input
                             id="search"
                             type="search"
                             placeholder=""
-                            autocomplete="on"
-                        >
-
+                            autocomplete="on">
                         <!-- <span class="select-arrow">⌄</span> -->
-
                     </div>
-
                     <!-- Opções disponíveis -->
                     <div id="modules" class="modules dropdown-options">
                         Carregando módulos...
                     </div>
-
                 </div>
-
                 <!-- Execução da comparação -->
                 <div class="run-row">
                     <span id="hint"></span>
@@ -86,13 +61,9 @@
                             Limpar seleção
                             <i class="fa-solid fa-eraser" style="margin-left: 4px"></i>
                         </button>
-                        <!-- <button id="compare" class="btn primary" disabled>Comparar</button> -->
                     </div>
-
                 </div>
-
             </section>
-
             <!-- Indicador de carregamento -->
             <section id="loading" class="loading hidden">
                 <span class="spinner"></span>
@@ -101,31 +72,23 @@
                     <p>Python executando as queries para comparar os registros</p>
                 </div>
             </section>
-
             <!-- Mensagens de status e erros -->
             <div id="messages"></div>
-
             <!-- Resultados da comparação -->
             <section id="results" class="hidden">
-
                 <!-- Lista detalhada dos resultados -->
                 <div id="resultList" class="result-list"></div>
-
                 <!-- Cabeçalho dos resultados -->
                 <div class="result-heading">
                     <div>
                         <span class="eyebrow">RESULTADO DA EXECUÇÃO</span>
                         <h2>Resumo da comparação</h2>
                     </div>
-                    <!-- <button id="export" class="btn primary">Exportar JSON</button> -->
                 </div>
-
                 <!-- Cards de resumo -->
                 <div id="summary" class="summary"></div>
             </section>
-            
         </main>
-
         <!-- Rodapé -->
          <section id="footer">
             <footer>
@@ -133,7 +96,6 @@
                 <span>HTML · CSS · JavaScript · Python · Flask</span>
             </footer>
          </section>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
     <script src="/particles.js"></script>

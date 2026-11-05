@@ -671,8 +671,16 @@ function renderModulo(r) {
 
         var keys = Object.keys(dif[0]);
 
+        // Aqui embaixo eu crio uma variavel para validar se vai ter muitas diferenças pra 
+        // listar, pq se for mais que X erros, ele vem fechado como padrão pra não consumir muito espaço do html
+        var open = "open";
+        if (dif.length > 40){
+            open = "";
+        }
+        // Para definir se a tabela vem como default aberta ou não, basta adicionar "open"
+        // na frente da tag details (no caso fica: "<details open>")
         body += `
-            <details>
+            <details ${open}>
                 <summary style="color: var(--textgrey)">
                     ${dif.length} diferença(s) encontrada(s)
                     <span

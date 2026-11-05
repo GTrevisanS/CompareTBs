@@ -35,7 +35,6 @@ REJEITAR = ["Sessões (Expedientes)", "Leis - Revogação", "Leis - Alteração"
 def resposta(dados, status=200):
     return Response(json.dumps(dados, ensure_ascii=False, default=str),
                     status=status, mimetype="application/json; charset=utf-8")
-
 def opcoes_modulos():
     return [
         {"id": str(chave), "nome": str(cfg.get("nome", "Módulo sem nome"))}
