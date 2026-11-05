@@ -8,6 +8,7 @@
     
     --solid-card: #151515;
     --transparent-card: color-mix(in srgb, var(--solid-card) 30%, transparent);
+    --transparent-cardhover: #ffffff0e;
     --semi-transparent-card: color-mix(in srgb, var(--solid-card) 70%, transparent);
 
     /* CORES DAS FLAGS DE DOCUMENTOS  */
@@ -34,10 +35,9 @@
     --red-pill-bg: color-mix(in srgb, var(--red-pill) 20%, transparent);
     --orange-pill: #ff8307;
     --orange-pill-bg: color-mix(in srgb, var(--orange-pill) 20%, transparent);
-    --neutral-pill: #7d839d;
-    --neutral-pill-bg: color-mix(in srgb, var(--neutral-pill) 20%, transparent);
-    --orange-pill-bg: color-mix(in srgb, var(--orange-pill) 20%, transparent);
-    --registers-pill: #766ca7;
+    --timer-pill: #6b8e93;
+    --timer-pill-bg: color-mix(in srgb, var(--timer-pill) 20%, transparent);
+    --registers-pill: #7975c9;
     --registers-pill-bg: color-mix(in srgb, var(--registers-pill) 20%, transparent);
 
     /* CORES PRIMARIAS  */
@@ -51,9 +51,10 @@
     /* COMPONENTES ESPECIFICOS  */
     --connection: #71ff5e;
     --connection-border: color-mix(in srgb, var(--connection) 40%, transparent);
-
     --migration: #5eb7ff;
     --migration-border: color-mix(in srgb, var(--migration) 40%, transparent);
+    --resultCard: #9094ff;
+    --resultCard-border: color-mix(in srgb, var(--resultCard) 40%, transparent);
 }
 
 
@@ -154,6 +155,21 @@ body {
     z-index: 1;
 }
 
+.icon-comparetbs{
+    font-size: 30px;
+    background-image: linear-gradient(80deg, #e70606, #ff7c17);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block; /* Opcional: ajusta a largura do fundo ao texto */
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.icon-comparetbs:hover{
+    transform: rotate(-40deg)
+}
+
 input{
     background: var(--solid-card);
 }
@@ -180,7 +196,7 @@ button {
 /* Cabeçalho */
 
 .topbar {
-    min-height: 86px;
+    min-height: 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -300,15 +316,18 @@ main {
 .result-card {
     background: var(--semi-transparent-card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 10px;
     box-shadow: 0 9px 28px #1b2a4a0a;
     transition: 0.4s;
+    h3{
+        transition: 0.4s;
+    }
 }
 
 .result-card:hover{
-    border-color: var(--purple);
+    border-color: var(--resultCard-border);
     h3{
-        color: var(--purple-brilliant);
+        color: var(--resultCard);
     }
 }
 
@@ -334,7 +353,7 @@ main {
 }
 
 .panel {
-    margin-top: 30px;
+    margin-top: 0px;
     padding: 18px;
 }
 
@@ -783,10 +802,6 @@ main {
     gap: 40px;
 }
 
-.result-list:hover{
-    border-color: #2277ff;
-}
-
 .result-card {
     overflow: hidden;
 }
@@ -821,9 +836,9 @@ main {
     white-space: nowrap;
 }
 
-.pill.neutral {
-    color: var(--neutral-pill);
-    background: var(--neutral-pill-bg);
+.pill.timer {
+    color: var(--timer-pill);
+    background: var(--timer-pill-bg);
 }
 
 .pill.orange {
@@ -896,7 +911,14 @@ th {
 
 td {
     max-width: 420px;
+    transition: 0.3s;
 }
+
+td:hover {
+    background-color: var(--transparent-cardhover);
+}
+
+
 
 .error-text {
     color: var(--error);

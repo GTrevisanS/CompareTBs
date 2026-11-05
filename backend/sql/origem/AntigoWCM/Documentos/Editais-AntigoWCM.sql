@@ -7,7 +7,7 @@ SELECT
 	e.edi_codigo_licitacao 'CODIGO-LICITACAO',
 	l.leg_descricao 'LEGISLATURA',
 	e.edi_providencias 'PROVIDENCIA',
-	t.tra_descricao 'TRAMITACOES',
+	t.tra_descricao 'SITUACAO-TRAMITACAO',
 	e.edi_regime_execucao 'REGIME-EXECUCAO',
 	e.edi_data_edital 'DATA-REGISTRO',
 	e.edi_data_realizacao 'DATA-REALIZACAO',

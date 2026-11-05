@@ -67,7 +67,7 @@ function alertaAviso(titulo, mensagem) {
 
 var modulos = [];
 var selecionados = [];
-
+var pesquisaIniciada = false;
 var temporizadorComparacao = null;
 var idComparacao = 0;
 
@@ -127,7 +127,7 @@ async function iniciar() {
         var s = await api("/api/status");
 
         $("connection").innerHTML = `
-            ${esc(s.banco2)}
+            ${esc(s.banco1)} --> ${esc(s.banco2)}
         `;
         $("migration").innerHTML = `
             ${esc(s.tipo_migracao)}
@@ -258,7 +258,6 @@ function renderModulos() {
             // Agenda a comparação automática.
             agendarComparacao();
 
-            // $("search").focus();
 
         });
 
@@ -299,6 +298,7 @@ function renderModulos() {
    Eventos do Taggable Multi-Select
 ======================================== */
 
+
 // Abre a lista ao clicar ou focar no campo de pesquisa.
 $("search").addEventListener("focus", function () {
     $("modules").classList.add("open");
@@ -308,22 +308,24 @@ $("search").addEventListener("click", function () {
     $("modules").classList.add("open");
 });
 
+
 // Pesquisa em tempo real.
 $("search").addEventListener("input", function () {
-    $("modules").classList.add("open");
-    renderModulos();
-});
 
+    // Esconde o placeholder definitivamente após começar a digitar.
+    if (this.value.length > 0) {
+        this.placeholder = "";
+    }
 
- // Pesquisa em tempo real.
-$("search").addEventListener("input", function () {
     $("modules").classList.add("open");
+
     renderModulos();
+
 });
 
 // NOVO: Seleciona os módulos filtrados ao pressionar Enter.
 $("search").addEventListener("keydown", function (e) {
-
+    
     if (e.key !== "Enter") {
         return;
     }
@@ -362,12 +364,12 @@ $("search").addEventListener("keydown", function (e) {
     // Limpa a pesquisa e atualiza a interface.
     $("search").value = "";
     renderModulos();
+    $("modules").classList.remove("open");
 
     // Executa a comparação automática.
     agendarComparacao();
 
 });
-
 
 // Fecha a lista ao clicar fora do componente.
 document.addEventListener("click", function (e) {
@@ -638,12 +640,17 @@ function renderModulo(r) {
 
     var body = "";
     var tempo = r.tempo_execucao_individual;
-    var milissegundo_registro = Math.round((r.tempo_execucao_individual / registros) * 1000);
+    
+    if (registros >= 2) {
+        var milissegundo_registro = Math.round((r.tempo_execucao_individual / registros) * 1000);
+    } else{
+        var milissegundo_registro = r.tempo_execucao_individual * 1000;
+    }
 
     // Identifica as colunas que apresentaram divergências.
     var colunasErro = Array.from(new Set(
         dif.map(function (row) {
-            return row["COLUNA-WEBCAMARA"];
+            return row["COLUNA / CAMPO DO WEBCAMARA"];
         }).filter(Boolean)
     ));
 
@@ -670,7 +677,7 @@ function renderModulo(r) {
                     ${dif.length} diferença(s) encontrada(s)
                     <span
                         class="info-tooltip"
-                        data-tippy-content="Colunas com divergência: [${esc(colunasErro.join(", "))}] ">
+                        data-tippy-content="Colunas com divergência: [${esc(colunasErro.join("; "))}]">
                         <i class="fa-regular fa-circle-question"></i>
                     </span>
                 </summary>
@@ -692,7 +699,7 @@ function renderModulo(r) {
                         </thead>
 
                         <tbody>
-                            ${dif.map(function (row) {
+                            ${dif.slice().reverse().map(function (row) {
 
                                 return `
                                     <tr>
@@ -737,16 +744,29 @@ function renderModulo(r) {
                     <table>
                         <thead>
                             <tr>
-                                <th>Descrição</th>
+                                <th>Descrição dos registros não encontrados</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            ${ine.map(function (x) {
+                            ${ine.slice().reverse().map(function (x) {
 
+                                let texto = esc(x)
+
+                                if(texto.includes("BANCO ANTIGO")){
+                                    texto = texto.replace("BANCO ANTIGO", "");
+                                     return `
+                                        <tr>
+                                            <td>${texto} <span style="color: #fb7185"; font-style: italic;>BANCO ANTIGO</span> </td>
+                                        </tr>
+                                    `;
+                                }
+
+                                // Caso não for no banco antigo faz o replace normal pro banco novo
+                                texto = texto.replace("BANCO NOVO", "");
                                 return `
                                     <tr>
-                                        <td>${esc(x)}</td>
+                                        <td>${texto} <span style="color: #fb7185"; font-style: italic;>BANCO NOVO</span> </td>
                                     </tr>
                                 `;
 
@@ -756,7 +776,6 @@ function renderModulo(r) {
                 </div>
             </details>
         `;
-
     }
 
 
@@ -767,12 +786,11 @@ function renderModulo(r) {
             <div class="result-head">
 
                 <h3>
-                    ${esc(r.modulo)}
                     <span
                         class="info-tooltip"
                         data-tippy-content="Este módulo esta comparando ${cols} colunas"
                     >
-                        <i class="fa-solid fa-chart-simple" style="font-size: 13px; margin-left: 4px;"></i>
+                         ${esc(r.modulo)}
                     </span>
                 </h3>
 
@@ -809,7 +827,7 @@ function renderModulo(r) {
                         : ""
                     }
 
-                    <span class="pill registers info-tooltip"
+                    <span class="pill timer info-tooltip"
                     data-tippy-content="Este módulo demorou ${tempo} segundos para ser comparado. uma média de ${milissegundo_registro} milisegundos por registro!">
                         <i class="fa-solid fa-stopwatch" style="font-size: 10px; margin-right: 2px;"></i>
                         ${tempo}s

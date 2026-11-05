@@ -11,6 +11,19 @@
         }
     },
 
+    "wgb_protocolos_internet": {
+        "query1": "sql/origem/AntigoWCM/Documentos/ProtocoloInternet-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/ProtocoloInternet-NovoWCM.sql",
+        "mapeamento": {
+            "DATA-REGISTRO": "pro_int_data_hora",
+            "TIPO-PROTOCOLO": "tip_doc_descricao",
+            "EMENTA": "pro_int_ementa_original",
+            "USUARIO-CRIACAO": "USUARIO-CRIACAO-NOVOWCM",
+            "USUARIO-LIBERACAO": "USUARIO-LIBERACAO-NOVOWCM",
+            "SITUACAO": "sit_pro_int_descricao"
+        }
+    },
+
     "wfx_processos": {
         "query1": "sql/origem/AntigoWCM/Processos-AntigoWCM.sql",
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
@@ -220,15 +233,15 @@
         "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
-            "SUBTIPO": "sub_tip_doc_descricao",
             "DATA-REGISTRO": "doc_data_documento",
             "EMENTA": "doc_ementa",
+            "REGIME-EXECUCAO": "doc_observacao",
+            "SUBTIPO": "sub_tip_doc_descricao",
             "TIPO-LICITACAO": "tip_lic_descricao",
             "CODIGO-LICITACAO": "doc_codigo_licitacao",
-            "LEGISLATURA": "leg_descricao",
             "PROVIDENCIA": "doc_providencias",
-            "TRAMITACOES": "sit_descricao",
-            "REGIME-EXECUCAO": "doc_observacao",
+            "LEGISLATURA": "leg_descricao",
+            "SITUACAO-TRAMITACAO": "sit_descricao",
             "DATA-REALIZACAO": "doc_data_realizacao",
             "DATA-ABERTURA": "doc_data_abertura",
             "HORA-ABERTURA": "doc_hora_abertura",

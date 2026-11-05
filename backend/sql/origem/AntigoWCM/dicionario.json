@@ -15,6 +15,12 @@
         "chave2": "codigo_protocolo_importacao",
         "tabela": "wcm_protocolos"
     },
+    "000-P3": {
+        "nome": "Protocolo Internet",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "protocolo_internet_importado",
+        "tabela": "wgb_protocolos_internet"
+    },
     "000-C": {
         "nome": "Comissões",
         "chave1": "ID-WCM-ANTIGO",
@@ -33,7 +39,7 @@
         "chave2": "codigo_sessao_importado",
         "tabela": "wcm_sessoes"
     },
-    "000-P3": {
+    "000-P4": {
         "nome": "Politicos",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_politico_importado",
@@ -953,6 +959,17 @@
         "parametros": {
             "id_tipo_documento_novowcm": 135,
             "tipo_legislacao_antigowcm": 19,
+            "tipo_documento_importado": "codigo_legislacoes_importado"
+        },
+        "tabela": "wcm_legislacoes"
+    },
+    "137": {
+        "nome": "Emenda ao regimento interno",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_legislacoes_importado",
+        "parametros": {
+            "id_tipo_documento_novowcm": 137,
+            "tipo_legislacao_antigowcm": 22,
             "tipo_documento_importado": "codigo_legislacoes_importado"
         },
         "tabela": "wcm_legislacoes"

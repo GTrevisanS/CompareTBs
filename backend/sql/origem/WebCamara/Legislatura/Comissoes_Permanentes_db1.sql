@@ -1,12 +1,12 @@
 SELECT 
-	wcm4.com_per_id AS 'ID-Comissao-NovoWCM',
-	c.Nome,
+	wcm4.com_per_id AS 'ID-Comissao-Permanente-NovoWCM',
+	c.Nome AS 'NOME-COMISSAO',
 	c.SIGLA,
 	l.Nome AS 'LEGISLATURA',
 	c.PERIODO,
 	c.Data_Inicial AS 'DATA-INICIO',
 	c.Data_Final AS 'DATA-FIM',
-	c.Atribuicao,
+	c.Atribuicao AS 'ATRIBUICOES',
 	c.OBSERVACOES,
 	GROUP_CONCAT(p.Nome SEPARATOR '___') AS 'MEMBROS-COMISSAO-WEBCAMARA'
 FROM 
@@ -16,4 +16,4 @@ FROM
 	LEFT JOIN comissao_legislatura cl ON cl.Codigo_COMISSAO = c.Codigo
 	LEFT JOIN politico p ON p.Codigo = cl.Codigo_POLITICO
 GROUP BY c.Codigo
-ORDER BY wcm4.com_per_id DESC 
+ORDER BY wcm4.com_per_id DESC

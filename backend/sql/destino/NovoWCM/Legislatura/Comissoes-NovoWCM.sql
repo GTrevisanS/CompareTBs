@@ -16,6 +16,7 @@ FROM
     LEFT JOIN wcm_legislaturas wl ON wl.leg_id = wc.com_legislaturas_id_fk
     LEFT JOIN wcm_comissoes_membros m ON m.com_mem_comissoes_id_fk = wc.com_id
 	LEFT JOIN wcm_cadastros_unicos wcu ON wcu.cad_uni_id = m.com_mem_cadastro_unico_id_fk
+WHERE wc.com_tipo = {tipo_comissao_novowcm} -- 0 = permanente | 1 = Temporaria
 GROUP BY 
     wc.com_id
 ORDER BY

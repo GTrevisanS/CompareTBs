@@ -193,20 +193,46 @@
         }
     },
     "000-C": {
-        "nome": "Comissões",
-        "chave1": "ID-Comissao-NovoWCM",
+        "nome": "Comissões Permanentes",
+        "chave1": "ID-Comissao-Permanente-NovoWCM",
         "chave2": "codigo_comissao_importada",
-        "query1": "sql/origem/Webcamara/Legislatura/Comissoes_db1.sql",
+        "query1": "sql/origem/Webcamara/Legislatura/Comissoes_Permanentes_db1.sql",
         "query2": "sql/destino/NovoWCM/Legislatura/Comissoes-NovoWCM.sql",
+        "parametros": {
+            "tipo_comissao_novowcm": 0
+        },
         "mapeamento": {
-            "Nome": "com_descricao",
+            "NOME-COMISSAO": "com_descricao",
             "SIGLA": "com_sigla",
             "LEGISLATURA": "leg_descricao",
             "PERIODO": "com_periodo",
             "DATA-INICIO": "com_data_inicio",
             "DATA-FIM": "com_data_fim",
-            "Atribuicao": "com_atribuicoes",
+            "ATRIBUICOES": "com_atribuicoes",
             "OBSERVACOES": "com_observacao",
+            "MEMBROS-COMISSAO-WEBCAMARA": "MEMBROS-COMISSAO"
+        }
+    },
+    "001-C": {
+        "nome": "Comissões Temporárias",
+        "chave1": "ID-Comissao-Temporaria-NovoWCM",
+        "chave2": "codigo_comissao_importada",
+        "query1": "sql/origem/Webcamara/Legislatura/Comissoes_Temporarias_db1.sql",
+        "query2": "sql/destino/NovoWCM/Legislatura/Comissoes-NovoWCM.sql",
+        "parametros": {
+            "tipo_comissao_novowcm": 1
+        },
+        "mapeamento": {
+            "NOME-COMISSAO": "com_descricao",
+            "SIGLA": "com_sigla",
+            "LEGISLATURA": "leg_descricao",
+            "PERIODO": "com_periodo",
+            "DATA-INICIO": "com_data_inicio",
+            "DATA-FIM": "com_data_fim",
+            "ATRIBUICOES": "com_atribuicoes",
+            "OBSERVACOES": "com_observacao",
+            "FINALIDADE": "NULL",
+            "INSTITUICAO": "NULL",
             "MEMBROS-COMISSAO-WEBCAMARA": "MEMBROS-COMISSAO"
         }
     },
@@ -918,7 +944,7 @@
         }
     },
     "73": {
-        "nome": "Diário Oficial",
+        "nome": "Diario Oficial",
         "chave1": "ID-Diario-Oficial-NovoWCM",
         "chave2": "codigo_diversos_importado",
         "query1": "sql/origem/Webcamara/Diversos/Diario_Oficial_db1.sql",
@@ -1189,6 +1215,24 @@
             "INTERNET": "doc_mostra_online"
         }
     },
+  "96": {
+        "nome": "Reuniões",
+        "chave1": "ID-Reuniao-NovoWCM",
+        "chave2": "codigo_cadastro_generico_importado",
+        "query1": "sql/origem/Webcamara/Cadastros Genericos/Reuniao_db1.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "parametros": {
+            "id_tipo_documento_novowcm": 96,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "DATA-REGISTRO": "doc_data_documento",
+            "SUBTIPO": "doc_justificativa",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
   "98": {
         "nome": "Pedido de Retirada",
         "chave1": "ID-Pedido-Retirada-NovoWCM",
@@ -1225,6 +1269,24 @@
             "ASSUNTO": "doc_ementa",
             "OBSERVACOES": "doc_observacao",
             "TIPO": "sub_tip_doc_descricao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
+  "101": {
+        "nome": "Memorando Externo",
+        "chave1": "ID-Memorando-Externo-NovoWCM",
+        "chave2": "codigo_cadastro_generico_importado",
+        "query1": "sql/origem/Webcamara/Cadastros Genericos/Memorando_Externo_db1.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "parametros": {
+            "id_tipo_documento_novowcm": 101,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado" 
+        },
+        "mapeamento": {
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
             "DATA-REGISTRO": "doc_data_documento",
             "INTERNET": "doc_mostra_online"
         }

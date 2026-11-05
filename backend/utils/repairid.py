@@ -1,5 +1,5 @@
 possibilidades = {
-    'ses_nome_identificador': 'Numero / tipo da sessão (NovoWCM)',                                       # UTILIZADO PARA SESSÕES  
+    'ses_nome_identificador': 'Numero / tipo da sessão (NovoWCM)',                # UTILIZADO PARA SESSÕES  
     'IDENTIFICADOR-PROTOCOLO-NOVOWCM': 'ID / Data Hora do Protocolo (NovoWCM)',   # UTILIZADO SOMENTE EM PROTOCOLOS
     'doc_codigo_individual_ano': 'Código-Ano do registro',                        # UTILIZADO PARA DOCUMENTOS NO GERAL
     'codigo_outros_documentos_importado': 'ID de importação da ata',              # UTILIZADO PARA ATA 
@@ -9,7 +9,8 @@ possibilidades = {
     'usu_sis_login': 'Login / do usuário (NovoWCM)',                              # UTILIZADO PARA NOMES (USUARIOS)
     'mes_dir_descricao': 'Nome da mesa diretora (NovoWCM)',                       # UTILIZADO PARA MESAS DIRETORAS
     'IDENTIFICADOR-REVOGACAO': 'ID da Query do NovoWCM que identifica a ação',    # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
-    'CODIGO-INDIVIDUAL-ANO': 'Codigo de identificação'                            # UTILIZADO PARA REVOGACAO E ALTERAÇÃO DE LEIS (USUARIOS)
+    'IDENTIFICADOR-PROTOCOLO-INTERNET': 'Meio de identificação',                # UTILIZADO PARA PROTOCOLOS INTERNET
+    'CODIGO-INDIVIDUAL-ANO': 'Codigo de identificação',                           # CODIGO DE IDENTIFICAÇÃO GERAL
 }   
 
 
@@ -18,7 +19,6 @@ def trocarId(documento, possibilidade):
     if colunacerta is not None and colunacerta != "":
         return colunacerta
     return None
-
 
 def encontrarId(linha):
     dadoscoluna = None

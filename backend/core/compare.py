@@ -37,7 +37,6 @@ def procurarInexistentes(resultado1, resultado2, chave_db1, chave_db2):
 
     inexistentes = []
     total_registros_webcamara = len(dados1)
-
     todos_ids = set(dados1.keys()) | set(dados2.keys())
 
     for registro_id in sorted(todos_ids):
@@ -45,22 +44,14 @@ def procurarInexistentes(resultado1, resultado2, chave_db1, chave_db2):
         if registro_id not in dados1:
             # Pega a linha completa do Banco 2 referente ao ID
             linha = dados2[registro_id]
-
             dadoslinha, nome_identificador = encontrarId(linha)
-
-            inexistentes.append(
-                f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 2'
-            )
+            inexistentes.append(f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO NOVO')
 
         elif registro_id not in dados2:
             # Pega a linha completa do Banco 1 referente ao ID
             linha = dados1[registro_id]
-
             dadoslinha, nome_identificador = encontrarId(linha)
-
-            inexistentes.append(
-                f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO 1'
-            )
+            inexistentes.append(f'{nome_identificador} "{dadoslinha}" existe apenas no BANCO ANTIGO')
 
     return total_registros_webcamara, inexistentes
 
@@ -105,7 +96,7 @@ def procurarDiferencas(resultado1, resultado2, chave_db1, chave_db2, mapeamento)
                 dadoslinha, nome_identificador = encontrarId(linha2)
                 diferencas.append({
                     f"{nome_identificador}": dadoslinha,
-                    "COLUNA-WEBCAMARA": campo_db1,
+                    "COLUNA / CAMPO DO WEBCAMARA": campo_db1,
                     "VALOR ANTIGO": valor1,
                     "NOVO VALOR": valor2,
                 })

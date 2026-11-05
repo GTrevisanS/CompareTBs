@@ -8,4 +8,5 @@ SELECT
 FROM 
 	diario_oficial d
 	LEFT JOIN {bancowcm4}.wcm_diversos wcm4 ON wcm4.codigo_diario_oficial_webcamara = d.Codigo
-ORDER BY wcm4.div_id DESC
+ORDER BY
+	wcm4.div_id DESC
