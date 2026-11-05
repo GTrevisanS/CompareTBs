@@ -1,6 +1,6 @@
 # CompareTBs
 
-![Printo do comparador](PRINT-COMPARADOR.png)
+![Gif de desmontracao da funcao do comparador](demonstracao.gif)
 
 CompareTBs é uma ferramenta desenvolvida em Python para comparar os resultados de consultas SQL (`SELECT`) entre diferentes bancos de dados, auxiliando na validação de migrações e na identificação de inconsistências de forma rápida e automatizada.
 
