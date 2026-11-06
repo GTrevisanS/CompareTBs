@@ -660,8 +660,8 @@
         "nome": "Protocolo Dinamico",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
-        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "query1": "AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 91,
             "tipo_cadastro_generico_antigowcm": 91,
@@ -818,8 +818,8 @@
         "nome": "Protocolo Dinamico 9",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
-        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
-        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "query1": "AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 106,
             "tipo_cadastro_generico_antigowcm": 106,

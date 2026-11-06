@@ -49,14 +49,16 @@ def carregar_config_modulo(documento):
 
     if cfg.get("mapeamento"):
         mapeamento = cfg["mapeamento"]
-        query1_path, query2_path = cfg["query1"], cfg["query2"]
+        query1_path = "sql/origem/" + cfg["query1"]
+        query2_path = "sql/destino/" + cfg["query2"]
     else:
         tabela = str(cfg.get("tabela", ""))
         padrao = PADROES.get(tabela)
         if not isinstance(padrao, dict):
             raise ValueError("Padrão de consulta não encontrado para a tabela: " + tabela)
         mapeamento = padrao["mapeamento"]
-        query1_path, query2_path = padrao["query1"], padrao["query2"]
+        query1_path = "sql/origem/" + padrao["query1"]
+        query2_path = "sql/destino/" + padrao["query2"]
 
     return cfg, cfg.get("parametros") or {}, mapeamento, query1_path, query2_path
 
