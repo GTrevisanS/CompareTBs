@@ -4,7 +4,7 @@
         "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
+            "DATA-PROTOCOLO-NOVOWCM": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "LEGISLATURA": "leg_descricao",
             "EMENTA": "doc_ementa",

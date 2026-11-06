@@ -6,6 +6,6 @@ SELECT
 	0 AS 'INTERNET'
 FROM 
 	comunicados c
-	LEFT JOIN wcm_ibira.wcm_diversos wcm4 ON wcm4. -- nao achei
+	LEFT JOIN {bancowcm4}.wcm_diversos wcm4 ON wcm4. -- nao achei
 ORDER BY 
 	wcm4

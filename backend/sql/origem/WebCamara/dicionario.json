@@ -664,6 +664,28 @@
             "INTERNET": "doc_mostra_online"
         }
     },
+    "31": {
+        "nome": "Ordem de Serviço",
+        "chave1": "ID-Ordem-Servico-NovoWCM",
+        "chave2": "codigo_cadastro_generico_importado",
+        "query1": "Webcamara/Cadastros Genericos/Ordem_Servico_db1.sql",
+        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "parametros": {
+            "id_tipo_documento_novowcm": 31,
+            "tipo_documento_importado": "codigo_cadastro_generico_importado"
+        },
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "DATA-PROTOCOLO-NOVOWCM": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "ASSUNTO": "doc_justificativa",
+            "EMENTA": "doc_ementa",
+            "OBSERVACOES": "doc_observacao",
+            "DATA-REGISTRO": "doc_data_documento",
+            "LEGISLATURA": "leg_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
     "33": {
         "nome": "Portarias",
         "chave1": "ID-Portaria-NovoWCM",
@@ -1233,6 +1255,27 @@
             "INTERNET": "doc_mostra_online"
         }
     },
+  "97": {
+        "nome": "Pedido de Informação",
+        "chave1": "ID-Pedido-Informacao-NovoWCM",
+        "chave2": "codigo_documento_importado",
+        "query1": "Webcamara/Proposituras/Pedidos/Pedido_Informacao_db1.sql",
+        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "parametros": {
+            "id_tipo_documento_novowcm": 97,
+            "tipo_documento_importado": "codigo_documento_importado" 
+        },
+        "mapeamento": {
+            "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
+            "DATA-PROTOCOLO-NOVOWCM": "pro_data_hora",
+            "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
+            "DATA-REGISTRO": "doc_data_documento",
+            "EMENTA": "doc_ementa",
+            "SUBTIPO": "sub_tip_doc_descricao",
+            "LEGISLATURA": "leg_descricao",
+            "INTERNET": "doc_mostra_online"
+        }
+    },
   "98": {
         "nome": "Pedido de Retirada",
         "chave1": "ID-Pedido-Retirada-NovoWCM",
@@ -1245,7 +1288,7 @@
         },
         "mapeamento": {
             "NUMERO-PROTOCOLO-NOVOWCM": "pro_codigo_individual_ano",
-            "Data_Protocolo": "pro_data_hora",
+            "DATA-PROTOCOLO-NOVOWCM": "pro_data_hora",
             "CODIGO-INDIVIDUAL-ANO": "doc_codigo_individual_ano",
             "DATA-REGISTRO": "doc_data_documento",
             "ASSUNTO": "doc_ementa",

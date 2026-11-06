@@ -1,7 +1,7 @@
 SELECT
 	wcm4.doc_id AS 'ID-Pedido-Retirada-NovoWCM',
    CONCAT(pro.processo_numero, '-', pro.processo_ano) 'NUMERO-PROTOCOLO-NOVOWCM',
-	pro.Data_Protocolo,
+	pro.Data_Protocolo AS 'DATA-PROTOCOLO-NOVOWCM',
 	pr.Codigo_Individual_Ano AS 'CODIGO-INDIVIDUAL-ANO',
 	pr.Data AS 'DATA-REGISTRO',
 	pr.ASSUNTO,
