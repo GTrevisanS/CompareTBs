@@ -7,6 +7,7 @@ from backend.core.compare import carregarSql, executarQuery, procurarInexistente
 from backend.utils.pdname import encontrarNomeProtocolo as findpdname
 from backend.utils.switchdata import trocarDados
 from backend.utils.sistemas import identificarSistema
+from backend.utils.notification import notificarWindows
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -208,6 +209,10 @@ def comparar():
     fim = time.perf_counter()
 
     tempo_execucao = round(fim - inicio, 3)
+
+    caminhoIcon = BASE_DIR / "bug.png"
+    notificarWindows(f"Fim da execução do comparador depois de {int(round(tempo_execucao, 0))} segundos", caminhoIcon)
+    # Componente de notificação do windows
 
     return resposta({
         "resultados": resultados,
