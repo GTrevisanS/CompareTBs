@@ -15,6 +15,19 @@ def executarQuery(config, query):
         print("\nOpa!, não foi possivel se conectar nos bancos informados (verifique as conexões do .env)")
         print(f"Erro: {erro}")
     cursor = conexao.cursor(dictionary=True)
+
+    # Desabilita ONLY_FULL_GROUP_BY somente nesta conexão
+    cursor.execute("""
+        SET SESSION sql_mode = TRIM(
+            BOTH ','
+            FROM REPLACE(
+                CONCAT(',', @@SESSION.sql_mode, ','),
+                ',ONLY_FULL_GROUP_BY,',
+                ','
+            )
+        )
+    """)
+
     cursor.execute(query)
     resultado = cursor.fetchall()
     cursor.close()

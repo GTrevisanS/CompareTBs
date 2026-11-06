@@ -21,10 +21,22 @@
         "chave2": "protocolo_internet_importado",
         "tabela": "wgb_protocolos_internet"
     },
-    "000-C": {
-        "nome": "Comissões",
+    "002-C": {
+        "nome": "Comissões permanentes",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_comissao_importada",
+        "parametros": {
+            "tipo_comissao_novowcm": "0"
+        },
+        "tabela": "wcm_comissoes"
+    },
+    "003-C": {
+        "nome": "Comissões temporárias",
+        "chave1": "ID-WCM-ANTIGO",
+        "chave2": "codigo_comissao_importada",
+        "parametros": {
+            "tipo_comissao_novowcm": "1"
+        },
         "tabela": "wcm_comissoes"
     },
     "000-E": {
@@ -660,8 +672,8 @@
         "nome": "Protocolo Dinamico",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
-        "query1": "AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
-        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 91,
             "tipo_cadastro_generico_antigowcm": 91,
@@ -818,8 +830,8 @@
         "nome": "Protocolo Dinamico 9",
         "chave1": "ID-WCM-ANTIGO",
         "chave2": "codigo_cadastro_generico_importado",
-        "query1": "AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
-        "query2": "NovoWCM/Documentos/Documentos-NovoWCM.sql",
+        "query1": "sql/origem/AntigoWCM/Documentos/CadastrosGenericos-AntigoWCM.sql",
+        "query2": "sql/destino/NovoWCM/Documentos/Documentos-NovoWCM.sql",
         "parametros": {
             "id_tipo_documento_novowcm": 106,
             "tipo_cadastro_generico_antigowcm": 106,
